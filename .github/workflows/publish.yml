@@ -60,10 +60,13 @@ jobs:
           rm dist.zip
           ls -la dist/
 
+      - name: Configure npm authentication
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          cat .npmrc
+
       - name: Publish to npm
-        run: bun publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public
 
       - name: Create Release Summary
         run: |
