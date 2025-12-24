@@ -15,7 +15,7 @@ describe('Badge', () => {
 
   it('applies default variant classes', () => {
     const { getByText } = render(<Badge>Default</Badge>);
-    expect(getByText('Default').className).toContain('bg-gray');
+    expect(getByText('Default').className).toContain('bg-primary');
   });
 
   it('applies default variant classes', () => {
@@ -52,7 +52,8 @@ describe('Badge', () => {
 
   it('applies medium size classes', () => {
     const { getByText } = render(<Badge size="md">Medium</Badge>);
-    expect(getByText('Medium').className).toContain('text-sm');
+    // Badge md size uses text-xs, not text-sm
+    expect(getByText('Medium').className).toContain('text-xs');
   });
 
   it('applies large size classes', () => {

@@ -3,9 +3,32 @@ import { GlobalRegistrator } from '@happy-dom/global-registrator';
 GlobalRegistrator.register();
 
 // Now we can import testing utilities that depend on global document
-import { cleanup } from '@testing-library/react';
-import { afterEach, expect } from 'bun:test';
+import { cleanup, configure } from '@testing-library/react';
+import { afterEach, afterAll, beforeAll, expect } from 'bun:test';
 import * as matchers from '@testing-library/jest-dom/matchers';
+
+// Suppress act() warnings from Radix UI internal state updates
+configure({
+  reactStrictMode: false,
+});
+
+// Suppress console warnings about act() from Radix UI
+const originalError = console.error;
+beforeAll(() => {
+  console.error = (...args: unknown[]) => {
+    if (
+      typeof args[0] === 'string' &&
+      args[0].includes('not wrapped in act(...)')
+    ) {
+      return;
+    }
+    originalError.call(console, ...args);
+  };
+});
+
+afterAll(() => {
+  console.error = originalError;
+});
 
 // Extend bun:test expect with jest-dom matchers
 expect.extend(matchers);

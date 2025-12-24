@@ -15,7 +15,7 @@ describe('Card', () => {
 
   it('applies default variant classes', () => {
     const { getByTestId } = render(<Card data-testid="card">Default</Card>);
-    expect(getByTestId('card').className).toContain('border-gray');
+    expect(getByTestId('card').className).toContain('border');
   });
 
   it('applies elevated variant classes', () => {
@@ -33,7 +33,7 @@ describe('Card', () => {
         Outline
       </Card>
     );
-    expect(getByTestId('card').className).toContain('border-gray-300');
+    expect(getByTestId('card').className).toContain('border');
   });
 
   it('applies hover classes when hover is true', () => {

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import * as SelectPrimitive from '@radix-ui/react-select';
-import { Check, ChevronDown, ChevronUp } from 'lucide-react';
-import { cva } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
+import * as SelectPrimitive from '@radix-ui/react-select';
+import { cva } from 'class-variance-authority';
+import { Check, ChevronDown, ChevronUp } from 'lucide-react';
+import * as React from 'react';
 import type { SelectProps } from './Select.types';
 
 export const selectVariants = cva(
@@ -46,6 +46,13 @@ const Select = React.forwardRef<
     const [value, setValue] = React.useState<string | undefined>(
       props.value as string | undefined
     );
+
+    // Sync with controlled value prop
+    React.useEffect(() => {
+      if (props.value !== undefined) {
+        setValue(props.value as string | undefined);
+      }
+    }, [props.value]);
 
     return (
       <div className="w-full">
