@@ -49,6 +49,41 @@ describe('Button', () => {
     expect(getByRole('button').className).toContain('bg-red');
   });
 
+  it('applies soft-primary variant classes', () => {
+    const { getByRole } = render(
+      <Button variant="soft-primary">Soft Primary</Button>
+    );
+    expect(getByRole('button').className).toContain('bg-primary-500/15');
+  });
+
+  it('applies soft-success variant classes', () => {
+    const { getByRole } = render(
+      <Button variant="soft-success">Soft Success</Button>
+    );
+    expect(getByRole('button').className).toContain('bg-green-500/15');
+  });
+
+  it('applies soft-warning variant classes', () => {
+    const { getByRole } = render(
+      <Button variant="soft-warning">Soft Warning</Button>
+    );
+    expect(getByRole('button').className).toContain('bg-yellow-500/15');
+  });
+
+  it('applies soft-destructive variant classes', () => {
+    const { getByRole } = render(
+      <Button variant="soft-destructive">Soft Destructive</Button>
+    );
+    expect(getByRole('button').className).toContain('bg-red-500/15');
+  });
+
+  it('applies soft-secondary variant classes', () => {
+    const { getByRole } = render(
+      <Button variant="soft-secondary">Soft Secondary</Button>
+    );
+    expect(getByRole('button').className).toContain('bg-gray-500/15');
+  });
+
   it('applies size classes', () => {
     const { getByRole } = render(<Button size="lg">Large</Button>);
     expect(getByRole('button').className).toContain('h-12');

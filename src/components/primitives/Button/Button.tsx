@@ -20,6 +20,16 @@ export const buttonVariants = cva(
         destructive:
           'bg-red-500 text-white hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700',
         link: 'text-primary-600 underline-offset-4 hover:underline dark:text-primary-400',
+        'soft-primary':
+          'bg-primary-500/15 text-primary-600 hover:bg-primary-500/25 dark:bg-primary-400/15 dark:text-primary-400 dark:hover:bg-primary-400/25',
+        'soft-secondary':
+          'bg-gray-500/15 text-gray-700 hover:bg-gray-500/25 dark:bg-gray-400/15 dark:text-gray-300 dark:hover:bg-gray-400/25',
+        'soft-success':
+          'bg-green-500/15 text-green-600 hover:bg-green-500/25 dark:bg-green-400/15 dark:text-green-400 dark:hover:bg-green-400/25',
+        'soft-warning':
+          'bg-yellow-500/15 text-yellow-600 hover:bg-yellow-500/25 dark:bg-yellow-400/15 dark:text-yellow-400 dark:hover:bg-yellow-400/25',
+        'soft-destructive':
+          'bg-red-500/15 text-red-600 hover:bg-red-500/25 dark:bg-red-400/15 dark:text-red-400 dark:hover:bg-red-400/25',
       },
       size: {
         sm: 'h-8 px-3 text-sm',
