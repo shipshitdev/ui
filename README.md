@@ -28,12 +28,25 @@ bun dev
 
 This launches Storybook at `http://localhost:6006` where you can preview and develop components.
 
+### 3. Component Gallery
+
+View the component gallery (demo page) locally:
+
+```bash
+cd demo
+bun install
+bun run dev
+```
+
+This launches the demo gallery at `http://localhost:3000` showcasing all components using the built library.
+
 ## Scripts
 
 | Command                  | Description                            |
 | ------------------------ | -------------------------------------- |
 | `bun dev`                | Start Storybook development server     |
 | `bun run build`          | Build the library for production       |
+| `bun run build-storybook`| Build Storybook for deployment         |
 | `bun run build:lib`      | Build only the JS/TS bundle            |
 | `bun run build:css`      | Build only the CSS bundle              |
 | `bun run pre:install`    | Update dependencies and rebuild        |
@@ -273,6 +286,45 @@ If you were using DaisyUI, note that this package has migrated to shadcn/ui patt
 - ✅ More customization options
 - ✅ Better performance
 - ✅ Active maintenance and updates
+
+## Storybook
+
+This project uses [Storybook](https://storybook.js.org/) for component development and documentation. All components have corresponding `.stories.tsx` files that demonstrate their usage, variants, and interactive examples.
+
+### Viewing Storybook
+
+- **Local Development**: Run `bun dev` to start Storybook at `http://localhost:6006`
+- **Online**: View the deployed Storybook on [GitHub Pages](https://agenticindiedev.github.io/ui/) (automatically deployed on push to main)
+
+### Storybook Features
+
+- Interactive component playground
+- All component variants and states
+- Code examples for each component
+- Auto-generated documentation
+- Dark mode support
+
+## Demo Gallery
+
+A standalone demo gallery is available in the `demo/` directory. This showcases all components using the published library in a simple, clean interface.
+
+### Running the Demo
+
+```bash
+cd demo
+bun install
+bun run dev
+```
+
+The demo gallery will be available at `http://localhost:3000`.
+
+## GitHub Pages Deployment
+
+Storybook is automatically deployed to GitHub Pages on every push to the `main` branch via GitHub Actions. The workflow:
+
+1. Builds Storybook using `bun run build-storybook`
+2. Deploys the static build to the `gh-pages` branch
+3. Makes it available at `https://agenticindiedev.github.io/ui/`
 
 ## License
 

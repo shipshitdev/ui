@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from 'eslint-plugin-storybook';
+
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsparser from '@typescript-eslint/parser';
 import prettier from 'eslint-config-prettier';
@@ -19,9 +22,7 @@ export default [
       '**/bun.lockb',
       '**/*.tsbuildinfo',
     ],
-  },
-
-  // TypeScript + React files configuration
+  }, // TypeScript + React files configuration
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
@@ -85,9 +86,7 @@ export default [
       'no-implied-eval': 'error',
       'no-new-func': 'error',
     },
-  },
-
-  // JavaScript files configuration
+  }, // JavaScript files configuration
   {
     files: ['**/*.js', '**/*.jsx'],
     languageOptions: {
@@ -106,8 +105,7 @@ export default [
       'no-var': 'error',
       eqeqeq: ['error', 'always', { null: 'ignore' }],
     },
-  },
-
-  // Prettier config (must be last to override other configs)
+  }, // Prettier config (must be last to override other configs)
   prettier,
+  ...storybook.configs['flat/recommended'],
 ];
