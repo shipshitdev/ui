@@ -2,6 +2,8 @@
 
 A modern React component library built with TypeScript, Tailwind CSS v4, Radix UI, and shadcn/ui patterns.
 
+📖 **[View Storybook Documentation](https://agenticindiedev.github.io/ui/)**
+
 ## Installation
 
 ```bash
@@ -27,18 +29,6 @@ bun dev
 ```
 
 This launches Storybook at `http://localhost:6006` where you can preview and develop components.
-
-### 3. Component Gallery
-
-View the component gallery (demo page) locally:
-
-```bash
-cd demo
-bun install
-bun run dev
-```
-
-This launches the demo gallery at `http://localhost:3000` showcasing all components using the built library.
 
 ## Scripts
 
@@ -294,7 +284,7 @@ This project uses [Storybook](https://storybook.js.org/) for component developme
 ### Viewing Storybook
 
 - **Local Development**: Run `bun dev` to start Storybook at `http://localhost:6006`
-- **Online**: View the deployed Storybook on [GitHub Pages](https://agenticindiedev.github.io/ui/) (automatically deployed on push to main)
+- **Online**: View the deployed Storybook at [https://agenticindiedev.github.io/ui/](https://agenticindiedev.github.io/ui/) (automatically deployed on push to main)
 
 ### Storybook Features
 
@@ -304,27 +294,13 @@ This project uses [Storybook](https://storybook.js.org/) for component developme
 - Auto-generated documentation
 - Dark mode support
 
-## Demo Gallery
-
-A standalone demo gallery is available in the `demo/` directory. This showcases all components using the published library in a simple, clean interface.
-
-### Running the Demo
-
-```bash
-cd demo
-bun install
-bun run dev
-```
-
-The demo gallery will be available at `http://localhost:3000`.
-
 ## GitHub Pages Deployment
 
 Storybook is automatically deployed to GitHub Pages on every push to the `main` branch via GitHub Actions. The workflow:
 
 1. Builds Storybook using `bun run build-storybook`
 2. Deploys the static build to the `gh-pages` branch
-3. Makes it available at `https://agenticindiedev.github.io/ui/`
+3. Makes it available at [https://agenticindiedev.github.io/ui/](https://agenticindiedev.github.io/ui/)
 
 ## License
 

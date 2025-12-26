@@ -66,6 +66,18 @@ export type { SliderProps } from './components/primitives/Slider';
 export { Textarea } from './components/primitives/Textarea';
 export type { TextareaProps } from './components/primitives/Textarea';
 
+export { Loading, loadingVariants } from './components/primitives/Loading';
+export type { LoadingProps } from './components/primitives/Loading';
+
+export { Link, linkVariants } from './components/primitives/Link';
+export type { LinkProps } from './components/primitives/Link';
+
+export { Breadcrumbs } from './components/primitives/Breadcrumbs';
+export type {
+  BreadcrumbItem,
+  BreadcrumbsProps,
+} from './components/primitives/Breadcrumbs';
+
 // Composites
 export {
   Alert,
@@ -179,6 +191,54 @@ export type {
   PopoverProps,
   PopoverTriggerProps,
 } from './components/composites/Popover';
+
+export {
+  Toast,
+  ToastAction,
+  ToastClose,
+  ToastDescription,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
+  type ToastActionElement,
+} from './components/composites/Toast';
+export type {
+  ToastActionProps,
+  ToastCloseProps,
+  ToastDescriptionProps,
+  ToastProps,
+  ToastTitleProps,
+  ToastViewportProps,
+} from './components/composites/Toast';
+
+export {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from './components/composites/Accordion';
+export type {
+  AccordionContentProps,
+  AccordionItemProps,
+  AccordionProps,
+  AccordionTriggerProps,
+} from './components/composites/Accordion';
+
+export {
+  Pagination,
+  paginationVariants,
+} from './components/composites/Pagination';
+export type { PaginationProps } from './components/composites/Pagination';
+
+export {
+  Menu,
+  menuVariants,
+  menuItemVariants,
+} from './components/composites/Menu';
+export type { MenuItem, MenuProps } from './components/composites/Menu';
+
+export { Navbar, navbarVariants } from './components/composites/Navbar';
+export type { NavbarProps } from './components/composites/Navbar';
 
 // Patterns
 export { DataTable } from './components/patterns/DataTable';

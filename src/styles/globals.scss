@@ -44,3 +44,21 @@
   --input: 217.2 32.6% 17.5%;
   --ring: 199.1 89.1% 48.2%;
 }
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
