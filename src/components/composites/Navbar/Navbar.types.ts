@@ -1,6 +1,6 @@
 import type { VariantProps } from 'class-variance-authority';
-import type { navbarVariants } from './Navbar';
 import type { MenuItem } from '../Menu';
+import type { navbarVariants } from './Navbar';
 
 export interface NavbarProps
   extends

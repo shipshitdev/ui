@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
-import { Popover, PopoverTrigger, PopoverContent } from './Popover';
+import { describe, expect, it } from 'vitest';
+import { Popover, PopoverContent, PopoverTrigger } from './Popover';
 
 describe('Popover', () => {
   it('renders popover with trigger and content', () => {

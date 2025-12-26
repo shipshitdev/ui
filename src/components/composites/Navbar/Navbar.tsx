@@ -1,9 +1,9 @@
-import { cn } from '@/utils/cn';
-import { Button } from '@/components/primitives/Button';
 import { Menu } from '@/components/composites/Menu';
+import { Button } from '@/components/primitives/Button';
+import { cn } from '@/utils/cn';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { Menu as MenuIcon, X } from 'lucide-react';
 import * as React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
 import type { MenuItem } from '../Menu';
 
 export const navbarVariants = cva(

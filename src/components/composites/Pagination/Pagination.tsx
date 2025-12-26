@@ -1,8 +1,8 @@
-import { cn } from '@/utils/cn';
 import { Button } from '@/components/primitives/Button';
+import { cn } from '@/utils/cn';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import * as React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
 
 export const paginationVariants = cva('', {
   variants: {

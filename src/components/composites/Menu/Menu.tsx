@@ -1,7 +1,7 @@
-import { cn } from '@/utils/cn';
 import { Link } from '@/components/primitives/Link';
-import * as React from 'react';
+import { cn } from '@/utils/cn';
 import { cva, type VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 
 export const menuVariants = cva('', {
   variants: {

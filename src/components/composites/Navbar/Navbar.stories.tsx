@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from '@/components/primitives/Button';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Navbar } from './Navbar';
 
 const meta: Meta<typeof Navbar> = {

@@ -1,4 +1,13 @@
-import * as React from 'react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/composites/Table';
+import { Button } from '@/components/primitives/Button';
+import { cn } from '@/utils/cn';
 import {
   type ColumnDef,
   type ColumnFiltersState,
@@ -11,16 +20,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
-import { Button } from '@/components/primitives/Button';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/composites/Table';
-import { cn } from '@/utils/cn';
+import * as React from 'react';
 
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
