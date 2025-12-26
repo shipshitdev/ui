@@ -47,10 +47,10 @@ const columns: ColumnDef<User>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem onClick={() => console.log('Edit', user.id)}>
+            <DropdownMenuItem onClick={() => console.warn('Edit', user.id)}>
               Edit
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => console.log('Delete', user.id)}>
+            <DropdownMenuItem onClick={() => console.warn('Delete', user.id)}>
               Delete
             </DropdownMenuItem>
           </DropdownMenuContent>

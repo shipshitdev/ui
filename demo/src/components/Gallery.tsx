@@ -365,4 +365,3 @@ export function Gallery() {
     </div>
   );
 }
-

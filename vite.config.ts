@@ -1,7 +1,5 @@
 /// <reference types="vitest/config" />
-import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import react from '@vitejs/plugin-react';
-import { playwright } from '@vitest/browser-playwright';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'path';
@@ -21,6 +19,15 @@ export default defineConfig({
       rollupTypes: true,
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Suppress deprecation warnings for @import (used for PostCSS directives like @import 'tailwindcss')
+        quietDeps: true,
+        silenceDeprecations: ['import'],
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),

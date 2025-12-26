@@ -24,4 +24,3 @@ export function ComponentCard({ component }: ComponentCardProps) {
     </Card>
   );
 }
-

@@ -13,6 +13,17 @@ const config: StorybookConfig = {
     options: {},
   },
 
+  async viteFinal(config) {
+    // Suppress Sass deprecation warning for @import 'tailwindcss' (PostCSS directive)
+    config.css = config.css || {};
+    config.css.preprocessorOptions = config.css.preprocessorOptions || {};
+    config.css.preprocessorOptions.scss = {
+      quietDeps: true,
+      silenceDeprecations: ['import'],
+    };
+    return config;
+  },
+
   typescript: {
     check: false,
     reactDocgen: 'react-docgen-typescript',

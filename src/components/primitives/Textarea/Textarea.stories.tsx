@@ -52,7 +52,10 @@ export const States: Story = {
     <div className="flex flex-col gap-4 w-64">
       <Textarea placeholder="Normal textarea" />
       <Textarea placeholder="Disabled textarea" disabled />
-      <Textarea placeholder="With value" defaultValue="This is a pre-filled textarea with some content." />
+      <Textarea
+        placeholder="With value"
+        defaultValue="This is a pre-filled textarea with some content."
+      />
     </div>
   ),
 };
@@ -79,4 +82,3 @@ export const FormExample: Story = {
     </div>
   ),
 };
-

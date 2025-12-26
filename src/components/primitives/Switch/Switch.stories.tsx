@@ -80,4 +80,3 @@ export const Settings: Story = {
     </div>
   ),
 };
-
