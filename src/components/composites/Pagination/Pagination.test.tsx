@@ -138,4 +138,100 @@ describe('Pagination', () => {
     render(<Pagination ref={ref} {...defaultProps} />);
     expect(ref.current).toBeTruthy();
   });
+
+  it('applies small size variant', () => {
+    const { container } = render(<Pagination {...defaultProps} size="sm" />);
+    const ul = container.querySelector('ul');
+    expect(ul?.className).toContain('[&_button]:h-8');
+    expect(ul?.className).toContain('[&_button]:text-xs');
+  });
+
+  it('applies medium size variant', () => {
+    const { container } = render(<Pagination {...defaultProps} size="md" />);
+    const ul = container.querySelector('ul');
+    expect(ul?.className).toContain('[&_button]:h-10');
+    expect(ul?.className).toContain('[&_button]:text-sm');
+  });
+
+  it('applies large size variant', () => {
+    const { container } = render(<Pagination {...defaultProps} size="lg" />);
+    const ul = container.querySelector('ul');
+    expect(ul?.className).toContain('[&_button]:h-12');
+    expect(ul?.className).toContain('[&_button]:text-base');
+  });
+
+  it('calls onPageChange on first button click', () => {
+    const onPageChange = vi.fn();
+    const { getByLabelText } = render(
+      <Pagination
+        {...defaultProps}
+        currentPage={5}
+        showFirstLast
+        onPageChange={onPageChange}
+      />
+    );
+    getByLabelText('First page').click();
+    expect(onPageChange).toHaveBeenCalledWith(1);
+  });
+
+  it('calls onPageChange on last button click', () => {
+    const onPageChange = vi.fn();
+    const { getByLabelText } = render(
+      <Pagination
+        {...defaultProps}
+        currentPage={5}
+        showFirstLast
+        onPageChange={onPageChange}
+      />
+    );
+    getByLabelText('Last page').click();
+    expect(onPageChange).toHaveBeenCalledWith(10);
+  });
+
+  it('disables first button on first page', () => {
+    const { getByLabelText } = render(
+      <Pagination {...defaultProps} currentPage={1} showFirstLast />
+    );
+    expect((getByLabelText('First page') as HTMLButtonElement).disabled).toBe(
+      true
+    );
+  });
+
+  it('disables last button on last page', () => {
+    const { getByLabelText } = render(
+      <Pagination {...defaultProps} currentPage={10} showFirstLast />
+    );
+    expect((getByLabelText('Last page') as HTMLButtonElement).disabled).toBe(
+      true
+    );
+  });
+
+  it('handles pagination near the start', () => {
+    const { getByLabelText } = render(
+      <Pagination {...defaultProps} currentPage={2} maxVisible={5} />
+    );
+    expect(getByLabelText('Page 1')).toBeTruthy();
+    expect(getByLabelText('Page 2')).toBeTruthy();
+  });
+
+  it('handles pagination near the end', () => {
+    const { getByLabelText } = render(
+      <Pagination {...defaultProps} currentPage={9} maxVisible={5} />
+    );
+    expect(getByLabelText('Page 9')).toBeTruthy();
+    expect(getByLabelText('Page 10')).toBeTruthy();
+  });
+
+  it('handles single page', () => {
+    const { getByLabelText } = render(
+      <Pagination currentPage={1} totalPages={1} onPageChange={vi.fn()} />
+    );
+    expect(getByLabelText('Page 1')).toBeTruthy();
+    expect(
+      (getByLabelText('Previous page') as HTMLButtonElement).disabled
+    ).toBe(true);
+    expect((getByLabelText('Next page') as HTMLButtonElement).disabled).toBe(
+      true
+    );
+  });
 });
