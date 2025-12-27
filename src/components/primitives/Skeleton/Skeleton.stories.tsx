@@ -53,7 +53,7 @@ export const Avatar: Story = {
 
 export const Table: Story = {
   render: () => (
-    <div className="w-full space-y-3">
+    <div className="w-[500px] space-y-3">
       <Skeleton className="h-12 w-full" />
       <Skeleton className="h-12 w-full" />
       <Skeleton className="h-12 w-full" />

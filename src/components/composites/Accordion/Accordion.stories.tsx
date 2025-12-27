@@ -26,7 +26,7 @@ type Story = StoryObj<typeof Accordion>;
 
 export const Default: Story = {
   render: () => (
-    <Accordion type="single" collapsible className="w-full max-w-md">
+    <Accordion type="single" collapsible className="w-[450px]">
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>
@@ -55,7 +55,7 @@ export const Default: Story = {
 
 export const Multiple: Story = {
   render: () => (
-    <Accordion type="multiple" className="w-full max-w-md">
+    <Accordion type="multiple" className="w-[450px]">
       <AccordionItem value="item-1">
         <AccordionTrigger>First Item</AccordionTrigger>
         <AccordionContent>
@@ -81,7 +81,7 @@ export const Multiple: Story = {
 
 export const Bordered: Story = {
   render: () => (
-    <Accordion type="single" collapsible className="w-full max-w-md">
+    <Accordion type="single" collapsible className="w-[450px]">
       <AccordionItem value="item-1" variant="bordered">
         <AccordionTrigger>Bordered Item</AccordionTrigger>
         <AccordionContent>
@@ -100,7 +100,7 @@ export const Bordered: Story = {
 
 export const Ghost: Story = {
   render: () => (
-    <Accordion type="single" collapsible className="w-full max-w-md">
+    <Accordion type="single" collapsible className="w-[450px]">
       <AccordionItem value="item-1" variant="ghost">
         <AccordionTrigger>Ghost Item</AccordionTrigger>
         <AccordionContent>
@@ -119,7 +119,7 @@ export const Ghost: Story = {
 
 export const FAQ: Story = {
   render: () => (
-    <Accordion type="single" collapsible className="w-full max-w-2xl">
+    <Accordion type="single" collapsible className="w-[600px]">
       <AccordionItem value="faq-1">
         <AccordionTrigger>What is this component library?</AccordionTrigger>
         <AccordionContent>

@@ -17,7 +17,7 @@ const meta: Meta<typeof Tooltip> = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <TooltipProvider>
+      <TooltipProvider delayDuration={0}>
         <Story />
       </TooltipProvider>
     ),

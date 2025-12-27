@@ -10,15 +10,15 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-md active:bg-primary/80 active:shadow-sm',
+          'bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80',
         secondary:
-          'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 hover:shadow-md active:bg-secondary/70 active:shadow-sm',
+          'bg-secondary text-secondary-foreground hover:bg-secondary/80 active:bg-secondary/70',
         ghost:
           'bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground active:bg-accent/80',
         outline:
-          'bg-transparent border border-input text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground hover:border-accent active:bg-accent/80',
+          'bg-transparent border border-input text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent active:bg-accent/80',
         destructive:
-          'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 hover:shadow-md active:bg-destructive/80 active:shadow-sm',
+          'bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80',
         link: 'bg-transparent text-primary underline-offset-4 hover:underline hover:text-primary/80',
         'soft-primary':
           'bg-primary/10 text-primary hover:bg-primary/20 active:bg-primary/30',

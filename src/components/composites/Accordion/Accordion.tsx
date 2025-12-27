@@ -10,7 +10,8 @@ export const accordionItemVariants = cva('border-b', {
   variants: {
     variant: {
       default: 'border-border',
-      bordered: 'border-border border',
+      bordered:
+        'border-border border-x border-t px-4 first:rounded-t-md last:rounded-b-md last:border-b',
       ghost: 'border-transparent',
     },
   },
@@ -40,7 +41,7 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        'flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',
+        'flex flex-1 cursor-pointer items-center justify-between py-4 font-medium transition-all hover:text-foreground/80 [&[data-state=open]>svg]:rotate-180',
         className
       )}
       {...props}

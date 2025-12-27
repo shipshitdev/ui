@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react-vite';
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../src/styles/globals.scss';
 
 const preview: Preview = {
@@ -19,18 +19,26 @@ const preview: Preview = {
 
         dark: {
           name: 'dark',
-          value: '#0f172a',
+          value: '#1a1a1a',
         },
       },
     },
   },
 
   decorators: [
-    (Story) => (
-      <div className="min-h-screen bg-background text-foreground p-8">
-        <Story />
-      </div>
-    ),
+    (Story, context) => {
+      const isDark = context.globals.backgrounds?.value === 'dark';
+
+      useEffect(() => {
+        document.documentElement.classList.toggle('dark', isDark);
+      }, [isDark]);
+
+      return (
+        <div className="p-8 text-foreground">
+          <Story />
+        </div>
+      );
+    },
   ],
 
   initialGlobals: {

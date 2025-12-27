@@ -6,8 +6,8 @@ import * as React from 'react';
 export const menuVariants = cva('', {
   variants: {
     orientation: {
-      vertical: 'flex flex-col',
-      horizontal: 'flex flex-row',
+      vertical: 'flex flex-col gap-1',
+      horizontal: 'flex flex-row gap-1',
     },
   },
   defaultVariants: {
@@ -77,7 +77,9 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(
                 key={index}
                 href={item.href}
                 onClick={item.onClick}
-                className="block"
+                variant="secondary"
+                underline="none"
+                className="block w-full"
               >
                 {content}
               </Link>
