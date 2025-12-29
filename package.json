@@ -30,8 +30,9 @@
   },
   "description": "A modern, accessible React component library built with TypeScript, Tailwind CSS v4, and Radix UI. Features primitives, composites, and patterns with full theme support and Storybook documentation.",
   "devDependencies": {
+    "@biomejs/biome": "2.3.10",
     "@happy-dom/global-registrator": "20.0.11",
-    "@storybook/addon-a11y": "^10.1.11",
+    "@storybook/addon-a11y": "10.1.11",
     "@storybook/addon-docs": "10.1.11",
     "@storybook/addon-links": "10.1.11",
     "@storybook/addon-vitest": "10.1.11",
@@ -44,25 +45,16 @@
     "@types/node": "25.0.3",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
-    "@typescript-eslint/eslint-plugin": "8.51.0",
-    "@typescript-eslint/parser": "8.51.0",
     "@vitejs/plugin-react": "5.1.2",
     "@vitest/browser-playwright": "4.0.16",
     "@vitest/coverage-v8": "4.0.16",
     "ajv": "8.17.1",
     "autoprefixer": "10.4.23",
-    "eslint": "9.39.2",
-    "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-prettier": "5.5.4",
-    "eslint-plugin-react": "7.37.5",
-    "eslint-plugin-react-hooks": "7.0.1",
-    "eslint-plugin-storybook": "10.1.11",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "playwright": "1.57.0",
     "postcss": "8.5.6",
     "postcss-cli": "11.0.1",
-    "prettier": "3.7.4",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "sass": "1.97.1",
@@ -72,17 +64,15 @@
     "vite": "7.3.0",
     "vite-plugin-dts": "4.5.4",
     "vitest": "4.0.16",
-    "vitest-axe": "^0.1.0"
+    "vitest-axe": "0.1.0"
   },
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/index.js",
-        "types": "./dist/index.d.ts"
+        "default": "./dist/index.js"
       },
       "require": {
-        "default": "./dist/index.cjs",
-        "types": "./dist/index.d.ts"
+        "default": "./dist/index.cjs"
       }
     },
     "./styles.css": "./dist/styles.css",
@@ -101,12 +91,8 @@
   ],
   "license": "MIT",
   "lint-staged": {
-    "*.{json,md,css,scss,yml,yaml}": [
-      "prettier --write"
-    ],
-    "*.{ts,tsx,js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
+    "*": [
+      "biome check --write"
     ]
   },
   "main": "./dist/index.cjs",
@@ -132,15 +118,17 @@
     "build:lib": "./scripts/build-lib.sh",
     "build:preset": "node scripts/build-preset.mjs",
     "build:themes": "node scripts/build-themes.mjs",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
     "deploy:storybook": "bun run build-storybook",
     "dev": "storybook dev -p 6006",
-    "format:check": "prettier --check .",
-    "format:fix": "prettier --write .",
-    "lint:check": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "format:check": "biome check --formatter-enabled=false .",
+    "format:fix": "biome format --write .",
+    "lint:check": "biome lint .",
+    "lint:fix": "biome lint --write .",
     "pre:install": "bun update --latest --recursive && bun install",
     "prepare": "husky",
-    "prepare:deploy": "bun run format:fix && bun run lint:fix && bun run build",
+    "prepare:deploy": "bun run check:fix && bun run build",
     "prepublishOnly": "node -e \"const fs = require('fs'); if (!fs.existsSync('dist')) { console.error('ERROR: dist directory not found. Run \\\"bun run build\\\" first.'); process.exit(1); }\"",
     "storybook": "storybook dev -p 6006",
     "test": "bun test",
@@ -153,5 +141,5 @@
   ],
   "type": "module",
   "types": "./dist/index.d.ts",
-  "version": "0.3.4"
+  "version": "0.3.5"
 }

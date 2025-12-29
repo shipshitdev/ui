@@ -1,7 +1,6 @@
-import { writeFileSync, mkdirSync } from 'fs';
-import { join } from 'path';
+import { mkdirSync, writeFileSync } from 'fs';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -56,9 +55,26 @@ const themes = {
 };
 
 function generateThemeSCSS(themeName, themeConfig, oppositeThemeConfig) {
-  // Theme SCSS files are self-contained with Tailwind import
-  // Include both :root (default) and opposite theme selector for dynamic switching
-  let scss = "@import 'tailwindcss';\n\n";
+  // Theme SCSS files are composable for Tailwind CSS v4
+  // They contain only CSS variables and keyframes - no Tailwind import
+  // Usage in consuming app:
+  //   @use 'tailwindcss';
+  //   @use '@agenticindiedev/ui/themes/dark.scss' as *;
+  //   @theme { /* custom overrides */ }
+
+  let scss = `/**
+ * ${themeName.charAt(0).toUpperCase() + themeName.slice(1)} Theme - Composable CSS Variables
+ *
+ * This theme file contains CSS variable definitions only.
+ * Import it in your app's SCSS file alongside Tailwind CSS v4:
+ *
+ * @use 'tailwindcss';
+ * @use '@agenticindiedev/ui/themes/${themeName}.scss' as *;
+ *
+ * You can then add custom @theme blocks to override or extend these variables.
+ */
+
+`;
 
   // Default theme in :root
   scss += ':root {\n';

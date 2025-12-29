@@ -74,16 +74,75 @@ export default {
 
 ## Step 2: Import Theme CSS
 
-Choose one of the available themes and import it in your app's entry point. **Theme files are self-contained** and include Tailwind CSS, so you don't need to import `styles.css` separately.
+Theme files are **composable** and contain only CSS variable definitions. You'll need to import Tailwind CSS separately and compose the theme with your own styles.
 
-### Light Theme (Off-White)
+### Tailwind CSS v4 (Recommended)
+
+For Tailwind CSS v4, use the `@use` directive in your SCSS file:
+
+**Create or update your `globals.scss` (or `app.scss`, `main.scss`, etc.):**
+
+```scss
+@use 'tailwindcss';
+@use '@agenticindiedev/ui/themes/dark.scss' as *;
+
+@theme {
+  /* Map agentic UI CSS variables to Tailwind v4 theme variables */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  
+  /* Add your custom theme overrides here */
+  /* --color-primary: hsl(142 76% 36%); */
+}
+
+@layer base {
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+```
+
+**Then import this SCSS file in your app entry point:**
 
 ```tsx
 // In your main.tsx, App.tsx, or _app.tsx
-import '@agenticindiedev/ui/themes/light.scss';
+import './globals.scss';
 ```
 
-### Dark Theme (Gray)
+### Light Theme Alternative
+
+To use the light theme instead:
+
+```scss
+@use 'tailwindcss';
+@use '@agenticindiedev/ui/themes/light.scss' as *;
+
+@theme {
+  /* Same @theme mapping as above */
+}
+```
+
+### Tailwind CSS v3 (Legacy)
+
+If you're using Tailwind CSS v3, you can still import themes directly:
 
 ```tsx
 // In your main.tsx, App.tsx, or _app.tsx
@@ -92,9 +151,10 @@ import '@agenticindiedev/ui/themes/dark.scss';
 
 **Important:**
 
+- For Tailwind v4: Use `@use` pattern in your SCSS file (recommended)
+- For Tailwind v3: Import theme SCSS directly in your TSX/JSX file
+- Theme files are composable - you can add custom `@theme` blocks to override or extend variables
 - Only import **ONE** theme SCSS file
-- Theme files include Tailwind CSS, so you don't need to import `styles.css` separately
-- If you need the default theme, you can import `@agenticindiedev/ui/styles.css` instead
 
 ## Step 3: Use Components
 
@@ -197,12 +257,23 @@ export default {
 } satisfies Config;
 ```
 
-3. Import theme in `app/layout.tsx` or `pages/_app.tsx`:
+3. Create `app/globals.scss` (or update existing):
+
+```scss
+@use 'tailwindcss';
+@use '@agenticindiedev/ui/themes/dark.scss' as *;
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  /* ... map all theme variables ... */
+}
+```
+
+4. Import `globals.scss` in `app/layout.tsx`:
 
 ```tsx
-import '@agenticindiedev/ui/themes/light.scss';
-// or
-import '@agenticindiedev/ui/themes/dark.scss';
+import './globals.scss';
 ```
 
 ### Vite + React
@@ -228,10 +299,23 @@ export default {
 } satisfies Config;
 ```
 
-3. Import theme in `src/main.tsx`:
+3. Create `src/globals.scss`:
+
+```scss
+@use 'tailwindcss';
+@use '@agenticindiedev/ui/themes/dark.scss' as *;
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  /* ... map all theme variables ... */
+}
+```
+
+4. Import `globals.scss` in `src/main.tsx`:
 
 ```tsx
-import '@agenticindiedev/ui/themes/light.scss';
+import './globals.scss';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -263,10 +347,23 @@ module.exports = {
 };
 ```
 
-3. Import theme in `src/index.js`:
+3. Create `src/globals.scss`:
+
+```scss
+@use 'tailwindcss';
+@use '@agenticindiedev/ui/themes/dark.scss' as *;
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  /* ... map all theme variables ... */
+}
+```
+
+4. Import `globals.scss` in `src/index.js`:
 
 ```js
-import '@agenticindiedev/ui/themes/light.scss';
+import './globals.scss';
 ```
 
 ## Customization
@@ -348,7 +445,55 @@ For one-off customizations, use the `className` prop:
 
 ### Method 3: Create Custom Theme File
 
-Create your own theme CSS file with all your custom colors:
+Create your own theme SCSS file with all your custom colors:
+
+**For Tailwind CSS v4:**
+
+```scss
+/* my-theme.scss */
+@use 'tailwindcss';
+@use '@agenticindiedev/ui/themes/dark.scss' as *;
+
+:root {
+  --primary: 142 76% 36%; /* Your brand color */
+  --primary-foreground: 0 0% 100%;
+  /* ... define all your colors */
+  --radius: 0.75rem;
+}
+
+@theme {
+  /* Map your custom variables to Tailwind */
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  /* ... */
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+```
+
+Then import it instead of the default theme:
+
+```tsx
+import './my-theme.scss';
+```
+
+**For Tailwind CSS v3:**
 
 ```css
 /* my-theme.css */
@@ -380,7 +525,7 @@ Create your own theme CSS file with all your custom colors:
 }
 ```
 
-Then import it instead of the default theme:
+Then import it:
 
 ```tsx
 import './my-theme.css';

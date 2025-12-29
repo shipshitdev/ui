@@ -243,7 +243,59 @@ For one-off customizations, use the `className` prop to override styles:
 
 ### Method 3: Create Custom Theme File
 
-For a complete custom theme, create your own CSS file:
+For a complete custom theme, create your own SCSS file:
+
+**For Tailwind CSS v4:**
+
+```scss
+/* my-custom-theme.scss */
+@use 'tailwindcss';
+@use '@agenticindiedev/ui/themes/dark.scss' as *;
+
+:root {
+  --primary: 142 76% 36%; /* Your brand green */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 20% 96%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  /* ... define all your colors */
+  --radius: 0.75rem; /* Custom border radius */
+}
+
+@theme {
+  /* Map your custom variables to Tailwind */
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  /* ... map all your custom variables ... */
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+```
+
+Then import it instead of the default theme:
+
+```tsx
+import './my-custom-theme.scss';
+```
+
+**For Tailwind CSS v3 (legacy):**
 
 ```css
 /* my-custom-theme.css */
@@ -277,7 +329,7 @@ For a complete custom theme, create your own CSS file:
 }
 ```
 
-Then import it instead of the default theme:
+Then import it:
 
 ```tsx
 import './my-custom-theme.css';
