@@ -4,6 +4,8 @@
 ![Version](https://img.shields.io/badge/version-beta-orange)
 ![Production](https://img.shields.io/badge/production-not%20ready-red)
 
+> ⚠️ **Warning**: This project is currently under active development and is **not ready for production use**. Many features are incomplete, and the codebase is subject to significant changes.
+
 A modern React component library built with TypeScript, Tailwind CSS v4, Radix UI, and shadcn/ui patterns.
 
 📖 **[View Storybook Documentation](https://agenticindiedev.github.io/ui/)**
