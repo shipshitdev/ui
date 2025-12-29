@@ -1,5 +1,9 @@
 # AgenticIndieDevUI
 
+![Status](https://img.shields.io/badge/status-WIP-yellow)
+![Version](https://img.shields.io/badge/version-beta-orange)
+![Production](https://img.shields.io/badge/production-not%20ready-red)
+
 A modern React component library built with TypeScript, Tailwind CSS v4, Radix UI, and shadcn/ui patterns.
 
 📖 **[View Storybook Documentation](https://agenticindiedev.github.io/ui/)**
