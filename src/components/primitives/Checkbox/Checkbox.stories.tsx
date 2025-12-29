@@ -54,10 +54,7 @@ export const WithDescription: Story = {
         label="Enable notifications"
         description="Receive updates about your account activity"
       />
-      <Checkbox
-        label="Marketing emails"
-        description="Get emails about new products and features"
-      />
+      <Checkbox label="Marketing emails" description="Get emails about new products and features" />
     </div>
   ),
 };

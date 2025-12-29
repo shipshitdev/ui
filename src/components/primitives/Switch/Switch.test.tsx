@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { Switch } from './Switch';
 
 describe('Switch', () => {
@@ -9,12 +9,8 @@ describe('Switch', () => {
   });
 
   it('applies custom className', () => {
-    const { container } = render(
-      <Switch className="custom-class" data-testid="switch" />
-    );
-    expect(
-      container.querySelector('[data-testid="switch"]')?.className
-    ).toContain('custom-class');
+    const { container } = render(<Switch className="custom-class" data-testid="switch" />);
+    expect(container.querySelector('[data-testid="switch"]')?.className).toContain('custom-class');
   });
 
   it('can be checked', () => {
@@ -24,9 +20,7 @@ describe('Switch', () => {
 
   it('can be disabled', () => {
     const { container } = render(<Switch disabled data-testid="switch" />);
-    const element = container.querySelector(
-      '[data-testid="switch"]'
-    ) as HTMLElement;
+    const element = container.querySelector('[data-testid="switch"]') as HTMLElement;
     expect(element.hasAttribute('disabled')).toBe(true);
   });
 

@@ -89,10 +89,7 @@ export const WithIcons: Story = {
     <div className="flex flex-wrap gap-4">
       <Button leftIcon={<Download className="h-4 w-4" />}>Download</Button>
       <Button rightIcon={<Heart className="h-4 w-4" />}>Like</Button>
-      <Button
-        leftIcon={<Search className="h-4 w-4" />}
-        rightIcon={<Heart className="h-4 w-4" />}
-      >
+      <Button leftIcon={<Search className="h-4 w-4" />} rightIcon={<Heart className="h-4 w-4" />}>
         Search & Like
       </Button>
     </div>

@@ -1,12 +1,12 @@
 export {
   Toast,
   ToastAction,
+  type ToastActionElement,
   ToastClose,
   ToastDescription,
   ToastProvider,
   ToastTitle,
   ToastViewport,
-  type ToastActionElement,
 } from './Toast';
 export type {
   ToastActionProps,

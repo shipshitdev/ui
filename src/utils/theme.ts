@@ -59,9 +59,7 @@ export function initTheme(): Theme {
  * Watch for system preference changes
  * Returns a cleanup function to stop watching
  */
-export function watchSystemPreference(
-  callback?: (theme: Theme) => void
-): () => void {
+export function watchSystemPreference(callback?: (theme: Theme) => void): () => void {
   if (typeof window === 'undefined') {
     return () => {};
   }

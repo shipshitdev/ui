@@ -1,10 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from './Accordion';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './Accordion';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Composites/Accordion',
@@ -30,23 +25,22 @@ export const Default: Story = {
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern and includes proper
-          ARIA attributes, supports keyboard navigation, and has been tested
-          with screen readers.
+          Yes. It adheres to the WAI-ARIA design pattern and includes proper ARIA attributes,
+          supports keyboard navigation, and has been tested with screen readers.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
         <AccordionTrigger>Is it unstyled?</AccordionTrigger>
         <AccordionContent>
-          Yes. It comes unstyled by default, giving you complete control over
-          styling without fighting specificity wars.
+          Yes. It comes unstyled by default, giving you complete control over styling without
+          fighting specificity wars.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
         <AccordionTrigger>Can it be animated?</AccordionTrigger>
         <AccordionContent>
-          Yes. You can use CSS animations or JavaScript animation libraries. The
-          component exposes data attributes to help target different states.
+          Yes. You can use CSS animations or JavaScript animation libraries. The component exposes
+          data attributes to help target different states.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -59,21 +53,17 @@ export const Multiple: Story = {
       <AccordionItem value="item-1">
         <AccordionTrigger>First Item</AccordionTrigger>
         <AccordionContent>
-          This is the content for the first accordion item. Multiple items can
-          be open at the same time.
+          This is the content for the first accordion item. Multiple items can be open at the same
+          time.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
         <AccordionTrigger>Second Item</AccordionTrigger>
-        <AccordionContent>
-          This is the content for the second accordion item.
-        </AccordionContent>
+        <AccordionContent>This is the content for the second accordion item.</AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
         <AccordionTrigger>Third Item</AccordionTrigger>
-        <AccordionContent>
-          This is the content for the third accordion item.
-        </AccordionContent>
+        <AccordionContent>This is the content for the third accordion item.</AccordionContent>
       </AccordionItem>
     </Accordion>
   ),
@@ -90,9 +80,7 @@ export const Bordered: Story = {
       </AccordionItem>
       <AccordionItem value="item-2" variant="bordered">
         <AccordionTrigger>Another Bordered Item</AccordionTrigger>
-        <AccordionContent>
-          All items in this accordion use the bordered variant.
-        </AccordionContent>
+        <AccordionContent>All items in this accordion use the bordered variant.</AccordionContent>
       </AccordionItem>
     </Accordion>
   ),
@@ -123,32 +111,31 @@ export const FAQ: Story = {
       <AccordionItem value="faq-1">
         <AccordionTrigger>What is this component library?</AccordionTrigger>
         <AccordionContent>
-          This is a modern React component library built with TypeScript,
-          Tailwind CSS v4, Radix UI, and shadcn/ui patterns. It provides
-          accessible, customizable components for building web applications.
+          This is a modern React component library built with TypeScript, Tailwind CSS v4, Radix UI,
+          and shadcn/ui patterns. It provides accessible, customizable components for building web
+          applications.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="faq-2">
         <AccordionTrigger>How do I install it?</AccordionTrigger>
         <AccordionContent>
-          You can install it using your preferred package manager. For example,
-          with bun: <code>bun add @agenticindiedev/ui</code>
+          You can install it using your preferred package manager. For example, with bun:{' '}
+          <code>bun add @agenticindiedev/ui</code>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="faq-3">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>
-          Yes! All components are built with accessibility in mind, using Radix
-          UI primitives that follow WAI-ARIA guidelines and support keyboard
-          navigation and screen readers.
+          Yes! All components are built with accessibility in mind, using Radix UI primitives that
+          follow WAI-ARIA guidelines and support keyboard navigation and screen readers.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="faq-4">
         <AccordionTrigger>Can I customize the styling?</AccordionTrigger>
         <AccordionContent>
-          Absolutely! Components use CSS variables for theming, and you can
-          customize colors, spacing, and other design tokens. All components
-          accept className props for additional styling.
+          Absolutely! Components use CSS variables for theming, and you can customize colors,
+          spacing, and other design tokens. All components accept className props for additional
+          styling.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

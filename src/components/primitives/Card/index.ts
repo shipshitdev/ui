@@ -1,13 +1,13 @@
 export {
   Card,
-  CardHeader,
   CardContent,
   CardFooter,
+  CardHeader,
   cardVariants,
 } from './Card';
 export type {
-  CardProps,
-  CardHeaderProps,
   CardContentProps,
   CardFooterProps,
+  CardHeaderProps,
+  CardProps,
 } from './Card.types';

@@ -82,9 +82,7 @@ export const WithHover: Story = {
         <h3 className="text-lg font-semibold">Hoverable Card</h3>
       </CardHeader>
       <CardContent>
-        <p>
-          This card has hover effects. Hover over it to see the shadow change.
-        </p>
+        <p>This card has hover effects. Hover over it to see the shadow change.</p>
       </CardContent>
     </Card>
   ),

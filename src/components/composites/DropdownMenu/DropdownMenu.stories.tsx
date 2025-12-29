@@ -1,12 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  LogOut,
-  Mail,
-  MessageSquare,
-  Plus,
-  Settings,
-  User,
-} from 'lucide-react';
+import { LogOut, Mail, MessageSquare, Plus, Settings, User } from 'lucide-react';
 import * as React from 'react';
 import { Button } from '../../primitives/Button/Button';
 import {
@@ -130,16 +123,10 @@ export const WithCheckboxes: Story = {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-          <DropdownMenuCheckboxItem
-            checked={showStatusBar}
-            onCheckedChange={setShowStatusBar}
-          >
+          <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
             Status Bar
           </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={showActivityBar}
-            onCheckedChange={setShowActivityBar}
-          >
+          <DropdownMenuCheckboxItem checked={showActivityBar} onCheckedChange={setShowActivityBar}>
             Activity Bar
           </DropdownMenuCheckboxItem>
         </DropdownMenuContent>

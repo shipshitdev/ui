@@ -1,5 +1,5 @@
+import { describe, expect, it, vi } from 'bun:test';
 import { render } from '@testing-library/react';
-import { describe, it, expect, vi } from 'bun:test';
 import { Input } from './Input';
 
 describe('Input', () => {
@@ -17,48 +17,32 @@ describe('Input', () => {
   });
 
   it('is disabled when disabled prop is true', () => {
-    const { getByPlaceholderText } = render(
-      <Input disabled placeholder="Disabled" />
-    );
-    expect(
-      (getByPlaceholderText('Disabled') as HTMLInputElement).disabled
-    ).toBe(true);
+    const { getByPlaceholderText } = render(<Input disabled placeholder="Disabled" />);
+    expect((getByPlaceholderText('Disabled') as HTMLInputElement).disabled).toBe(true);
   });
 
   it('renders left icon', () => {
-    const { getByTestId } = render(
-      <Input leftIcon={<span data-testid="left-icon">L</span>} />
-    );
+    const { getByTestId } = render(<Input leftIcon={<span data-testid="left-icon">L</span>} />);
     expect(getByTestId('left-icon')).toBeTruthy();
   });
 
   it('renders right icon', () => {
-    const { getByTestId } = render(
-      <Input rightIcon={<span data-testid="right-icon">R</span>} />
-    );
+    const { getByTestId } = render(<Input rightIcon={<span data-testid="right-icon">R</span>} />);
     expect(getByTestId('right-icon')).toBeTruthy();
   });
 
   it('shows error state', () => {
-    const { getByPlaceholderText } = render(
-      <Input error placeholder="Error" />
-    );
-    expect(getByPlaceholderText('Error').getAttribute('aria-invalid')).toBe(
-      'true'
-    );
+    const { getByPlaceholderText } = render(<Input error placeholder="Error" />);
+    expect(getByPlaceholderText('Error').getAttribute('aria-invalid')).toBe('true');
   });
 
   it('shows error message', () => {
-    const { getByText } = render(
-      <Input error errorMessage="This field is required" />
-    );
+    const { getByText } = render(<Input error errorMessage="This field is required" />);
     expect(getByText('This field is required')).toBeTruthy();
   });
 
   it('applies size classes', () => {
-    const { getByPlaceholderText } = render(
-      <Input size="lg" placeholder="Large" />
-    );
+    const { getByPlaceholderText } = render(<Input size="lg" placeholder="Large" />);
     expect(getByPlaceholderText('Large').className).toContain('h-12');
   });
 
@@ -81,11 +65,7 @@ describe('Input', () => {
   });
 
   it('accepts different input types', () => {
-    const { getByPlaceholderText } = render(
-      <Input type="password" placeholder="Password" />
-    );
-    expect(getByPlaceholderText('Password').getAttribute('type')).toBe(
-      'password'
-    );
+    const { getByPlaceholderText } = render(<Input type="password" placeholder="Password" />);
+    expect(getByPlaceholderText('Password').getAttribute('type')).toBe('password');
   });
 });

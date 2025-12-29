@@ -73,11 +73,7 @@ export const States: Story = {
 export const WithDefaultValue: Story = {
   render: () => (
     <div className="flex flex-col gap-4 w-64">
-      <Select
-        options={options}
-        placeholder="Select an option..."
-        defaultValue="option2"
-      />
+      <Select options={options} placeholder="Select an option..." defaultValue="option2" />
     </div>
   ),
 };
@@ -90,10 +86,7 @@ export const ManyOptions: Story = {
     }));
     return (
       <div className="w-64">
-        <Select
-          options={manyOptions}
-          placeholder="Select from many options..."
-        />
+        <Select options={manyOptions} placeholder="Select from many options..." />
       </div>
     );
   },

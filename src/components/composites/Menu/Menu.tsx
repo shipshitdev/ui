@@ -1,8 +1,8 @@
+import { cva, type VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 import { Link } from '@/components/primitives/Link';
 import { cn } from '@/utils/cn';
 import { cursorPointer, focusStyles, transitionColors } from '@/utils/styles';
-import { cva, type VariantProps } from 'class-variance-authority';
-import * as React from 'react';
 
 export const menuVariants = cva('', {
   variants: {
@@ -16,27 +16,23 @@ export const menuVariants = cva('', {
   },
 });
 
-export const menuItemVariants = cva(
-  `${transitionColors} ${focusStyles} ${cursorPointer}`,
-  {
-    variants: {
-      orientation: {
-        vertical:
-          'block px-4 py-2 text-sm rounded-md hover:bg-accent hover:text-accent-foreground',
-        horizontal:
-          'inline-block px-4 py-2 text-sm rounded-md hover:bg-accent hover:text-accent-foreground',
-      },
-      active: {
-        true: 'bg-accent text-accent-foreground font-medium',
-        false: '',
-      },
+export const menuItemVariants = cva(`${transitionColors} ${focusStyles} ${cursorPointer}`, {
+  variants: {
+    orientation: {
+      vertical: 'block px-4 py-2 text-sm rounded-md hover:bg-accent hover:text-accent-foreground',
+      horizontal:
+        'inline-block px-4 py-2 text-sm rounded-md hover:bg-accent hover:text-accent-foreground',
     },
-    defaultVariants: {
-      orientation: 'vertical',
-      active: false,
+    active: {
+      true: 'bg-accent text-accent-foreground font-medium',
+      false: '',
     },
-  }
-);
+  },
+  defaultVariants: {
+    orientation: 'vertical',
+    active: false,
+  },
+});
 
 export interface MenuItem {
   label: string;
@@ -47,27 +43,22 @@ export interface MenuItem {
 }
 
 export interface MenuProps
-  extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof menuVariants> {
+  extends React.HTMLAttributes<HTMLElement>,
+    VariantProps<typeof menuVariants> {
   items: MenuItem[];
 }
 
 const Menu = React.forwardRef<HTMLElement, MenuProps>(
   ({ className, items, orientation = 'vertical', ...props }, ref) => {
     return (
-      <nav
-        ref={ref}
-        className={cn(menuVariants({ orientation }), className)}
-        {...props}
-      >
+      <nav ref={ref} className={cn(menuVariants({ orientation }), className)} {...props}>
         {items.map((item, index) => {
           const content = (
             <span
               className={cn(
                 menuItemVariants({ orientation, active: item.active }),
-                item.disabled &&
-                  'opacity-50 cursor-not-allowed pointer-events-none',
-                !item.active &&
-                  (index % 2 === 0 ? 'bg-background' : 'bg-muted/30')
+                item.disabled && 'opacity-50 cursor-not-allowed pointer-events-none',
+                !item.active && (index % 2 === 0 ? 'bg-background' : 'bg-muted/30')
               )}
             >
               {item.label}
@@ -92,6 +83,7 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(
           return (
             <button
               key={index}
+              type="button"
               onClick={item.onClick}
               disabled={item.disabled}
               className="block text-left w-full"

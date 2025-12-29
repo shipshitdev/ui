@@ -1,10 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  AlertTriangle,
-  CheckCircle2,
-  Info as InfoIcon,
-  XCircle,
-} from 'lucide-react';
+import { AlertTriangle, CheckCircle2, Info as InfoIcon, XCircle } from 'lucide-react';
 import {
   Toast,
   ToastAction,
@@ -60,24 +55,20 @@ export const Success: Story = {
         <CheckCircle2 className="h-4 w-4" />
         <ToastTitle>Success!</ToastTitle>
       </div>
-      <ToastDescription>
-        Your changes have been saved successfully.
-      </ToastDescription>
+      <ToastDescription>Your changes have been saved successfully.</ToastDescription>
       <ToastClose />
     </Toast>
   ),
 };
 
-export const Error: Story = {
+export const ErrorToast: Story = {
   render: () => (
     <Toast variant="error">
       <div className="flex items-center gap-2">
         <XCircle className="h-4 w-4" />
         <ToastTitle>Error</ToastTitle>
       </div>
-      <ToastDescription>
-        Something went wrong. Please try again later.
-      </ToastDescription>
+      <ToastDescription>Something went wrong. Please try again later.</ToastDescription>
       <ToastClose />
     </Toast>
   ),
@@ -90,9 +81,7 @@ export const Warning: Story = {
         <AlertTriangle className="h-4 w-4" />
         <ToastTitle>Warning</ToastTitle>
       </div>
-      <ToastDescription>
-        Please review your input before submitting.
-      </ToastDescription>
+      <ToastDescription>Please review your input before submitting.</ToastDescription>
       <ToastClose />
     </Toast>
   ),
@@ -105,9 +94,7 @@ export const Info: Story = {
         <InfoIcon className="h-4 w-4" />
         <ToastTitle>Information</ToastTitle>
       </div>
-      <ToastDescription>
-        This is an informational message for your reference.
-      </ToastDescription>
+      <ToastDescription>This is an informational message for your reference.</ToastDescription>
       <ToastClose />
     </Toast>
   ),
@@ -138,9 +125,7 @@ export const AllVariants: Story = {
     <div className="flex flex-col gap-4 w-full max-w-md">
       <Toast variant="default">
         <ToastTitle>Default Toast</ToastTitle>
-        <ToastDescription>
-          This is a default toast notification.
-        </ToastDescription>
+        <ToastDescription>This is a default toast notification.</ToastDescription>
         <ToastClose />
       </Toast>
       <Toast variant="success">
@@ -156,9 +141,7 @@ export const AllVariants: Story = {
           <XCircle className="h-4 w-4" />
           <ToastTitle>Error Toast</ToastTitle>
         </div>
-        <ToastDescription>
-          An error occurred during the operation.
-        </ToastDescription>
+        <ToastDescription>An error occurred during the operation.</ToastDescription>
         <ToastClose />
       </Toast>
       <Toast variant="warning">

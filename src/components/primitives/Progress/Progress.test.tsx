@@ -1,12 +1,10 @@
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { Progress } from './Progress';
 
 describe('Progress', () => {
   it('renders progress bar', () => {
-    const { container } = render(
-      <Progress value={50} data-testid="progress" />
-    );
+    const { container } = render(<Progress value={50} data-testid="progress" />);
     expect(container.querySelector('[data-testid="progress"]')).toBeTruthy();
   });
 
@@ -14,9 +12,9 @@ describe('Progress', () => {
     const { container } = render(
       <Progress value={50} className="custom-class" data-testid="progress" />
     );
-    expect(
-      container.querySelector('[data-testid="progress"]')?.className
-    ).toContain('custom-class');
+    expect(container.querySelector('[data-testid="progress"]')?.className).toContain(
+      'custom-class'
+    );
   });
 
   it('handles value prop', () => {

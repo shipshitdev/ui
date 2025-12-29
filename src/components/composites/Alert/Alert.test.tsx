@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
-import { Alert, AlertTitle, AlertDescription } from './Alert';
+import { describe, expect, it } from 'vitest';
+import { Alert, AlertDescription, AlertTitle } from './Alert';
 
 describe('Alert', () => {
   it('renders alert', () => {
@@ -73,9 +73,7 @@ describe('AlertDescription', () => {
   it('applies custom className', () => {
     const { getByText } = render(
       <Alert>
-        <AlertDescription className="custom-class">
-          Description
-        </AlertDescription>
+        <AlertDescription className="custom-class">Description</AlertDescription>
       </Alert>
     );
     expect(getByText('Description').className).toContain('custom-class');

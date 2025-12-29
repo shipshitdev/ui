@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Textarea } from './Textarea';
 import { Label } from '../Label/Label';
+import { Textarea } from './Textarea';
 
 const meta: Meta<typeof Textarea> = {
   title: 'Primitives/Textarea',
@@ -73,11 +73,7 @@ export const FormExample: Story = {
       </div>
       <div className="flex flex-col gap-2">
         <Label htmlFor="notes">Additional Notes</Label>
-        <Textarea
-          id="notes"
-          placeholder="Any additional information..."
-          className="min-h-[80px]"
-        />
+        <Textarea id="notes" placeholder="Any additional information..." className="min-h-[80px]" />
       </div>
     </div>
   ),

@@ -10,6 +10,7 @@ export interface MenuItem {
 }
 
 export interface MenuProps
-  extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof menuVariants> {
+  extends React.HTMLAttributes<HTMLElement>,
+    VariantProps<typeof menuVariants> {
   items: MenuItem[];
 }

@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
 import { describe, expect, it } from 'bun:test';
+import { render } from '@testing-library/react';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -46,9 +46,7 @@ describe('DropdownMenu', () => {
   it('applies custom className to trigger', () => {
     const { getByRole } = render(
       <DropdownMenu>
-        <DropdownMenuTrigger className="custom-trigger">
-          Open
-        </DropdownMenuTrigger>
+        <DropdownMenuTrigger className="custom-trigger">Open</DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>Item</DropdownMenuItem>
         </DropdownMenuContent>
@@ -68,32 +66,24 @@ describe('DropdownMenu', () => {
   });
 
   it('renders shortcut component', () => {
-    const { getByText } = render(
-      <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-    );
+    const { getByText } = render(<DropdownMenuShortcut>⌘K</DropdownMenuShortcut>);
     expect(getByText('⌘K')).toBeTruthy();
   });
 
   it('applies custom className to shortcut', () => {
     const { container } = render(
-      <DropdownMenuShortcut className="custom-shortcut">
-        ⌘K
-      </DropdownMenuShortcut>
+      <DropdownMenuShortcut className="custom-shortcut">⌘K</DropdownMenuShortcut>
     );
     expect(container.querySelector('.custom-shortcut')).toBeTruthy();
   });
 
   it('renders label component', () => {
-    const { getByText } = render(
-      <DropdownMenuLabel>Label Text</DropdownMenuLabel>
-    );
+    const { getByText } = render(<DropdownMenuLabel>Label Text</DropdownMenuLabel>);
     expect(getByText('Label Text')).toBeTruthy();
   });
 
   it('applies inset class to label', () => {
-    const { container } = render(
-      <DropdownMenuLabel inset>Inset Label</DropdownMenuLabel>
-    );
+    const { container } = render(<DropdownMenuLabel inset>Inset Label</DropdownMenuLabel>);
     expect(container.querySelector('.pl-8')).toBeTruthy();
   });
 
@@ -218,9 +208,7 @@ describe('DropdownMenu', () => {
     const { getByText } = render(
       <DropdownMenu open>
         <DropdownMenuContent>
-          <DropdownMenuCheckboxItem checked>
-            Checkbox Item
-          </DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem checked>Checkbox Item</DropdownMenuCheckboxItem>
         </DropdownMenuContent>
       </DropdownMenu>
     );
@@ -258,9 +246,7 @@ describe('DropdownMenu', () => {
       <DropdownMenu open>
         <DropdownMenuContent>
           <DropdownMenuRadioGroup value="option1">
-            <DropdownMenuRadioItem value="option1">
-              Radio Option 1
-            </DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="option1">Radio Option 1</DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
         </DropdownMenuContent>
       </DropdownMenu>

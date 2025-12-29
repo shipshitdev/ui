@@ -1,8 +1,8 @@
-import { Button } from '@/components/primitives/Button';
-import { cn } from '@/utils/cn';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import * as React from 'react';
+import { Button } from '@/components/primitives/Button';
+import { cn } from '@/utils/cn';
 
 export const paginationVariants = cva('', {
   variants: {
@@ -32,8 +32,7 @@ export const paginationVariants = cva('', {
 });
 
 export interface PaginationProps
-  extends
-    React.HTMLAttributes<HTMLElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof paginationVariants> {
   currentPage: number;
   totalPages: number;
@@ -101,12 +100,7 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
         className={cn('flex items-center justify-center gap-1', className)}
         {...props}
       >
-        <ul
-          className={cn(
-            'flex items-center gap-1',
-            paginationVariants({ size })
-          )}
-        >
+        <ul className={cn('flex items-center gap-1', paginationVariants({ size }))}>
           {showFirstLast && (
             <li>
               <Button

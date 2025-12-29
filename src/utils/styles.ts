@@ -8,11 +8,9 @@ export const focusStyles = 'focus-visible:outline-none';
 export const focusOutlineStyles = 'focus:outline-none';
 
 // Disabled state styles
-export const disabledStyles =
-  'disabled:pointer-events-none disabled:opacity-50';
+export const disabledStyles = 'disabled:pointer-events-none disabled:opacity-50';
 
-export const disabledCursorStyles =
-  'disabled:cursor-not-allowed disabled:opacity-50';
+export const disabledCursorStyles = 'disabled:cursor-not-allowed disabled:opacity-50';
 
 // Form input focus - subtle border change instead of ring
 export const inputFocusStyles =

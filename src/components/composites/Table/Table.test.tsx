@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
 import { describe, expect, it } from 'bun:test';
+import { render } from '@testing-library/react';
 import {
   Table,
   TableBody,
@@ -127,9 +127,7 @@ describe('Table', () => {
         </TableBody>
       </Table>
     );
-    expect(container.querySelector('table')?.className).toContain(
-      'custom-table'
-    );
+    expect(container.querySelector('table')?.className).toContain('custom-table');
   });
 
   it('applies custom className to row', () => {

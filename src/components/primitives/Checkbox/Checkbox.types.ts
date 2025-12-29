@@ -3,8 +3,7 @@ import type { VariantProps } from 'class-variance-authority';
 import type { checkboxVariants } from './Checkbox';
 
 export interface CheckboxProps
-  extends
-    React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
+  extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>,
     VariantProps<typeof checkboxVariants> {
   label?: string;
   description?: string;

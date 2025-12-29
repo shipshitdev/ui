@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { RadioGroup, RadioGroupItem } from './RadioGroup';
 
 describe('RadioGroup', () => {
@@ -18,9 +18,9 @@ describe('RadioGroup', () => {
         <RadioGroupItem value="option1" />
       </RadioGroup>
     );
-    expect(
-      container.querySelector('[data-testid="radio-group"]')?.className
-    ).toContain('custom-class');
+    expect(container.querySelector('[data-testid="radio-group"]')?.className).toContain(
+      'custom-class'
+    );
   });
 
   it('forwards ref', () => {
@@ -47,16 +47,12 @@ describe('RadioGroupItem', () => {
   it('applies custom className', () => {
     const { container } = render(
       <RadioGroup>
-        <RadioGroupItem
-          value="option1"
-          className="custom-class"
-          data-testid="radio-item"
-        />
+        <RadioGroupItem value="option1" className="custom-class" data-testid="radio-item" />
       </RadioGroup>
     );
-    expect(
-      container.querySelector('[data-testid="radio-item"]')?.className
-    ).toContain('custom-class');
+    expect(container.querySelector('[data-testid="radio-item"]')?.className).toContain(
+      'custom-class'
+    );
   });
 
   it('forwards ref', () => {

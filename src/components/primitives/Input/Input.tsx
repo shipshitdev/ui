@@ -1,11 +1,7 @@
-import * as React from 'react';
 import { cva } from 'class-variance-authority';
+import * as React from 'react';
 import { cn } from '@/utils/cn';
-import {
-  disabledCursorStyles,
-  inputFocusStyles,
-  transitionColors,
-} from '@/utils/styles';
+import { disabledCursorStyles, inputFocusStyles, transitionColors } from '@/utils/styles';
 import type { InputProps } from './Input.types';
 
 export const inputVariants = cva(

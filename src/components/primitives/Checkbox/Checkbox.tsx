@@ -1,9 +1,9 @@
-import { cn } from '@/utils/cn';
-import { disabledCursorStyles, focusStyles } from '@/utils/styles';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { cva } from 'class-variance-authority';
 import { Check } from 'lucide-react';
 import * as React from 'react';
+import { cn } from '@/utils/cn';
+import { disabledCursorStyles, focusStyles } from '@/utils/styles';
 import type { CheckboxProps } from './Checkbox.types';
 
 export const checkboxVariants = cva(
@@ -30,56 +30,45 @@ export const checkboxVariants = cva(
 export const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxProps
->(
-  (
-    { className, variant, size, label, description, error, id, ...props },
-    ref
-  ) => {
-    const generatedId = React.useId();
-    const checkboxId = id || generatedId;
-    const descriptionId = `${checkboxId}-description`;
+>(({ className, variant, size, label, description, error, id, ...props }, ref) => {
+  const generatedId = React.useId();
+  const checkboxId = id || generatedId;
+  const descriptionId = `${checkboxId}-description`;
 
-    return (
-      <div className="flex items-start gap-3">
-        <CheckboxPrimitive.Root
-          ref={ref}
-          id={checkboxId}
-          className={cn(
-            checkboxVariants({ variant: error ? 'error' : variant, size }),
-            className
-          )}
-          aria-describedby={description ? descriptionId : undefined}
-          {...props}
+  return (
+    <div className="flex items-start gap-3">
+      <CheckboxPrimitive.Root
+        ref={ref}
+        id={checkboxId}
+        className={cn(checkboxVariants({ variant: error ? 'error' : variant, size }), className)}
+        aria-describedby={description ? descriptionId : undefined}
+        {...props}
+      >
+        <CheckboxPrimitive.Indicator
+          className={cn('flex items-center justify-center text-current')}
         >
-          <CheckboxPrimitive.Indicator
-            className={cn('flex items-center justify-center text-current')}
-          >
-            <Check className="h-4 w-4" />
-          </CheckboxPrimitive.Indicator>
-        </CheckboxPrimitive.Root>
-        {(label || description) && (
-          <div className="flex flex-col">
-            {label && (
-              <label
-                htmlFor={checkboxId}
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
-              >
-                {label}
-              </label>
-            )}
-            {description && (
-              <span
-                id={descriptionId}
-                className="text-sm text-muted-foreground"
-              >
-                {description}
-              </span>
-            )}
-          </div>
-        )}
-      </div>
-    );
-  }
-);
+          <Check className="h-4 w-4" />
+        </CheckboxPrimitive.Indicator>
+      </CheckboxPrimitive.Root>
+      {(label || description) && (
+        <div className="flex flex-col">
+          {label && (
+            <label
+              htmlFor={checkboxId}
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+            >
+              {label}
+            </label>
+          )}
+          {description && (
+            <span id={descriptionId} className="text-sm text-muted-foreground">
+              {description}
+            </span>
+          )}
+        </div>
+      )}
+    </div>
+  );
+});
 
 Checkbox.displayName = 'Checkbox';

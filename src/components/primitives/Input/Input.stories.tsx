@@ -68,20 +68,9 @@ export const Types: Story = {
 export const WithIcons: Story = {
   render: () => (
     <div className="flex flex-col gap-4 w-64">
-      <Input
-        leftIcon={<Search className="h-4 w-4" />}
-        placeholder="Search..."
-      />
-      <Input
-        leftIcon={<Mail className="h-4 w-4" />}
-        placeholder="Email"
-        type="email"
-      />
-      <Input
-        rightIcon={<Lock className="h-4 w-4" />}
-        placeholder="Password"
-        type="password"
-      />
+      <Input leftIcon={<Search className="h-4 w-4" />} placeholder="Search..." />
+      <Input leftIcon={<Mail className="h-4 w-4" />} placeholder="Email" type="email" />
+      <Input rightIcon={<Lock className="h-4 w-4" />} placeholder="Password" type="password" />
       <Input
         leftIcon={<Search className="h-4 w-4" />}
         rightIcon={<Lock className="h-4 w-4" />}
@@ -96,11 +85,7 @@ export const States: Story = {
     <div className="flex flex-col gap-4 w-64">
       <Input placeholder="Normal input" />
       <Input placeholder="Disabled input" disabled />
-      <Input
-        placeholder="Error input"
-        error
-        errorMessage="This field is required"
-      />
+      <Input placeholder="Error input" error errorMessage="This field is required" />
     </div>
   ),
 };

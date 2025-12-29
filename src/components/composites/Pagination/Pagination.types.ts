@@ -2,8 +2,7 @@ import type { VariantProps } from 'class-variance-authority';
 import type { paginationVariants } from './Pagination';
 
 export interface PaginationProps
-  extends
-    React.HTMLAttributes<HTMLElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof paginationVariants> {
   currentPage: number;
   totalPages: number;

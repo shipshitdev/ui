@@ -2,8 +2,7 @@ import type { VariantProps } from 'class-variance-authority';
 import type { cardVariants } from './Card';
 
 export interface CardProps
-  extends
-    React.HTMLAttributes<HTMLDivElement>,
+  extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {
   asChild?: boolean;
 }

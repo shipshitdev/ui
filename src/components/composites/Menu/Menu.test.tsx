@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'bun:test';
+import { render } from '@testing-library/react';
 import { Menu } from './Menu';
 
 describe('Menu', () => {
@@ -47,9 +47,7 @@ describe('Menu', () => {
   });
 
   it('applies horizontal orientation', () => {
-    const { container } = render(
-      <Menu items={items} orientation="horizontal" />
-    );
+    const { container } = render(<Menu items={items} orientation="horizontal" />);
     expect(container.querySelector('.flex-row')).toBeTruthy();
   });
 
@@ -73,9 +71,7 @@ describe('Menu', () => {
   });
 
   it('applies custom className', () => {
-    const { container } = render(
-      <Menu items={items} className="custom-menu" />
-    );
+    const { container } = render(<Menu items={items} className="custom-menu" />);
     expect(container.querySelector('.custom-menu')).toBeTruthy();
   });
 

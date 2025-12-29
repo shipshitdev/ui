@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
 import { describe, expect, it } from 'bun:test';
+import { render } from '@testing-library/react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './Tabs';
 
 describe('Tabs', () => {

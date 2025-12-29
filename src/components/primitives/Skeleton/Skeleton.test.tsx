@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { Skeleton } from './Skeleton';
 
 describe('Skeleton', () => {
@@ -15,9 +15,7 @@ describe('Skeleton', () => {
 
   it('has animate-pulse class', () => {
     const { container } = render(<Skeleton />);
-    expect(container.querySelector('div')?.className).toContain(
-      'animate-pulse'
-    );
+    expect(container.querySelector('div')?.className).toContain('animate-pulse');
   });
 
   it('renders children', () => {

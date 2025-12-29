@@ -1,5 +1,5 @@
-import { render, act, waitFor } from '@testing-library/react';
-import { describe, it, expect, vi } from 'bun:test';
+import { describe, expect, it, vi } from 'bun:test';
+import { act, render, waitFor } from '@testing-library/react';
 import { Checkbox } from './Checkbox';
 
 describe('Checkbox', () => {
@@ -14,9 +14,7 @@ describe('Checkbox', () => {
   });
 
   it('renders description when provided', () => {
-    const { getByText } = render(
-      <Checkbox description="Please read the terms carefully" />
-    );
+    const { getByText } = render(<Checkbox description="Please read the terms carefully" />);
     expect(getByText('Please read the terms carefully')).toBeTruthy();
   });
 
@@ -30,9 +28,7 @@ describe('Checkbox', () => {
 
   it('handles change events', async () => {
     const onCheckedChange = vi.fn();
-    const { getByRole } = render(
-      <Checkbox onCheckedChange={onCheckedChange} />
-    );
+    const { getByRole } = render(<Checkbox onCheckedChange={onCheckedChange} />);
     await act(async () => {
       getByRole('checkbox').click();
     });
@@ -74,9 +70,7 @@ describe('Checkbox', () => {
   });
 
   it('uses provided id', () => {
-    const { getByRole } = render(
-      <Checkbox id="my-checkbox" label="My checkbox" />
-    );
+    const { getByRole } = render(<Checkbox id="my-checkbox" label="My checkbox" />);
     expect(getByRole('checkbox').id).toBe('my-checkbox');
   });
 

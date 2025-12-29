@@ -9,8 +9,7 @@ export interface SelectOption {
 }
 
 export interface SelectProps
-  extends
-    React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>,
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>,
     VariantProps<typeof selectVariants> {
   options: SelectOption[];
   placeholder?: string;

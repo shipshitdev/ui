@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { RadioGroup, RadioGroupItem } from './RadioGroup';
 import { Label } from '../Label/Label';
+import { RadioGroup, RadioGroupItem } from './RadioGroup';
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'Primitives/RadioGroup',
@@ -77,9 +77,7 @@ export const FormExample: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
       <div>
-        <Label className="text-base font-semibold mb-2 block">
-          Payment Method
-        </Label>
+        <Label className="text-base font-semibold mb-2 block">Payment Method</Label>
         <RadioGroup defaultValue="card">
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="card" id="card" />

@@ -1,5 +1,5 @@
+import { describe, expect, it } from 'bun:test';
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'bun:test';
 import { Badge } from './Badge';
 
 describe('Badge', () => {
@@ -34,9 +34,7 @@ describe('Badge', () => {
   });
 
   it('applies destructive variant classes', () => {
-    const { getByText } = render(
-      <Badge variant="destructive">Destructive</Badge>
-    );
+    const { getByText } = render(<Badge variant="destructive">Destructive</Badge>);
     expect(getByText('Destructive').className).toContain('bg-destructive');
   });
 
@@ -62,9 +60,7 @@ describe('Badge', () => {
   });
 
   it('applies custom className', () => {
-    const { getByText } = render(
-      <Badge className="custom-class">Custom</Badge>
-    );
+    const { getByText } = render(<Badge className="custom-class">Custom</Badge>);
     expect(getByText('Custom').className).toContain('custom-class');
   });
 

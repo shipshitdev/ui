@@ -3,8 +3,7 @@ import type { MenuItem } from '../Menu';
 import type { navbarVariants } from './Navbar';
 
 export interface NavbarProps
-  extends
-    React.HTMLAttributes<HTMLElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof navbarVariants> {
   brand?: React.ReactNode;
   items?: MenuItem[];

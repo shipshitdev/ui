@@ -1,5 +1,5 @@
-import { Button } from '@/components/primitives/Button';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Button } from '@/components/primitives/Button';
 import { Navbar } from './Navbar';
 
 const meta: Meta<typeof Navbar> = {
@@ -70,17 +70,12 @@ export const WithoutMenu: Story = {
 
 export const WithoutActions: Story = {
   render: () => (
-    <Navbar
-      brand={<span className="text-lg font-bold">Brand</span>}
-      items={menuItems}
-    />
+    <Navbar brand={<span className="text-lg font-bold">Brand</span>} items={menuItems} />
   ),
 };
 
 export const Simple: Story = {
-  render: () => (
-    <Navbar brand={<span className="text-lg font-bold">Brand</span>} />
-  ),
+  render: () => <Navbar brand={<span className="text-lg font-bold">Brand</span>} />,
 };
 
 export const WithMultipleActions: Story = {

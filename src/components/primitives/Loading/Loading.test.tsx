@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
 import { describe, expect, it } from 'bun:test';
+import { render } from '@testing-library/react';
 import { Loading } from './Loading';
 
 describe('Loading', () => {
@@ -66,9 +66,7 @@ describe('Loading', () => {
   it('applies custom className', () => {
     const { container } = render(<Loading className="custom-class" />);
     expect(container.firstChild).toBeTruthy();
-    expect((container.firstChild as HTMLElement).className).toContain(
-      'custom-class'
-    );
+    expect((container.firstChild as HTMLElement).className).toContain('custom-class');
   });
 
   it('forwards ref', () => {

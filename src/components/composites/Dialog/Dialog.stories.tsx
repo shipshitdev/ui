@@ -34,8 +34,8 @@ export const Default: Story = {
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            This action cannot be undone. This will permanently delete your account and remove your
+            data from our servers.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
@@ -58,9 +58,7 @@ export const Simple: Story = {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Simple Dialog</DialogTitle>
-          <DialogDescription>
-            This is a simple dialog with minimal content.
-          </DialogDescription>
+          <DialogDescription>This is a simple dialog with minimal content.</DialogDescription>
         </DialogHeader>
       </DialogContent>
     </Dialog>
@@ -78,9 +76,7 @@ export const Form: Story = {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Create Account</DialogTitle>
-            <DialogDescription>
-              Fill in the form below to create your account.
-            </DialogDescription>
+            <DialogDescription>Fill in the form below to create your account.</DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
@@ -127,8 +123,7 @@ export const Confirmation: Story = {
         <DialogHeader>
           <DialogTitle>Confirm Deletion</DialogTitle>
           <DialogDescription>
-            Are you sure you want to delete this item? This action cannot be
-            undone.
+            Are you sure you want to delete this item? This action cannot be undone.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>

@@ -1,6 +1,6 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,7 +12,7 @@ const presetContent = readFileSync(presetPath, 'utf-8');
 
 // Convert TypeScript to JavaScript
 // Remove type imports and type annotations
-let jsContent = presetContent
+const jsContent = presetContent
   // Remove type imports (but preserve the line if it's part of a comment)
   .replace(/^import type .*? from .*?;$/gm, '')
   // Remove type annotations from const declarations

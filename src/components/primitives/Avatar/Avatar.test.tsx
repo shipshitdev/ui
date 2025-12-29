@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
-import { Avatar, AvatarImage, AvatarFallback } from './Avatar';
+import { describe, expect, it } from 'vitest';
+import { Avatar, AvatarFallback, AvatarImage } from './Avatar';
 
 describe('Avatar', () => {
   it('renders avatar', () => {
@@ -9,12 +9,8 @@ describe('Avatar', () => {
   });
 
   it('applies custom className', () => {
-    const { container } = render(
-      <Avatar className="custom-class" data-testid="avatar" />
-    );
-    expect(
-      container.querySelector('[data-testid="avatar"]')?.className
-    ).toContain('custom-class');
+    const { container } = render(<Avatar className="custom-class" data-testid="avatar" />);
+    expect(container.querySelector('[data-testid="avatar"]')?.className).toContain('custom-class');
   });
 
   it('forwards ref', () => {

@@ -1,13 +1,8 @@
-import { cn } from '@/utils/cn';
-import {
-  cursorPointer,
-  disabledStyles,
-  focusStyles,
-  transitionAll,
-} from '@/utils/styles';
 import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
+import { cn } from '@/utils/cn';
+import { cursorPointer, disabledStyles, focusStyles, transitionAll } from '@/utils/styles';
 import type { ButtonProps } from './Button.types';
 
 export const buttonVariants = cva(
@@ -15,8 +10,7 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary:
-          'bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80',
+        primary: 'bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80 active:bg-secondary/70',
         ghost:
@@ -26,8 +20,7 @@ export const buttonVariants = cva(
         destructive:
           'bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80',
         link: 'bg-transparent text-primary underline-offset-4 hover:underline hover:text-primary/80',
-        'soft-primary':
-          'bg-primary/10 text-primary hover:bg-primary/20 active:bg-primary/30',
+        'soft-primary': 'bg-primary/10 text-primary hover:bg-primary/20 active:bg-primary/30',
         'soft-secondary':
           'bg-secondary/10 text-secondary-foreground hover:bg-secondary/20 active:bg-secondary/30',
         'soft-success':
@@ -59,14 +52,7 @@ const Spinner = () => (
     viewBox="0 0 24 24"
     aria-hidden="true"
   >
-    <circle
-      className="opacity-25"
-      cx="12"
-      cy="12"
-      r="10"
-      stroke="currentColor"
-      strokeWidth="4"
-    />
+    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
     <path
       className="opacity-75"
       fill="currentColor"

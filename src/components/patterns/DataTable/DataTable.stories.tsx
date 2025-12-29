@@ -47,9 +47,7 @@ const columns: ColumnDef<User>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem onClick={() => console.warn('Edit', user.id)}>
-              Edit
-            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => console.warn('Edit', user.id)}>Edit</DropdownMenuItem>
             <DropdownMenuItem onClick={() => console.warn('Delete', user.id)}>
               Delete
             </DropdownMenuItem>
@@ -116,12 +114,7 @@ export const Default: Story = {
 
 export const WithSearch: Story = {
   render: () => (
-    <DataTable
-      columns={columns}
-      data={data}
-      searchable
-      searchPlaceholder="Search users..."
-    />
+    <DataTable columns={columns} data={data} searchable searchPlaceholder="Search users..." />
   ),
 };
 

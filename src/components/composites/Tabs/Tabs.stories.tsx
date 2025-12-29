@@ -20,9 +20,7 @@ export const Default: Story = {
         <TabsTrigger value="account">Account</TabsTrigger>
         <TabsTrigger value="password">Password</TabsTrigger>
       </TabsList>
-      <TabsContent value="account">
-        Make changes to your account here.
-      </TabsContent>
+      <TabsContent value="account">Make changes to your account here.</TabsContent>
       <TabsContent value="password">Change your password here.</TabsContent>
     </Tabs>
   ),
@@ -76,9 +74,7 @@ export const WithCards: Story = {
       <TabsContent value="general">
         <div className="rounded-lg border p-4">
           <h3 className="text-lg font-semibold mb-2">General Settings</h3>
-          <p className="text-sm text-muted-foreground">
-            Manage your general account settings.
-          </p>
+          <p className="text-sm text-muted-foreground">Manage your general account settings.</p>
         </div>
       </TabsContent>
       <TabsContent value="security">
@@ -92,9 +88,7 @@ export const WithCards: Story = {
       <TabsContent value="integrations">
         <div className="rounded-lg border p-4">
           <h3 className="text-lg font-semibold mb-2">Integrations</h3>
-          <p className="text-sm text-muted-foreground">
-            Connect and manage your integrations.
-          </p>
+          <p className="text-sm text-muted-foreground">Connect and manage your integrations.</p>
         </div>
       </TabsContent>
     </Tabs>

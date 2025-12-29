@@ -1,11 +1,6 @@
-import { render } from '@testing-library/react';
 import { describe, expect, it } from 'bun:test';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from './Accordion';
+import { render } from '@testing-library/react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './Accordion';
 
 describe('Accordion', () => {
   it('renders accordion element', () => {

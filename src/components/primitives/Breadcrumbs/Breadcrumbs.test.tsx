@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
 import { describe, expect, it } from 'bun:test';
+import { render } from '@testing-library/react';
 import { Breadcrumbs } from './Breadcrumbs';
 
 describe('Breadcrumbs', () => {
@@ -16,9 +16,7 @@ describe('Breadcrumbs', () => {
 
   it('has correct aria-label', () => {
     const { getByRole } = render(<Breadcrumbs items={items} />);
-    expect(getByRole('navigation').getAttribute('aria-label')).toBe(
-      'Breadcrumb'
-    );
+    expect(getByRole('navigation').getAttribute('aria-label')).toBe('Breadcrumb');
   });
 
   it('renders all items', () => {
@@ -34,9 +32,7 @@ describe('Breadcrumbs', () => {
   });
 
   it('hides home icon when showHome is false', () => {
-    const { queryByLabelText } = render(
-      <Breadcrumbs items={items} showHome={false} />
-    );
+    const { queryByLabelText } = render(<Breadcrumbs items={items} showHome={false} />);
     expect(queryByLabelText('Home')).toBeNull();
   });
 
@@ -60,26 +56,19 @@ describe('Breadcrumbs', () => {
   });
 
   it('applies custom className', () => {
-    const { getByRole } = render(
-      <Breadcrumbs items={items} className="custom-class" />
-    );
+    const { getByRole } = render(<Breadcrumbs items={items} className="custom-class" />);
     expect(getByRole('navigation').className).toContain('custom-class');
   });
 
   it('uses custom homeHref', () => {
-    const { getByLabelText } = render(
-      <Breadcrumbs items={items} homeHref="/dashboard" />
-    );
+    const { getByLabelText } = render(<Breadcrumbs items={items} homeHref="/dashboard" />);
     const homeLink = getByLabelText('Home').closest('a');
     expect(homeLink?.getAttribute('href')).toBe('/dashboard');
   });
 
   it('renders custom separator', () => {
     const { container } = render(
-      <Breadcrumbs
-        items={items}
-        separator={<span className="custom-separator">/</span>}
-      />
+      <Breadcrumbs items={items} separator={<span className="custom-separator">/</span>} />
     );
     expect(container.querySelector('.custom-separator')).toBeTruthy();
   });

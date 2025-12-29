@@ -1,30 +1,26 @@
-import { Menu } from '@/components/composites/Menu';
-import { Button } from '@/components/primitives/Button';
-import { cn } from '@/utils/cn';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Menu as MenuIcon, X } from 'lucide-react';
 import * as React from 'react';
+import { Menu } from '@/components/composites/Menu';
+import { Button } from '@/components/primitives/Button';
+import { cn } from '@/utils/cn';
 import type { MenuItem } from '../Menu';
 
-export const navbarVariants = cva(
-  'relative w-full flex items-center justify-between px-4 py-3',
-  {
-    variants: {
-      variant: {
-        default: 'bg-background',
-        bordered: 'bg-background border-b border-border',
-        elevated: 'bg-background shadow-sm',
-      },
+export const navbarVariants = cva('relative w-full flex items-center justify-between px-4 py-3', {
+  variants: {
+    variant: {
+      default: 'bg-background',
+      bordered: 'bg-background border-b border-border',
+      elevated: 'bg-background shadow-sm',
     },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
-);
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+});
 
 export interface NavbarProps
-  extends
-    React.HTMLAttributes<HTMLElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof navbarVariants> {
   brand?: React.ReactNode;
   items?: MenuItem[];
@@ -56,11 +52,7 @@ const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
     };
 
     return (
-      <header
-        ref={ref}
-        className={cn(navbarVariants({ variant }), className)}
-        {...props}
-      >
+      <header ref={ref} className={cn(navbarVariants({ variant }), className)} {...props}>
         <div className="flex items-center gap-4">
           {brand && <div className="flex-shrink-0">{brand}</div>}
           {items.length > 0 && (
@@ -77,11 +69,7 @@ const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
                 onClick={handleToggle}
                 aria-label="Toggle menu"
               >
-                {isMobileOpen ? (
-                  <X className="h-5 w-5" />
-                ) : (
-                  <MenuIcon className="h-5 w-5" />
-                )}
+                {isMobileOpen ? <X className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
               </Button>
             </>
           )}

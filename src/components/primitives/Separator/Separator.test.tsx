@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { Separator } from './Separator';
 
 describe('Separator', () => {
@@ -9,12 +9,10 @@ describe('Separator', () => {
   });
 
   it('applies custom className', () => {
-    const { container } = render(
-      <Separator className="custom-class" data-testid="separator" />
+    const { container } = render(<Separator className="custom-class" data-testid="separator" />);
+    expect(container.querySelector('[data-testid="separator"]')?.className).toContain(
+      'custom-class'
     );
-    expect(
-      container.querySelector('[data-testid="separator"]')?.className
-    ).toContain('custom-class');
   });
 
   it('renders horizontal by default', () => {
@@ -24,9 +22,7 @@ describe('Separator', () => {
   });
 
   it('renders vertical when orientation is vertical', () => {
-    const { container } = render(
-      <Separator orientation="vertical" data-testid="separator" />
-    );
+    const { container } = render(<Separator orientation="vertical" data-testid="separator" />);
     const element = container.querySelector('[data-testid="separator"]');
     expect(element?.className).toContain('h-full');
     expect(element?.className).toContain('w-[1px]');

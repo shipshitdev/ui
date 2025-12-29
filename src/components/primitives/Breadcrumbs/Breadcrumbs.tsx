@@ -1,6 +1,6 @@
-import { cn } from '@/utils/cn';
 import { ChevronRight, Home } from 'lucide-react';
 import * as React from 'react';
+import { cn } from '@/utils/cn';
 import { Link } from '../Link';
 
 export interface BreadcrumbItem {
@@ -59,17 +59,11 @@ const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
               <React.Fragment key={index}>
                 <li>
                   {isLast ? (
-                    <span
-                      className="text-foreground font-medium"
-                      aria-current="page"
-                    >
+                    <span className="text-foreground font-medium" aria-current="page">
                       {item.label}
                     </span>
                   ) : item.href ? (
-                    <Link
-                      href={item.href}
-                      className="text-muted-foreground hover:text-foreground"
-                    >
+                    <Link href={item.href} className="text-muted-foreground hover:text-foreground">
                       {item.label}
                     </Link>
                   ) : (

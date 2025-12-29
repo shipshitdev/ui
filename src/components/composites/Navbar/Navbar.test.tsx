@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
 import { describe, expect, it, vi } from 'bun:test';
+import { render } from '@testing-library/react';
 import { Navbar } from './Navbar';
 
 describe('Navbar', () => {
@@ -19,9 +19,7 @@ describe('Navbar', () => {
   });
 
   it('renders brand as React node', () => {
-    const { getByTestId } = render(
-      <Navbar brand={<span data-testid="brand">Brand</span>} />
-    );
+    const { getByTestId } = render(<Navbar brand={<span data-testid="brand">Brand</span>} />);
     expect(getByTestId('brand')).toBeTruthy();
   });
 
@@ -32,7 +30,7 @@ describe('Navbar', () => {
   });
 
   it('renders actions slot', () => {
-    const { getByText } = render(<Navbar actions={<button>Login</button>} />);
+    const { getByText } = render(<Navbar actions={<button type="button">Login</button>} />);
     expect(getByText('Login')).toBeTruthy();
   });
 
@@ -48,9 +46,7 @@ describe('Navbar', () => {
 
   it('calls onMobileMenuToggle when toggled', () => {
     const onToggle = vi.fn();
-    const { getByLabelText } = render(
-      <Navbar items={items} onMobileMenuToggle={onToggle} />
-    );
+    const { getByLabelText } = render(<Navbar items={items} onMobileMenuToggle={onToggle} />);
     getByLabelText('Toggle menu').click();
     expect(onToggle).toHaveBeenCalledWith(true);
   });

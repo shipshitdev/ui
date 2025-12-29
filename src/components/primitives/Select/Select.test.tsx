@@ -1,5 +1,5 @@
-import { act, render, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'bun:test';
+import { act, render, waitFor } from '@testing-library/react';
 import { Select } from './Select';
 
 const defaultOptions = [
@@ -37,9 +37,7 @@ describe('Select', () => {
 
   it('handles value changes', async () => {
     const onValueChange = vi.fn();
-    const { getByRole } = render(
-      <Select options={defaultOptions} onValueChange={onValueChange} />
-    );
+    const { getByRole } = render(<Select options={defaultOptions} onValueChange={onValueChange} />);
     const trigger = getByRole('combobox');
 
     // Open the select
@@ -58,9 +56,7 @@ describe('Select', () => {
 
     // Click the first option
     await act(async () => {
-      const firstOption = document.querySelector(
-        '[role="option"]'
-      ) as HTMLElement;
+      const firstOption = document.querySelector('[role="option"]') as HTMLElement;
       if (firstOption) {
         firstOption.click();
       }
@@ -96,9 +92,7 @@ describe('Select', () => {
 
     // Click the first option (should work even without onValueChange)
     await act(async () => {
-      const firstOption = document.querySelector(
-        '[role="option"]'
-      ) as HTMLElement;
+      const firstOption = document.querySelector('[role="option"]') as HTMLElement;
       if (firstOption) {
         firstOption.click();
       }
@@ -134,11 +128,7 @@ describe('Select', () => {
 
   it('shows error message', () => {
     const { getByText } = render(
-      <Select
-        options={defaultOptions}
-        error
-        errorMessage="Please select an option"
-      />
+      <Select options={defaultOptions} error errorMessage="Please select an option" />
     );
     expect(getByText('Please select an option')).toBeTruthy();
   });
@@ -149,9 +139,7 @@ describe('Select', () => {
   });
 
   it('applies custom className', () => {
-    const { getByRole } = render(
-      <Select options={defaultOptions} className="custom-class" />
-    );
+    const { getByRole } = render(<Select options={defaultOptions} className="custom-class" />);
     expect(getByRole('combobox').className).toContain('custom-class');
   });
 
@@ -163,9 +151,7 @@ describe('Select', () => {
   });
 
   it('syncs with controlled value prop', () => {
-    const { rerender, getByRole } = render(
-      <Select options={defaultOptions} value="option1" />
-    );
+    const { rerender, getByRole } = render(<Select options={defaultOptions} value="option1" />);
     const trigger = getByRole('combobox');
     expect(trigger).toBeTruthy();
 

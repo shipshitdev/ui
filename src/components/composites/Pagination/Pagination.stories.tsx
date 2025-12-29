@@ -34,54 +34,33 @@ const PaginationWrapper = (args: Partial<PaginationProps>) => {
 };
 
 export const Default: Story = {
-  render: (args) => (
-    <PaginationWrapper {...args} currentPage={1} totalPages={10} />
-  ),
+  render: (args) => <PaginationWrapper {...args} currentPage={1} totalPages={10} />,
 };
 
 export const Small: Story = {
-  render: (args) => (
-    <PaginationWrapper {...args} currentPage={5} totalPages={10} size="sm" />
-  ),
+  render: (args) => <PaginationWrapper {...args} currentPage={5} totalPages={10} size="sm" />,
 };
 
 export const Large: Story = {
-  render: (args) => (
-    <PaginationWrapper {...args} currentPage={5} totalPages={10} size="lg" />
-  ),
+  render: (args) => <PaginationWrapper {...args} currentPage={5} totalPages={10} size="lg" />,
 };
 
 export const WithFirstLast: Story = {
-  render: (args) => (
-    <PaginationWrapper
-      {...args}
-      currentPage={5}
-      totalPages={20}
-      showFirstLast
-    />
-  ),
+  render: (args) => <PaginationWrapper {...args} currentPage={5} totalPages={20} showFirstLast />,
 };
 
 export const ManyPages: Story = {
-  render: (args) => (
-    <PaginationWrapper {...args} currentPage={50} totalPages={100} />
-  ),
+  render: (args) => <PaginationWrapper {...args} currentPage={50} totalPages={100} />,
 };
 
 export const FewPages: Story = {
-  render: (args) => (
-    <PaginationWrapper {...args} currentPage={2} totalPages={3} />
-  ),
+  render: (args) => <PaginationWrapper {...args} currentPage={2} totalPages={3} />,
 };
 
 export const FirstPage: Story = {
-  render: (args) => (
-    <PaginationWrapper {...args} currentPage={1} totalPages={10} />
-  ),
+  render: (args) => <PaginationWrapper {...args} currentPage={1} totalPages={10} />,
 };
 
 export const LastPage: Story = {
-  render: (args) => (
-    <PaginationWrapper {...args} currentPage={10} totalPages={10} />
-  ),
+  render: (args) => <PaginationWrapper {...args} currentPage={10} totalPages={10} />,
 };

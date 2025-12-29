@@ -1,6 +1,6 @@
+import { describe, expect, it } from 'bun:test';
 import { render } from '@testing-library/react';
-import { describe, it, expect } from 'bun:test';
-import { Card, CardHeader, CardContent, CardFooter } from './Card';
+import { Card, CardContent, CardFooter, CardHeader } from './Card';
 
 describe('Card', () => {
   it('renders children', () => {
@@ -77,9 +77,7 @@ describe('CardHeader', () => {
   });
 
   it('applies default classes', () => {
-    const { getByTestId } = render(
-      <CardHeader data-testid="header">Header</CardHeader>
-    );
+    const { getByTestId } = render(<CardHeader data-testid="header">Header</CardHeader>);
     expect(getByTestId('header').className).toContain('p-6');
   });
 
@@ -106,9 +104,7 @@ describe('CardContent', () => {
   });
 
   it('applies default classes', () => {
-    const { getByTestId } = render(
-      <CardContent data-testid="content">Content</CardContent>
-    );
+    const { getByTestId } = render(<CardContent data-testid="content">Content</CardContent>);
     expect(getByTestId('content').className).toContain('p-6');
   });
 
@@ -135,16 +131,12 @@ describe('CardFooter', () => {
   });
 
   it('applies default classes', () => {
-    const { getByTestId } = render(
-      <CardFooter data-testid="footer">Footer</CardFooter>
-    );
+    const { getByTestId } = render(<CardFooter data-testid="footer">Footer</CardFooter>);
     expect(getByTestId('footer').className).toContain('p-6');
   });
 
   it('applies flex layout', () => {
-    const { getByTestId } = render(
-      <CardFooter data-testid="footer">Footer</CardFooter>
-    );
+    const { getByTestId } = render(<CardFooter data-testid="footer">Footer</CardFooter>);
     expect(getByTestId('footer').className).toContain('flex');
   });
 

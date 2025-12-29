@@ -1,11 +1,6 @@
-import { render } from '@testing-library/react';
 import { describe, expect, it } from 'bun:test';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from './Tooltip';
+import { render } from '@testing-library/react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './Tooltip';
 
 describe('Tooltip', () => {
   it('renders tooltip trigger', () => {

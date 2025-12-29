@@ -1,12 +1,12 @@
 // Vitest setup file - separate from bun test setup
 import { GlobalRegistrator } from '@happy-dom/global-registrator';
+
 GlobalRegistrator.register();
 
+import * as matchers from '@testing-library/jest-dom/matchers';
 // Now we can import testing utilities that depend on global document
 import { cleanup, configure } from '@testing-library/react';
-import { afterEach, afterAll, beforeAll } from 'vitest';
-import * as matchers from '@testing-library/jest-dom/matchers';
-import { expect } from 'vitest';
+import { afterAll, afterEach, beforeAll, expect } from 'vitest';
 
 // Suppress act() warnings from Radix UI internal state updates
 configure({
@@ -17,10 +17,7 @@ configure({
 const originalError = console.error;
 beforeAll(() => {
   console.error = (...args: unknown[]) => {
-    if (
-      typeof args[0] === 'string' &&
-      args[0].includes('not wrapped in act(...)')
-    ) {
+    if (typeof args[0] === 'string' && args[0].includes('not wrapped in act(...)')) {
       return;
     }
     originalError.call(console, ...args);

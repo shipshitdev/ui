@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { cn } from '@/utils/cn';
-import {
-  disabledCursorStyles,
-  inputFocusStyles,
-  transitionColors,
-} from '@/utils/styles';
+import { disabledCursorStyles, inputFocusStyles, transitionColors } from '@/utils/styles';
 
 export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 

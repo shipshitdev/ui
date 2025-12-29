@@ -1,12 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Info } from 'lucide-react';
 import { Button } from '../../primitives/Button/Button';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from './Tooltip';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './Tooltip';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Composites/Tooltip',

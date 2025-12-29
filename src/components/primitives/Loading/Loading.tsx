@@ -1,12 +1,11 @@
-import { cn } from '@/utils/cn';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
+import { cn } from '@/utils/cn';
 
 export const loadingVariants = cva('', {
   variants: {
     variant: {
-      spinner:
-        'animate-spin rounded-full border-2 border-current border-t-transparent',
+      spinner: 'animate-spin rounded-full border-2 border-current border-t-transparent',
       dots: 'flex gap-1',
       bars: 'flex gap-1',
       pulse: 'animate-pulse rounded-full bg-current',
@@ -90,8 +89,7 @@ export const loadingVariants = cva('', {
 });
 
 export interface LoadingProps
-  extends
-    React.HTMLAttributes<HTMLDivElement>,
+  extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof loadingVariants> {
   text?: string;
 }
@@ -100,14 +98,8 @@ const Loading = React.forwardRef<HTMLDivElement, LoadingProps>(
   ({ className, variant = 'spinner', size = 'md', text, ...props }, ref) => {
     if (variant === 'dots') {
       return (
-        <div
-          ref={ref}
-          className={cn('flex items-center gap-2', className)}
-          {...props}
-        >
-          <div
-            className={cn(loadingVariants({ variant, size }), 'text-primary')}
-          >
+        <div ref={ref} className={cn('flex items-center gap-2', className)} {...props}>
+          <div className={cn(loadingVariants({ variant, size }), 'text-primary')}>
             <span className="inline-block rounded-full bg-current animate-[bounce_1.4s_ease-in-out_infinite]" />
             <span className="inline-block rounded-full bg-current animate-[bounce_1.4s_ease-in-out_0.2s_infinite]" />
             <span className="inline-block rounded-full bg-current animate-[bounce_1.4s_ease-in-out_0.4s_infinite]" />
@@ -119,14 +111,8 @@ const Loading = React.forwardRef<HTMLDivElement, LoadingProps>(
 
     if (variant === 'bars') {
       return (
-        <div
-          ref={ref}
-          className={cn('flex items-center gap-2', className)}
-          {...props}
-        >
-          <div
-            className={cn(loadingVariants({ variant, size }), 'text-primary')}
-          >
+        <div ref={ref} className={cn('flex items-center gap-2', className)} {...props}>
+          <div className={cn(loadingVariants({ variant, size }), 'text-primary')}>
             <span className="inline-block rounded-sm bg-current animate-[pulse_1.2s_ease-in-out_0s_infinite]" />
             <span className="inline-block rounded-sm bg-current animate-[pulse_1.2s_ease-in-out_0.2s_infinite]" />
             <span className="inline-block rounded-sm bg-current animate-[pulse_1.2s_ease-in-out_0.4s_infinite]" />
@@ -137,14 +123,8 @@ const Loading = React.forwardRef<HTMLDivElement, LoadingProps>(
     }
 
     return (
-      <div
-        ref={ref}
-        className={cn('flex items-center gap-2', className)}
-        {...props}
-      >
-        <div
-          className={cn(loadingVariants({ variant, size }), 'text-primary')}
-        />
+      <div ref={ref} className={cn('flex items-center gap-2', className)} {...props}>
+        <div className={cn(loadingVariants({ variant, size }), 'text-primary')} />
         {text && <span className="text-sm text-foreground">{text}</span>}
       </div>
     );
