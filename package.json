@@ -101,7 +101,9 @@
   "packageManager": "bun@1.1.14",
   "peerDependencies": {
     "react": "18.0.0 || ^19.0.0",
-    "react-dom": "18.0.0 || ^19.0.0"
+    "react-dom": "18.0.0 || ^19.0.0",
+    "tailwindcss": ">=4.0.0 <5",
+    "@tailwindcss/postcss": ">=4.0.0 <5"
   },
   "publishConfig": {
     "access": "public",
@@ -141,5 +143,5 @@
   ],
   "type": "module",
   "types": "./dist/index.d.ts",
-  "version": "0.3.7"
+  "version": "0.3.8"
 }

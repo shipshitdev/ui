@@ -84,7 +84,7 @@ For Tailwind CSS v4, use the `@use` directive in your SCSS file:
 
 ```scss
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark.scss' as *;
+@use '@agenticindiedev/ui/themes/dark' as *;
 
 @theme {
   /* Map agentic UI CSS variables to Tailwind v4 theme variables */
@@ -120,6 +120,12 @@ For Tailwind CSS v4, use the `@use` directive in your SCSS file:
 }
 ```
 
+Theme files include an `@source` directive so Tailwind scans the UI package and generates component utilities. If you skip the theme import or use a custom theme file, add this to your globals:
+
+```scss
+@source '../../node_modules/@agenticindiedev/ui/dist/**/*.{js,cjs}';
+```
+
 **Then import this SCSS file in your app entry point:**
 
 ```tsx
@@ -133,7 +139,7 @@ To use the light theme instead:
 
 ```scss
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/light.scss' as *;
+@use '@agenticindiedev/ui/themes/light' as *;
 
 @theme {
   /* Same @theme mapping as above */
@@ -146,7 +152,7 @@ If you're using Tailwind CSS v3, you can still import themes directly:
 
 ```tsx
 // In your main.tsx, App.tsx, or _app.tsx
-import '@agenticindiedev/ui/themes/dark.scss';
+import '@agenticindiedev/ui/themes/dark';
 ```
 
 **Important:**
@@ -261,7 +267,7 @@ export default {
 
 ```scss
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark.scss' as *;
+@use '@agenticindiedev/ui/themes/dark' as *;
 
 @theme {
   --color-background: hsl(var(--background));
@@ -303,7 +309,7 @@ export default {
 
 ```scss
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark.scss' as *;
+@use '@agenticindiedev/ui/themes/dark' as *;
 
 @theme {
   --color-background: hsl(var(--background));
@@ -351,7 +357,7 @@ module.exports = {
 
 ```scss
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark.scss' as *;
+@use '@agenticindiedev/ui/themes/dark' as *;
 
 @theme {
   --color-background: hsl(var(--background));
@@ -452,7 +458,7 @@ Create your own theme SCSS file with all your custom colors:
 ```scss
 /* my-theme.scss */
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark.scss' as *;
+@use '@agenticindiedev/ui/themes/dark' as *;
 
 :root {
   --primary: 142 76% 36%; /* Your brand color */

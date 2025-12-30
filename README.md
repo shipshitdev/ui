@@ -42,14 +42,16 @@ export default {
 Choose a theme and import it (this replaces the need for `styles.css`):
 
 ```tsx
-// Light theme (off-white) - includes Tailwind and theme variables
-import '@agenticindiedev/ui/themes/light.scss';
+// Light theme (off-white) - includes theme variables
+import '@agenticindiedev/ui/themes/light';
 
-// OR Dark theme (gray) - includes Tailwind and theme variables
-import '@agenticindiedev/ui/themes/dark.scss';
+// OR Dark theme (gray) - includes theme variables
+import '@agenticindiedev/ui/themes/dark';
 
 // Note: Import only ONE theme file, not both styles.css and a theme file
 ```
+
+Note for Tailwind v4: theme files include an `@source` directive so Tailwind scans the UI package and generates component utilities. If you skip the theme import, add an `@source` for `@agenticindiedev/ui/dist/**/*.{js,cjs}` in your global CSS.
 
 ### 3. Use Components
 

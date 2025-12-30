@@ -59,7 +59,7 @@ function generateThemeSCSS(themeName, themeConfig, oppositeThemeConfig) {
   // They contain only CSS variables and keyframes - no Tailwind import
   // Usage in consuming app:
   //   @use 'tailwindcss';
-  //   @use '@agenticindiedev/ui/themes/dark.scss' as *;
+  //   @use '@agenticindiedev/ui/themes/dark' as *;
   //   @theme { /* custom overrides */ }
 
   let scss = `/**
@@ -69,12 +69,14 @@ function generateThemeSCSS(themeName, themeConfig, oppositeThemeConfig) {
  * Import it in your app's SCSS file alongside Tailwind CSS v4:
  *
  * @use 'tailwindcss';
- * @use '@agenticindiedev/ui/themes/${themeName}.scss' as *;
+ * @use '@agenticindiedev/ui/themes/${themeName}' as *;
  *
  * You can then add custom @theme blocks to override or extend these variables.
  */
 
 `;
+
+  scss += "@source '../**/*.{js,cjs}';\n\n";
 
   // Default theme in :root
   scss += ':root {\n';

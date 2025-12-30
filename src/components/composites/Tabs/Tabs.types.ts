@@ -8,4 +8,7 @@ export interface TabsTriggerProps
   extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> {}
 
 export interface TabsContentProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content> {}
+  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content> {
+  isLoading?: boolean;
+  skeleton?: React.ReactNode;
+}

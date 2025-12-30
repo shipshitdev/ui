@@ -20,6 +20,7 @@ import {
   TableRow,
 } from '@/components/composites/Table';
 import { Button } from '@/components/primitives/Button';
+import { Skeleton } from '@/components/primitives/Skeleton';
 import { cn } from '@/utils/cn';
 import { disabledCursorStyles, inputFocusStyles, transitionColors } from '@/utils/styles';
 
@@ -30,6 +31,8 @@ export interface DataTableProps<TData, TValue> {
   searchPlaceholder?: string;
   pagination?: boolean;
   className?: string;
+  isLoading?: boolean;
+  skeletonRows?: number;
 }
 
 export function DataTable<TData, TValue>({
@@ -39,6 +42,8 @@ export function DataTable<TData, TValue>({
   searchPlaceholder = 'Search...',
   pagination = true,
   className,
+  isLoading = false,
+  skeletonRows = 5,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
@@ -76,6 +81,7 @@ export function DataTable<TData, TValue>({
             placeholder={searchPlaceholder}
             value={globalFilter ?? ''}
             onChange={(event) => setGlobalFilter(String(event.target.value))}
+            disabled={isLoading}
             className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground ${transitionColors} ${inputFocusStyles} ${disabledCursorStyles} max-w-sm`}
           />
         </div>
@@ -98,7 +104,17 @@ export function DataTable<TData, TValue>({
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows?.length ? (
+            {isLoading ? (
+              Array.from({ length: skeletonRows }).map((_, rowIndex) => (
+                <TableRow key={`skeleton-${rowIndex}`}>
+                  {columns.map((_, colIndex) => (
+                    <TableCell key={`skeleton-${rowIndex}-${colIndex}`}>
+                      <Skeleton className="h-4 w-full" />
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))
+            ) : table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
                   {row.getVisibleCells().map((cell) => (
@@ -129,7 +145,7 @@ export function DataTable<TData, TValue>({
               variant="outline"
               size="sm"
               onClick={() => table.previousPage()}
-              disabled={!table.getCanPreviousPage()}
+              disabled={isLoading || !table.getCanPreviousPage()}
             >
               Previous
             </Button>
@@ -137,7 +153,7 @@ export function DataTable<TData, TValue>({
               variant="outline"
               size="sm"
               onClick={() => table.nextPage()}
-              disabled={!table.getCanNextPage()}
+              disabled={isLoading || !table.getCanNextPage()}
             >
               Next
             </Button>

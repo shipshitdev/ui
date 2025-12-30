@@ -15,4 +15,5 @@ export interface SelectProps
   placeholder?: string;
   error?: boolean;
   errorMessage?: string;
+  isLoading?: boolean;
 }

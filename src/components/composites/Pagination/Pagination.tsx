@@ -101,13 +101,12 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
         {...props}
       >
         <ul className={cn('flex items-center gap-1', paginationVariants({ size }))}>
-          {showFirstLast && (
+          {showFirstLast && currentPage > 1 && (
             <li>
               <Button
                 variant="outline"
                 size="icon"
                 onClick={() => onPageChange(1)}
-                disabled={currentPage === 1}
                 aria-label="First page"
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -138,7 +137,7 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
             return (
               <li key={pageNum}>
                 <Button
-                  variant={currentPage === pageNum ? 'primary' : 'outline'}
+                  variant={currentPage === pageNum ? 'secondary' : 'outline'}
                   onClick={() => onPageChange(pageNum)}
                   aria-label={`Page ${pageNum}`}
                   aria-current={currentPage === pageNum ? 'page' : undefined}
@@ -159,13 +158,12 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
               <ChevronRight className="h-4 w-4" />
             </Button>
           </li>
-          {showFirstLast && (
+          {showFirstLast && currentPage < totalPages && (
             <li>
               <Button
                 variant="outline"
                 size="icon"
                 onClick={() => onPageChange(totalPages)}
-                disabled={currentPage === totalPages}
                 aria-label="Last page"
               >
                 <ChevronRight className="h-4 w-4" />

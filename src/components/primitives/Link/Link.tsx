@@ -6,7 +6,8 @@ import { focusStyles, transitionColors } from '@/utils/styles';
 export const linkVariants = cva(`${transitionColors} ${focusStyles}`, {
   variants: {
     variant: {
-      default: 'text-foreground hover:text-primary dark:text-foreground dark:hover:text-primary',
+      default:
+        'text-foreground hover:text-foreground/80 dark:text-foreground dark:hover:text-foreground/80',
       primary: 'text-primary hover:text-primary/80 dark:text-primary dark:hover:text-primary/80',
       secondary:
         'text-muted-foreground hover:text-foreground dark:text-muted-foreground dark:hover:text-foreground',

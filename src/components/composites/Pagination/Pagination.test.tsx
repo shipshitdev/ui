@@ -63,7 +63,9 @@ describe('Pagination', () => {
   });
 
   it('shows first/last buttons when enabled', () => {
-    const { getByLabelText } = render(<Pagination {...defaultProps} showFirstLast />);
+    const { getByLabelText } = render(
+      <Pagination {...defaultProps} currentPage={5} showFirstLast />
+    );
     expect(getByLabelText('First page')).toBeTruthy();
     expect(getByLabelText('Last page')).toBeTruthy();
   });
@@ -79,9 +81,9 @@ describe('Pagination', () => {
     expect(getByLabelText('Page 3').getAttribute('aria-current')).toBe('page');
   });
 
-  it('applies primary variant to current page', () => {
+  it('applies secondary variant to current page', () => {
     const { getByLabelText } = render(<Pagination {...defaultProps} currentPage={3} />);
-    expect(getByLabelText('Page 3').className).toContain('bg-primary');
+    expect(getByLabelText('Page 3').className).toContain('bg-secondary');
   });
 
   it('applies custom className', () => {
@@ -148,18 +150,18 @@ describe('Pagination', () => {
     expect(onPageChange).toHaveBeenCalledWith(10);
   });
 
-  it('disables first button on first page', () => {
-    const { getByLabelText } = render(
+  it('hides first button on first page', () => {
+    const { queryByLabelText } = render(
       <Pagination {...defaultProps} currentPage={1} showFirstLast />
     );
-    expect((getByLabelText('First page') as HTMLButtonElement).disabled).toBe(true);
+    expect(queryByLabelText('First page')).toBeNull();
   });
 
-  it('disables last button on last page', () => {
-    const { getByLabelText } = render(
+  it('hides last button on last page', () => {
+    const { queryByLabelText } = render(
       <Pagination {...defaultProps} currentPage={10} showFirstLast />
     );
-    expect((getByLabelText('Last page') as HTMLButtonElement).disabled).toBe(true);
+    expect(queryByLabelText('Last page')).toBeNull();
   });
 
   it('handles pagination near the start', () => {
