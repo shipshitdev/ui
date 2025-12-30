@@ -100,6 +100,14 @@ function generateThemeSCSS(themeName, themeConfig, oppositeThemeConfig) {
     scss += '}\n\n';
   }
 
+  scss += '@layer base {\n';
+  scss += '  *,\n';
+  scss += '  ::before,\n';
+  scss += '  ::after {\n';
+  scss += '    border-color: hsl(var(--border));\n';
+  scss += '  }\n';
+  scss += '}\n\n';
+
   // Add keyframes (needed for accordion and other components)
   scss += '@keyframes accordion-down {\n';
   scss += '  from { height: 0; }\n';

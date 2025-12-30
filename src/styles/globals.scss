@@ -45,6 +45,14 @@
   --ring: 199.1 89.1% 48.2%;
 }
 
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: hsl(var(--border));
+  }
+}
+
 @theme {
   /* Map CSS variables to Tailwind v4 theme tokens */
   --color-background: hsl(var(--background));
@@ -72,6 +80,7 @@
   from {
     height: 0;
   }
+
   to {
     height: var(--radix-accordion-content-height);
   }
@@ -81,6 +90,7 @@
   from {
     height: var(--radix-accordion-content-height);
   }
+
   to {
     height: 0;
   }
