@@ -338,7 +338,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 1. Install the package:
 
 ```bash
-npm install @agenticindiedev/ui
+bun add @agenticindiedev/ui
 ```
 
 2. Update `tailwind.config.js`:

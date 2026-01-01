@@ -14,10 +14,6 @@ A modern React component library built with TypeScript, Tailwind CSS v4, Radix U
 
 ```bash
 bun add @agenticindiedev/ui
-# or
-npm install @agenticindiedev/ui
-# or
-yarn add @agenticindiedev/ui
 ```
 
 ## Quick Start
