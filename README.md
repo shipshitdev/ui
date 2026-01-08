@@ -1,4 +1,4 @@
-# AgenticIndieDevUI
+# ShipShitDevUI
 
 ![Status](https://img.shields.io/badge/status-WIP-yellow)
 ![Version](https://img.shields.io/badge/version-beta-orange)
@@ -8,12 +8,12 @@
 
 A modern React component library built with TypeScript, Tailwind CSS v4, Radix UI, and shadcn/ui patterns.
 
-📖 **[View Storybook Documentation](https://agenticindiedev.github.io/ui/)**
+📖 **[View Storybook Documentation](https://shipshitdev.github.io/ui/)**
 
 ## Installation
 
 ```bash
-bun add @agenticindiedev/ui
+bun add @shipshitdev/ui
 ```
 
 ## Quick Start
@@ -28,7 +28,7 @@ Add the preset to your `tailwind.config.ts`:
 import type { Config } from 'tailwindcss';
 
 export default {
-  presets: [require('@agenticindiedev/ui/tailwind.preset')],
+  presets: [require('@shipshitdev/ui/tailwind.preset')],
   // Your other Tailwind config...
 } satisfies Config;
 ```
@@ -39,20 +39,20 @@ Choose a theme and import it (this replaces the need for `styles.css`):
 
 ```tsx
 // Light theme (off-white) - includes theme variables
-import '@agenticindiedev/ui/themes/light';
+import '@shipshitdev/ui/themes/light';
 
 // OR Dark theme (gray) - includes theme variables
-import '@agenticindiedev/ui/themes/dark';
+import '@shipshitdev/ui/themes/dark';
 
 // Note: Import only ONE theme file, not both styles.css and a theme file
 ```
 
-Note for Tailwind v4: theme files include an `@source` directive so Tailwind scans the UI package and generates component utilities. If you skip the theme import, add an `@source` for `@agenticindiedev/ui/dist/**/*.{js,cjs}` in your global CSS.
+Note for Tailwind v4: theme files include an `@source` directive so Tailwind scans the UI package and generates component utilities. If you skip the theme import, add an `@source` for `@shipshitdev/ui/dist/**/*.{js,cjs}` in your global CSS.
 
 ### 3. Use Components
 
 ```tsx
-import { Button, Card, CardHeader, CardContent } from '@agenticindiedev/ui';
+import { Button, Card, CardHeader, CardContent } from '@shipshitdev/ui';
 
 function App() {
   return (
@@ -73,7 +73,7 @@ That's it! Your components are ready to use and look great out of the box.
 You can switch themes programmatically:
 
 ```tsx
-import { setTheme, getTheme, initTheme } from '@agenticindiedev/ui';
+import { setTheme, getTheme, initTheme } from '@shipshitdev/ui';
 
 // Initialize theme on app load
 initTheme();
@@ -126,8 +126,8 @@ This launches Storybook at `http://localhost:6006` where you can preview and dev
 ## Usage
 
 ```tsx
-import { Button, Card, CardHeader, CardContent } from '@agenticindiedev/ui';
-import '@agenticindiedev/ui/styles.css';
+import { Button, Card, CardHeader, CardContent } from '@shipshitdev/ui';
+import '@shipshitdev/ui/styles.css';
 
 function App() {
   return (
@@ -248,7 +248,7 @@ For a complete custom theme, create your own SCSS file:
 ```scss
 /* my-custom-theme.scss */
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark.scss' as *;
+@use '@shipshitdev/ui/themes/dark.scss' as *;
 
 :root {
   --primary: 142 76% 36%; /* Your brand green */
@@ -341,7 +341,7 @@ You can also extend colors in your `tailwind.config.ts`:
 import type { Config } from 'tailwindcss';
 
 export default {
-  presets: [require('@agenticindiedev/ui/tailwind.preset')],
+  presets: [require('@shipshitdev/ui/tailwind.preset')],
   theme: {
     extend: {
       colors: {
@@ -436,8 +436,8 @@ Dark mode is supported via the `dark` class on your HTML element. Customize dark
 The DataTable component accepts arrays for columns and rows, making it easy to display dynamic data with action buttons:
 
 ```tsx
-import { DataTable } from '@agenticindiedev/ui';
-import { DropdownMenu, DropdownMenuItem } from '@agenticindiedev/ui';
+import { DataTable } from '@shipshitdev/ui';
+import { DropdownMenu, DropdownMenuItem } from '@shipshitdev/ui';
 import type { ColumnDef } from '@tanstack/react-table';
 
 interface User {
@@ -568,7 +568,7 @@ This project uses [Storybook](https://storybook.js.org/) for component developme
 ### Viewing Storybook
 
 - **Local Development**: Run `bun dev` to start Storybook at `http://localhost:6006`
-- **Online**: View the deployed Storybook at [https://agenticindiedev.github.io/ui/](https://agenticindiedev.github.io/ui/) (automatically deployed on push to main)
+- **Online**: View the deployed Storybook at [https://shipshitdev.github.io/ui/](https://shipshitdev.github.io/ui/) (automatically deployed on push to main)
 
 ### Storybook Features
 
@@ -584,7 +584,7 @@ Storybook is automatically deployed to GitHub Pages on every push to the `main` 
 
 1. Builds Storybook using `bun run build-storybook`
 2. Deploys the static build to the `gh-pages` branch
-3. Makes it available at [https://agenticindiedev.github.io/ui/](https://agenticindiedev.github.io/ui/)
+3. Makes it available at [https://shipshitdev.github.io/ui/](https://shipshitdev.github.io/ui/)
 
 ## License
 

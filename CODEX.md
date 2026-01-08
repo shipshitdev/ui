@@ -1,4 +1,4 @@
-# @agenticindiedev/ui
+# @shipshitdev/ui
 
 Codex-specific entry point. Documentation in `.agent/`.
 

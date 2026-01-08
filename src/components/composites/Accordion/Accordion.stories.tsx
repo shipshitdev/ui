@@ -120,7 +120,7 @@ export const FAQ: Story = {
         <AccordionTrigger>How do I install it?</AccordionTrigger>
         <AccordionContent>
           You can install it using your preferred package manager. For example, with bun:{' '}
-          <code>bun add @agenticindiedev/ui</code>
+          <code>bun add @shipshitdev/ui</code>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="faq-3">

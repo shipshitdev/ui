@@ -1,6 +1,6 @@
-# @agenticindiedev/ui - Agent Documentation Hub
+# @shipshitdev/ui - Agent Documentation Hub
 
-**Welcome to the @agenticindiedev/ui workspace!**
+**Welcome to the @shipshitdev/ui workspace!**
 
 This is the `.agent/` folder containing AI agent documentation, session tracking, and project rules.
 

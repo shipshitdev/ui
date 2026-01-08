@@ -1,6 +1,6 @@
 # Setup Guide
 
-Complete setup guide for using `@agenticindiedev/ui` in your project.
+Complete setup guide for using `@shipshitdev/ui` in your project.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ Complete setup guide for using `@agenticindiedev/ui` in your project.
 
 ```bash
 # Using Bun
-bun add @agenticindiedev/ui
+bun add @shipshitdev/ui
 ```
 
 ## Step 1: Configure Tailwind CSS
@@ -25,11 +25,11 @@ Add the preset to your `tailwind.config.ts`:
 import type { Config } from 'tailwindcss';
 
 export default {
-  presets: [require('@agenticindiedev/ui/tailwind.preset')],
+  presets: [require('@shipshitdev/ui/tailwind.preset')],
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
     // Include the library in content paths
-    '@agenticindiedev/ui/dist/**/*.{js,cjs}',
+    '@shipshitdev/ui/dist/**/*.{js,cjs}',
   ],
   // Your other Tailwind config...
 } satisfies Config;
@@ -46,7 +46,7 @@ export default {
   darkMode: 'class',
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
-    '@agenticindiedev/ui/dist/**/*.{js,cjs}',
+    '@shipshitdev/ui/dist/**/*.{js,cjs}',
   ],
   theme: {
     extend: {
@@ -84,7 +84,7 @@ For Tailwind CSS v4, use the `@use` directive in your SCSS file:
 
 ```scss
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark' as *;
+@use '@shipshitdev/ui/themes/dark' as *;
 
 @theme {
   /* Map agentic UI CSS variables to Tailwind v4 theme variables */
@@ -123,7 +123,7 @@ For Tailwind CSS v4, use the `@use` directive in your SCSS file:
 Theme files include an `@source` directive so Tailwind scans the UI package and generates component utilities. If you skip the theme import or use a custom theme file, add this to your globals:
 
 ```scss
-@source '../../node_modules/@agenticindiedev/ui/dist/**/*.{js,cjs}';
+@source '../../node_modules/@shipshitdev/ui/dist/**/*.{js,cjs}';
 ```
 
 **Then import this SCSS file in your app entry point:**
@@ -139,7 +139,7 @@ To use the light theme instead:
 
 ```scss
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/light' as *;
+@use '@shipshitdev/ui/themes/light' as *;
 
 @theme {
   /* Same @theme mapping as above */
@@ -152,7 +152,7 @@ If you're using Tailwind CSS v3, you can still import themes directly:
 
 ```tsx
 // In your main.tsx, App.tsx, or _app.tsx
-import '@agenticindiedev/ui/themes/dark';
+import '@shipshitdev/ui/themes/dark';
 ```
 
 **Important:**
@@ -167,7 +167,7 @@ import '@agenticindiedev/ui/themes/dark';
 Import and use components:
 
 ```tsx
-import { Button, Card, CardHeader, CardContent } from '@agenticindiedev/ui';
+import { Button, Card, CardHeader, CardContent } from '@shipshitdev/ui';
 
 function App() {
   return (
@@ -190,7 +190,7 @@ function App() {
 Call `initTheme()` when your app loads to apply the saved theme or system preference:
 
 ```tsx
-import { initTheme } from '@agenticindiedev/ui';
+import { initTheme } from '@shipshitdev/ui';
 import { useEffect } from 'react';
 
 function App() {
@@ -205,7 +205,7 @@ function App() {
 ### Switch Themes Programmatically
 
 ```tsx
-import { setTheme, getTheme, toggleTheme } from '@agenticindiedev/ui';
+import { setTheme, getTheme, toggleTheme } from '@shipshitdev/ui';
 
 // Set a specific theme
 setTheme('dark'); // or 'light'
@@ -222,7 +222,7 @@ const current = getTheme(); // Returns 'light' | 'dark'
 Automatically switch themes based on system preference:
 
 ```tsx
-import { watchSystemPreference } from '@agenticindiedev/ui';
+import { watchSystemPreference } from '@shipshitdev/ui';
 import { useEffect } from 'react';
 
 function App() {
@@ -245,7 +245,7 @@ function App() {
 1. Install the package:
 
 ```bash
-bun add @agenticindiedev/ui
+bun add @shipshitdev/ui
 ```
 
 2. Update `tailwind.config.ts`:
@@ -254,11 +254,11 @@ bun add @agenticindiedev/ui
 import type { Config } from 'tailwindcss';
 
 export default {
-  presets: [require('@agenticindiedev/ui/tailwind.preset')],
+  presets: [require('@shipshitdev/ui/tailwind.preset')],
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@agenticindiedev/ui/dist/**/*.{js,cjs}',
+    './node_modules/@shipshitdev/ui/dist/**/*.{js,cjs}',
   ],
 } satisfies Config;
 ```
@@ -267,7 +267,7 @@ export default {
 
 ```scss
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark' as *;
+@use '@shipshitdev/ui/themes/dark' as *;
 
 @theme {
   --color-background: hsl(var(--background));
@@ -287,7 +287,7 @@ import './globals.scss';
 1. Install the package:
 
 ```bash
-bun add @agenticindiedev/ui
+bun add @shipshitdev/ui
 ```
 
 2. Update `tailwind.config.ts`:
@@ -296,11 +296,11 @@ bun add @agenticindiedev/ui
 import type { Config } from 'tailwindcss';
 
 export default {
-  presets: [require('@agenticindiedev/ui/tailwind.preset')],
+  presets: [require('@shipshitdev/ui/tailwind.preset')],
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@agenticindiedev/ui/dist/**/*.{js,cjs}',
+    './node_modules/@shipshitdev/ui/dist/**/*.{js,cjs}',
   ],
 } satisfies Config;
 ```
@@ -309,7 +309,7 @@ export default {
 
 ```scss
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark' as *;
+@use '@shipshitdev/ui/themes/dark' as *;
 
 @theme {
   --color-background: hsl(var(--background));
@@ -338,17 +338,17 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 1. Install the package:
 
 ```bash
-bun add @agenticindiedev/ui
+bun add @shipshitdev/ui
 ```
 
 2. Update `tailwind.config.js`:
 
 ```js
 module.exports = {
-  presets: [require('@agenticindiedev/ui/tailwind.preset')],
+  presets: [require('@shipshitdev/ui/tailwind.preset')],
   content: [
     './src/**/*.{js,jsx,ts,tsx}',
-    './node_modules/@agenticindiedev/ui/dist/**/*.{js,cjs}',
+    './node_modules/@shipshitdev/ui/dist/**/*.{js,cjs}',
   ],
 };
 ```
@@ -357,7 +357,7 @@ module.exports = {
 
 ```scss
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark' as *;
+@use '@shipshitdev/ui/themes/dark' as *;
 
 @theme {
   --color-background: hsl(var(--background));
@@ -458,7 +458,7 @@ Create your own theme SCSS file with all your custom colors:
 ```scss
 /* my-theme.scss */
 @use 'tailwindcss';
-@use '@agenticindiedev/ui/themes/dark' as *;
+@use '@shipshitdev/ui/themes/dark' as *;
 
 :root {
   --primary: 142 76% 36%; /* Your brand color */
@@ -545,7 +545,7 @@ Extend colors in your `tailwind.config.ts`:
 import type { Config } from 'tailwindcss';
 
 export default {
-  presets: [require('@agenticindiedev/ui/tailwind.preset')],
+  presets: [require('@shipshitdev/ui/tailwind.preset')],
   theme: {
     extend: {
       colors: {
@@ -595,6 +595,6 @@ bun add -d typescript @types/react @types/react-dom
 
 ## Next Steps
 
-- Browse the [Storybook documentation](https://agenticindiedev.github.io/ui/) for component examples
+- Browse the [Storybook documentation](https://shipshitdev.github.io/ui/) for component examples
 - Check the [README](./README.md) for component API documentation
 - Explore component source code for advanced customization

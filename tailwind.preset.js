@@ -1,12 +1,12 @@
 /**
- * Tailwind CSS preset for @agenticindiedev/ui
+ * Tailwind CSS preset for @shipshitdev/ui
  *
  * Usage in your tailwind.config.ts:
  * ```ts
  * import type { Config } from 'tailwindcss';
  *
  * export default {
- *   presets: [require('@agenticindiedev/ui/tailwind.preset')],
+ *   presets: [require('@shipshitdev/ui/tailwind.preset')],
  *   // Your custom config here
  * } satisfies Config;
  * ```
@@ -14,7 +14,7 @@
 
 module.exports = {
   darkMode: 'class',
-  content: ['@agenticindiedev/ui/dist/**/*.{js,cjs}'],
+  content: ['@shipshitdev/ui/dist/**/*.{js,cjs}'],
   theme: {
     extend: {
       colors: {

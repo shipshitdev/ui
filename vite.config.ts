@@ -50,7 +50,7 @@ export default defineConfig(({ command, mode }) => {
     build: {
       lib: {
         entry: resolve(__dirname, 'src/index.ts'),
-        name: 'AgenticIndieDevUI',
+        name: 'ShipShitDevUI',
         formats: ['es', 'cjs'],
         fileName: (format) => `index.${format === 'es' ? 'js' : 'cjs'}`,
       },

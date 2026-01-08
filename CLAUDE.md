@@ -1,4 +1,4 @@
-# @agenticindiedev/ui
+# @shipshitdev/ui
 
 Claude-specific entry point. Documentation in `.agent/`.
 

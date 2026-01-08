@@ -1,6 +1,6 @@
 import type { Theme } from '../themes';
 
-const THEME_STORAGE_KEY = '@agenticindiedev/ui-theme';
+const THEME_STORAGE_KEY = '@shipshitdev/ui-theme';
 const THEME_ATTRIBUTE = 'data-theme';
 
 /**
