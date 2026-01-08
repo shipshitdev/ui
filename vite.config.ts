@@ -7,18 +7,14 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
 const dirname =
-  typeof __dirname !== 'undefined'
-    ? __dirname
-    : path.dirname(fileURLToPath(import.meta.url));
+  typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig(({ command, mode }) => {
   // Only include dts plugin when building the library (not for Storybook or dev)
   // Check for explicit BUILD_LIBRARY env var set by build-lib.sh script
   const isLibraryBuild =
-    command === 'build' &&
-    mode === 'production' &&
-    process.env.BUILD_LIBRARY === 'true';
+    command === 'build' && mode === 'production' && process.env.BUILD_LIBRARY === 'true';
 
   return {
     plugins: [
@@ -57,11 +53,7 @@ export default defineConfig(({ command, mode }) => {
       rollupOptions: {
         external: (id) => {
           // Externalize React and React-DOM (peer dependencies)
-          if (
-            id === 'react' ||
-            id === 'react-dom' ||
-            id === 'react/jsx-runtime'
-          ) {
+          if (id === 'react' || id === 'react-dom' || id === 'react/jsx-runtime') {
             return true;
           }
 

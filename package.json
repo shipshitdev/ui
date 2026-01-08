@@ -124,6 +124,7 @@
     "check:fix": "biome check --write .",
     "deploy:storybook": "bun run build-storybook",
     "dev": "storybook dev -p 6006",
+    "format": "biome format --write .",
     "format:check": "biome check --formatter-enabled=false .",
     "format:fix": "biome format --write .",
     "lint:check": "biome lint .",

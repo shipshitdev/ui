@@ -37,25 +37,25 @@ export const MultipleTabs: Story = {
       </TabsList>
       <TabsContent value="overview">
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Overview</h3>
+          <h3 className="font-semibold text-lg">Overview</h3>
           <p>View your account overview and summary.</p>
         </div>
       </TabsContent>
       <TabsContent value="analytics">
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Analytics</h3>
+          <h3 className="font-semibold text-lg">Analytics</h3>
           <p>View detailed analytics and metrics.</p>
         </div>
       </TabsContent>
       <TabsContent value="reports">
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Reports</h3>
+          <h3 className="font-semibold text-lg">Reports</h3>
           <p>Generate and view reports.</p>
         </div>
       </TabsContent>
       <TabsContent value="notifications">
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Notifications</h3>
+          <h3 className="font-semibold text-lg">Notifications</h3>
           <p>Manage your notification settings.</p>
         </div>
       </TabsContent>
@@ -73,22 +73,22 @@ export const WithCards: Story = {
       </TabsList>
       <TabsContent value="general">
         <div className="rounded-lg border p-4">
-          <h3 className="text-lg font-semibold mb-2">General Settings</h3>
-          <p className="text-sm text-muted-foreground">Manage your general account settings.</p>
+          <h3 className="mb-2 font-semibold text-lg">General Settings</h3>
+          <p className="text-muted-foreground text-sm">Manage your general account settings.</p>
         </div>
       </TabsContent>
       <TabsContent value="security">
         <div className="rounded-lg border p-4">
-          <h3 className="text-lg font-semibold mb-2">Security Settings</h3>
-          <p className="text-sm text-muted-foreground">
+          <h3 className="mb-2 font-semibold text-lg">Security Settings</h3>
+          <p className="text-muted-foreground text-sm">
             Manage your security and privacy settings.
           </p>
         </div>
       </TabsContent>
       <TabsContent value="integrations">
         <div className="rounded-lg border p-4">
-          <h3 className="text-lg font-semibold mb-2">Integrations</h3>
-          <p className="text-sm text-muted-foreground">Connect and manage your integrations.</p>
+          <h3 className="mb-2 font-semibold text-lg">Integrations</h3>
+          <p className="text-muted-foreground text-sm">Connect and manage your integrations.</p>
         </div>
       </TabsContent>
     </Tabs>

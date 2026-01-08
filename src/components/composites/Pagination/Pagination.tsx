@@ -110,7 +110,7 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
                 aria-label="First page"
               >
                 <ChevronLeft className="h-4 w-4" />
-                <ChevronLeft className="h-4 w-4 -ml-2" />
+                <ChevronLeft className="-ml-2 h-4 w-4" />
               </Button>
             </li>
           )}
@@ -128,6 +128,7 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
           {visiblePages.map((page, index) => {
             if (page === '...') {
               return (
+                // biome-ignore lint/suspicious/noArrayIndexKey: Ellipsis are placeholders with no stable ID
                 <li key={`ellipsis-${index}`}>
                   <span className="px-3 py-2 text-muted-foreground">...</span>
                 </li>
@@ -167,7 +168,7 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
                 aria-label="Last page"
               >
                 <ChevronRight className="h-4 w-4" />
-                <ChevronRight className="h-4 w-4 -ml-2" />
+                <ChevronRight className="-ml-2 h-4 w-4" />
               </Button>
             </li>
           )}

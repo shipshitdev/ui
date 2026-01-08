@@ -24,7 +24,7 @@ export const Default: Story = {
       <PopoverContent>
         <div className="space-y-2">
           <h4 className="font-medium leading-none">Dimensions</h4>
-          <p className="text-sm text-muted-foreground">Set the dimensions for the layer.</p>
+          <p className="text-muted-foreground text-sm">Set the dimensions for the layer.</p>
         </div>
       </PopoverContent>
     </Popover>
@@ -44,11 +44,11 @@ export const WithForm: Story = {
         <div className="space-y-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">Date Picker</h4>
-            <p className="text-sm text-muted-foreground">Select a date from the calendar.</p>
+            <p className="text-muted-foreground text-sm">Select a date from the calendar.</p>
           </div>
           <div className="grid gap-2">
             <div className="grid gap-1">
-              <label htmlFor="width" className="text-sm font-medium">
+              <label htmlFor="width" className="font-medium text-sm">
                 Width
               </label>
               <input
@@ -58,7 +58,7 @@ export const WithForm: Story = {
               />
             </div>
             <div className="grid gap-1">
-              <label htmlFor="height" className="text-sm font-medium">
+              <label htmlFor="height" className="font-medium text-sm">
                 Height
               </label>
               <input
@@ -84,9 +84,9 @@ export const WithList: Story = {
         <div className="space-y-2">
           <h4 className="font-medium">Options</h4>
           <ul className="space-y-1 text-sm">
-            <li className="cursor-pointer hover:bg-accent p-2 rounded">Option 1</li>
-            <li className="cursor-pointer hover:bg-accent p-2 rounded">Option 2</li>
-            <li className="cursor-pointer hover:bg-accent p-2 rounded">Option 3</li>
+            <li className="cursor-pointer rounded p-2 hover:bg-accent">Option 1</li>
+            <li className="cursor-pointer rounded p-2 hover:bg-accent">Option 2</li>
+            <li className="cursor-pointer rounded p-2 hover:bg-accent">Option 3</li>
           </ul>
         </div>
       </PopoverContent>

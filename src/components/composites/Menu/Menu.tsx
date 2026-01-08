@@ -57,7 +57,7 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(
             <span
               className={cn(
                 menuItemVariants({ orientation, active: item.active }),
-                item.disabled && 'opacity-50 cursor-not-allowed pointer-events-none',
+                item.disabled && 'pointer-events-none cursor-not-allowed opacity-50',
                 !item.active && (index % 2 === 0 ? 'bg-background' : 'bg-muted/30')
               )}
             >
@@ -68,6 +68,7 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(
           if (item.href && !item.disabled) {
             return (
               <Link
+                // biome-ignore lint/suspicious/noArrayIndexKey: Menu items are static and don't reorder
                 key={index}
                 href={item.href}
                 onClick={item.onClick}
@@ -82,11 +83,12 @@ const Menu = React.forwardRef<HTMLElement, MenuProps>(
 
           return (
             <button
+              // biome-ignore lint/suspicious/noArrayIndexKey: Menu items are static and don't reorder
               key={index}
               type="button"
               onClick={item.onClick}
               disabled={item.disabled}
-              className="block text-left w-full"
+              className="block w-full text-left"
             >
               {content}
             </button>

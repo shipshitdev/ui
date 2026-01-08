@@ -25,7 +25,7 @@ type Story = StoryObj<typeof Loading>;
 
 export const Spinner: Story = {
   render: () => (
-    <div className="flex flex-col gap-8 items-center">
+    <div className="flex flex-col items-center gap-8">
       <Loading variant="spinner" size="sm" />
       <Loading variant="spinner" size="md" />
       <Loading variant="spinner" size="lg" />
@@ -35,7 +35,7 @@ export const Spinner: Story = {
 
 export const Dots: Story = {
   render: () => (
-    <div className="flex flex-col gap-8 items-center">
+    <div className="flex flex-col items-center gap-8">
       <Loading variant="dots" size="sm" />
       <Loading variant="dots" size="md" />
       <Loading variant="dots" size="lg" />
@@ -45,7 +45,7 @@ export const Dots: Story = {
 
 export const Bars: Story = {
   render: () => (
-    <div className="flex flex-col gap-8 items-center">
+    <div className="flex flex-col items-center gap-8">
       <Loading variant="bars" size="sm" />
       <Loading variant="bars" size="md" />
       <Loading variant="bars" size="lg" />
@@ -55,7 +55,7 @@ export const Bars: Story = {
 
 export const Pulse: Story = {
   render: () => (
-    <div className="flex flex-col gap-8 items-center">
+    <div className="flex flex-col items-center gap-8">
       <Loading variant="pulse" size="sm" />
       <Loading variant="pulse" size="md" />
       <Loading variant="pulse" size="lg" />
@@ -65,7 +65,7 @@ export const Pulse: Story = {
 
 export const WithText: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 items-center">
+    <div className="flex flex-col items-center gap-4">
       <Loading variant="spinner" text="Loading..." />
       <Loading variant="dots" text="Please wait" />
       <Loading variant="bars" text="Processing" />
@@ -76,34 +76,34 @@ export const WithText: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex flex-col gap-8 items-center">
+    <div className="flex flex-col items-center gap-8">
       <div className="flex flex-col gap-4">
-        <h3 className="text-sm font-medium text-muted-foreground">Spinner</h3>
-        <div className="flex gap-8 items-center">
+        <h3 className="font-medium text-muted-foreground text-sm">Spinner</h3>
+        <div className="flex items-center gap-8">
           <Loading variant="spinner" size="sm" />
           <Loading variant="spinner" size="md" />
           <Loading variant="spinner" size="lg" />
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <h3 className="text-sm font-medium text-muted-foreground">Dots</h3>
-        <div className="flex gap-8 items-center">
+        <h3 className="font-medium text-muted-foreground text-sm">Dots</h3>
+        <div className="flex items-center gap-8">
           <Loading variant="dots" size="sm" />
           <Loading variant="dots" size="md" />
           <Loading variant="dots" size="lg" />
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <h3 className="text-sm font-medium text-muted-foreground">Bars</h3>
-        <div className="flex gap-8 items-center">
+        <h3 className="font-medium text-muted-foreground text-sm">Bars</h3>
+        <div className="flex items-center gap-8">
           <Loading variant="bars" size="sm" />
           <Loading variant="bars" size="md" />
           <Loading variant="bars" size="lg" />
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <h3 className="text-sm font-medium text-muted-foreground">Pulse</h3>
-        <div className="flex gap-8 items-center">
+        <h3 className="font-medium text-muted-foreground text-sm">Pulse</h3>
+        <div className="flex items-center gap-8">
           <Loading variant="pulse" size="sm" />
           <Loading variant="pulse" size="md" />
           <Loading variant="pulse" size="lg" />

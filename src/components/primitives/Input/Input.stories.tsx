@@ -44,7 +44,7 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <Input size="sm" placeholder="Small input" />
       <Input size="md" placeholder="Medium input" />
       <Input size="lg" placeholder="Large input" />
@@ -54,7 +54,7 @@ export const Sizes: Story = {
 
 export const Types: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <Input type="text" placeholder="Text input" />
       <Input type="email" placeholder="Email input" />
       <Input type="password" placeholder="Password input" />
@@ -67,7 +67,7 @@ export const Types: Story = {
 
 export const WithIcons: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <Input leftIcon={<Search className="h-4 w-4" />} placeholder="Search..." />
       <Input leftIcon={<Mail className="h-4 w-4" />} placeholder="Email" type="email" />
       <Input rightIcon={<Lock className="h-4 w-4" />} placeholder="Password" type="password" />
@@ -82,7 +82,7 @@ export const WithIcons: Story = {
 
 export const States: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <Input placeholder="Normal input" />
       <Input placeholder="Disabled input" disabled />
       <Input placeholder="Error input" error errorMessage="This field is required" />

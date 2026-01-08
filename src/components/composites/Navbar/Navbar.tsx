@@ -79,7 +79,7 @@ const Navbar = React.forwardRef<HTMLElement, NavbarProps>(
 
         {/* Mobile Menu */}
         {items.length > 0 && isMobileOpen && (
-          <div className="absolute top-full left-0 right-0 md:hidden bg-background border-b border-border shadow-lg z-50">
+          <div className="absolute top-full right-0 left-0 z-50 border-border border-b bg-background shadow-lg md:hidden">
             <nav className="p-4">
               <Menu orientation="vertical" items={items} />
             </nav>

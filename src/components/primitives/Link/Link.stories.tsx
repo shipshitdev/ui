@@ -60,23 +60,23 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-2">
-        <h3 className="text-sm font-medium text-muted-foreground">Default</h3>
+        <h3 className="font-medium text-muted-foreground text-sm">Default</h3>
         <Link href="#">Default link</Link>
       </div>
       <div className="flex flex-col gap-2">
-        <h3 className="text-sm font-medium text-muted-foreground">Primary</h3>
+        <h3 className="font-medium text-muted-foreground text-sm">Primary</h3>
         <Link href="#" variant="primary">
           Primary link
         </Link>
       </div>
       <div className="flex flex-col gap-2">
-        <h3 className="text-sm font-medium text-muted-foreground">Secondary</h3>
+        <h3 className="font-medium text-muted-foreground text-sm">Secondary</h3>
         <Link href="#" variant="secondary">
           Secondary link
         </Link>
       </div>
       <div className="flex flex-col gap-2">
-        <h3 className="text-sm font-medium text-muted-foreground">Muted</h3>
+        <h3 className="font-medium text-muted-foreground text-sm">Muted</h3>
         <Link href="#" variant="muted">
           Muted link
         </Link>
@@ -88,7 +88,7 @@ export const AllVariants: Story = {
 export const InParagraph: Story = {
   render: () => (
     <div className="max-w-md">
-      <p className="text-sm text-foreground">
+      <p className="text-foreground text-sm">
         This is a paragraph with a{' '}
         <Link href="#" variant="primary">
           link inside

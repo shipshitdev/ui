@@ -122,7 +122,7 @@ export const WithoutTitle: Story = {
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-full max-w-md">
+    <div className="flex w-full max-w-md flex-col gap-4">
       <Toast variant="default">
         <ToastTitle>Default Toast</ToastTitle>
         <ToastDescription>This is a default toast notification.</ToastDescription>

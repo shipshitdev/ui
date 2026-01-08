@@ -47,7 +47,7 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <Select size="sm" options={options} placeholder="Small select" />
       <Select size="md" options={options} placeholder="Medium select" />
       <Select size="lg" options={options} placeholder="Large select" />
@@ -57,7 +57,7 @@ export const Sizes: Story = {
 
 export const States: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <Select options={options} placeholder="Normal select" />
       <Select options={options} placeholder="Disabled select" disabled />
       <Select
@@ -72,7 +72,7 @@ export const States: Story = {
 
 export const WithDefaultValue: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <Select options={options} placeholder="Select an option..." defaultValue="option2" />
     </div>
   ),

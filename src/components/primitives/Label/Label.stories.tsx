@@ -23,7 +23,7 @@ export const Default: Story = {
 
 export const WithInput: Story = {
   render: () => (
-    <div className="flex flex-col gap-2 w-64">
+    <div className="flex w-64 flex-col gap-2">
       <Label htmlFor="email">Email</Label>
       <Input id="email" type="email" placeholder="Enter your email" />
     </div>
@@ -41,7 +41,7 @@ export const WithCheckbox: Story = {
 
 export const Required: Story = {
   render: () => (
-    <div className="flex flex-col gap-2 w-64">
+    <div className="flex w-64 flex-col gap-2">
       <Label htmlFor="name">
         Name <span className="text-destructive">*</span>
       </Label>
@@ -52,7 +52,7 @@ export const Required: Story = {
 
 export const FormExample: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <div className="flex flex-col gap-2">
         <Label htmlFor="username">Username</Label>
         <Input id="username" placeholder="Enter username" />

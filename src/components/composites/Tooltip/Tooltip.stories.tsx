@@ -52,7 +52,7 @@ export const WithIcon: Story = {
 
 export const Positions: Story = {
   render: () => (
-    <div className="flex flex-col gap-8 items-center">
+    <div className="flex flex-col items-center gap-8">
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="outline">Top</Button>

@@ -37,8 +37,7 @@ const columns: ColumnDef<User>[] = [
   },
   {
     id: 'actions',
-    cell: ({ row }) => {
-      const user = row.original;
+    cell: () => {
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -47,10 +46,8 @@ const columns: ColumnDef<User>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem onClick={() => console.warn('Edit', user.id)}>Edit</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => console.warn('Delete', user.id)}>
-              Delete
-            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => {}}>Edit</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => {}}>Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

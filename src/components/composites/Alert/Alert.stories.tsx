@@ -42,7 +42,7 @@ export const Destructive: Story = {
 
 export const WithIcon: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-96">
+    <div className="flex w-96 flex-col gap-4">
       <Alert>
         <Info className="h-4 w-4" />
         <AlertTitle>Information</AlertTitle>

@@ -456,6 +456,7 @@ describe('DataTable', () => {
     // This exercises the onChange handler: (event) => setGlobalFilter(String(event.target.value))
     const testValues = ['text', '123', '', 'special-chars-!@#$'];
 
+    // biome-ignore lint/complexity/noForEach: Acceptable for sequential test execution
     testValues.forEach((value) => {
       fireEvent.change(input, { target: { value } });
       expect(input.value).toBe(value);

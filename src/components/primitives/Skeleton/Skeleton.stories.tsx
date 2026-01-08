@@ -29,7 +29,7 @@ export const Shapes: Story = {
 
 export const Card: Story = {
   render: () => (
-    <div className="flex flex-col space-y-3 w-64">
+    <div className="flex w-64 flex-col space-y-3">
       <Skeleton className="h-[125px] w-full rounded-xl" />
       <div className="space-y-2">
         <Skeleton className="h-4 w-full" />

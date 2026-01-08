@@ -82,7 +82,7 @@ export function DataTable<TData, TValue>({
             value={globalFilter ?? ''}
             onChange={(event) => setGlobalFilter(String(event.target.value))}
             disabled={isLoading}
-            className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground ${transitionColors} ${inputFocusStyles} ${disabledCursorStyles} max-w-sm`}
+            className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm file:border-0 file:bg-transparent file:font-medium file:text-sm placeholder:text-muted-foreground ${transitionColors} ${inputFocusStyles} ${disabledCursorStyles} max-w-sm`}
           />
         </div>
       )}
@@ -106,8 +106,10 @@ export function DataTable<TData, TValue>({
           <TableBody>
             {isLoading ? (
               Array.from({ length: skeletonRows }).map((_, rowIndex) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: Skeleton rows are loading placeholders
                 <TableRow key={`skeleton-${rowIndex}`}>
                   {columns.map((_, colIndex) => (
+                    // biome-ignore lint/suspicious/noArrayIndexKey: Skeleton cells are loading placeholders
                     <TableCell key={`skeleton-${rowIndex}-${colIndex}`}>
                       <Skeleton className="h-4 w-full" />
                     </TableCell>
@@ -136,7 +138,7 @@ export function DataTable<TData, TValue>({
       </div>
       {pagination && (
         <div className="flex items-center justify-end space-x-2">
-          <div className="flex-1 text-sm text-muted-foreground">
+          <div className="flex-1 text-muted-foreground text-sm">
             {table.getFilteredSelectedRowModel().rows.length} of{' '}
             {table.getFilteredRowModel().rows.length} row(s) selected.
           </div>

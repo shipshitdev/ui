@@ -56,10 +56,11 @@ const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
             return (
+              // biome-ignore lint/suspicious/noArrayIndexKey: Breadcrumb items are static and don't reorder
               <React.Fragment key={index}>
                 <li>
                   {isLast ? (
-                    <span className="text-foreground font-medium" aria-current="page">
+                    <span className="font-medium text-foreground" aria-current="page">
                       {item.label}
                     </span>
                   ) : item.href ? (

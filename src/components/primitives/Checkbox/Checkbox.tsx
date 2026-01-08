@@ -55,13 +55,13 @@ export const Checkbox = React.forwardRef<
           {label && (
             <label
               htmlFor={checkboxId}
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+              className="cursor-pointer font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
               {label}
             </label>
           )}
           {description && (
-            <span id={descriptionId} className="text-sm text-muted-foreground">
+            <span id={descriptionId} className="text-muted-foreground text-sm">
               {description}
             </span>
           )}

@@ -40,7 +40,7 @@ export const Horizontal: Story = {
 
 export const Vertical: Story = {
   render: () => (
-    <div className="flex items-center h-20">
+    <div className="flex h-20 items-center">
       <div className="px-4">Left</div>
       <Separator orientation="vertical" />
       <div className="px-4">Right</div>
@@ -50,7 +50,7 @@ export const Vertical: Story = {
 
 export const InList: Story = {
   render: () => (
-    <div className="w-64 border rounded-lg p-4 space-y-2">
+    <div className="w-64 space-y-2 rounded-lg border p-4">
       <div className="p-2">Item 1</div>
       <Separator />
       <div className="p-2">Item 2</div>
@@ -67,7 +67,7 @@ export const WithText: Story = {
     <div className="w-64">
       <div className="flex items-center gap-4">
         <Separator className="flex-1" />
-        <span className="text-sm text-muted-foreground">OR</span>
+        <span className="text-muted-foreground text-sm">OR</span>
         <Separator className="flex-1" />
       </div>
     </div>

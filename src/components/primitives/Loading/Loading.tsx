@@ -100,11 +100,11 @@ const Loading = React.forwardRef<HTMLDivElement, LoadingProps>(
       return (
         <div ref={ref} className={cn('flex items-center gap-2', className)} {...props}>
           <div className={cn(loadingVariants({ variant, size }), 'text-primary')}>
-            <span className="inline-block rounded-full bg-current animate-[bounce_1.4s_ease-in-out_infinite]" />
-            <span className="inline-block rounded-full bg-current animate-[bounce_1.4s_ease-in-out_0.2s_infinite]" />
-            <span className="inline-block rounded-full bg-current animate-[bounce_1.4s_ease-in-out_0.4s_infinite]" />
+            <span className="inline-block animate-[bounce_1.4s_ease-in-out_infinite] rounded-full bg-current" />
+            <span className="inline-block animate-[bounce_1.4s_ease-in-out_0.2s_infinite] rounded-full bg-current" />
+            <span className="inline-block animate-[bounce_1.4s_ease-in-out_0.4s_infinite] rounded-full bg-current" />
           </div>
-          {text && <span className="text-sm text-foreground">{text}</span>}
+          {text && <span className="text-foreground text-sm">{text}</span>}
         </div>
       );
     }
@@ -113,11 +113,11 @@ const Loading = React.forwardRef<HTMLDivElement, LoadingProps>(
       return (
         <div ref={ref} className={cn('flex items-center gap-2', className)} {...props}>
           <div className={cn(loadingVariants({ variant, size }), 'text-primary')}>
-            <span className="inline-block rounded-sm bg-current animate-[pulse_1.2s_ease-in-out_0s_infinite]" />
-            <span className="inline-block rounded-sm bg-current animate-[pulse_1.2s_ease-in-out_0.2s_infinite]" />
-            <span className="inline-block rounded-sm bg-current animate-[pulse_1.2s_ease-in-out_0.4s_infinite]" />
+            <span className="inline-block animate-[pulse_1.2s_ease-in-out_0s_infinite] rounded-sm bg-current" />
+            <span className="inline-block animate-[pulse_1.2s_ease-in-out_0.2s_infinite] rounded-sm bg-current" />
+            <span className="inline-block animate-[pulse_1.2s_ease-in-out_0.4s_infinite] rounded-sm bg-current" />
           </div>
-          {text && <span className="text-sm text-foreground">{text}</span>}
+          {text && <span className="text-foreground text-sm">{text}</span>}
         </div>
       );
     }
@@ -125,7 +125,7 @@ const Loading = React.forwardRef<HTMLDivElement, LoadingProps>(
     return (
       <div ref={ref} className={cn('flex items-center gap-2', className)} {...props}>
         <div className={cn(loadingVariants({ variant, size }), 'text-primary')} />
-        {text && <span className="text-sm text-foreground">{text}</span>}
+        {text && <span className="text-foreground text-sm">{text}</span>}
       </div>
     );
   }

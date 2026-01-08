@@ -3,7 +3,7 @@
   "assist": {
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": "off"
       }
     }
   },
@@ -87,6 +87,28 @@
             "noExplicitAny": "off"
           }
         }
+      }
+    },
+    {
+      "assist": {
+        "enabled": false
+      },
+      "formatter": {
+        "enabled": false
+      },
+      "includes": [
+        "**/*.config.ts",
+        "**/*.config.js",
+        "**/*.config.mjs",
+        "vite.config.ts",
+        "tailwind.config.ts",
+        "postcss.config.mjs",
+        "tsconfig*.json",
+        "tailwind.preset.ts",
+        "tailwind.preset.js"
+      ],
+      "linter": {
+        "enabled": false
       }
     }
   ],

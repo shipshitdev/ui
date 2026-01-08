@@ -14,6 +14,7 @@ configure({
 });
 
 // Suppress console warnings about act() from Radix UI
+// biome-ignore lint/suspicious/noConsole: Intentional - suppressing console warnings in test setup
 const originalError = console.error;
 beforeAll(() => {
   console.error = (...args: unknown[]) => {

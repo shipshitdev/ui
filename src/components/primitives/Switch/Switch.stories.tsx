@@ -60,7 +60,7 @@ export const States: Story = {
 
 export const Settings: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <div className="flex items-center justify-between">
         <Label htmlFor="notifications">Notifications</Label>
         <Switch id="notifications" />

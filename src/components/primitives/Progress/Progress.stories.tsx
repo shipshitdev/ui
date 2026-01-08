@@ -31,7 +31,7 @@ export const Default: Story = {
 
 export const Values: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <div className="space-y-2">
         <div className="flex justify-between text-sm">
           <span>0%</span>
@@ -68,7 +68,7 @@ export const Values: Story = {
 
 export const WithLabel: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <div className="space-y-2">
         <div className="flex justify-between text-sm">
           <span>Uploading...</span>
@@ -89,7 +89,7 @@ export const WithLabel: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <Progress value={50} className="h-2" />
       <Progress value={50} className="h-4" />
       <Progress value={50} className="h-6" />

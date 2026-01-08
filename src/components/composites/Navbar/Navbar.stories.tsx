@@ -30,7 +30,7 @@ const menuItems = [
 export const Default: Story = {
   render: () => (
     <Navbar
-      brand={<span className="text-lg font-bold">Brand</span>}
+      brand={<span className="font-bold text-lg">Brand</span>}
       items={menuItems}
       actions={<Button size="sm">Sign In</Button>}
     />
@@ -41,7 +41,7 @@ export const Bordered: Story = {
   render: () => (
     <Navbar
       variant="bordered"
-      brand={<span className="text-lg font-bold">Brand</span>}
+      brand={<span className="font-bold text-lg">Brand</span>}
       items={menuItems}
       actions={<Button size="sm">Sign In</Button>}
     />
@@ -52,7 +52,7 @@ export const Elevated: Story = {
   render: () => (
     <Navbar
       variant="elevated"
-      brand={<span className="text-lg font-bold">Brand</span>}
+      brand={<span className="font-bold text-lg">Brand</span>}
       items={menuItems}
       actions={<Button size="sm">Sign In</Button>}
     />
@@ -62,7 +62,7 @@ export const Elevated: Story = {
 export const WithoutMenu: Story = {
   render: () => (
     <Navbar
-      brand={<span className="text-lg font-bold">Brand</span>}
+      brand={<span className="font-bold text-lg">Brand</span>}
       actions={<Button size="sm">Sign In</Button>}
     />
   ),
@@ -70,18 +70,18 @@ export const WithoutMenu: Story = {
 
 export const WithoutActions: Story = {
   render: () => (
-    <Navbar brand={<span className="text-lg font-bold">Brand</span>} items={menuItems} />
+    <Navbar brand={<span className="font-bold text-lg">Brand</span>} items={menuItems} />
   ),
 };
 
 export const Simple: Story = {
-  render: () => <Navbar brand={<span className="text-lg font-bold">Brand</span>} />,
+  render: () => <Navbar brand={<span className="font-bold text-lg">Brand</span>} />,
 };
 
 export const WithMultipleActions: Story = {
   render: () => (
     <Navbar
-      brand={<span className="text-lg font-bold">Brand</span>}
+      brand={<span className="font-bold text-lg">Brand</span>}
       items={menuItems}
       actions={
         <>

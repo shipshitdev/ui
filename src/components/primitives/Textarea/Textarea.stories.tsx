@@ -30,7 +30,7 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <Textarea placeholder="Small textarea" className="min-h-[60px]" />
       <Textarea placeholder="Medium textarea" className="min-h-[100px]" />
       <Textarea placeholder="Large textarea" className="min-h-[150px]" />
@@ -40,7 +40,7 @@ export const Sizes: Story = {
 
 export const WithLabel: Story = {
   render: () => (
-    <div className="flex flex-col gap-2 w-64">
+    <div className="flex w-64 flex-col gap-2">
       <Label htmlFor="message">Message</Label>
       <Textarea id="message" placeholder="Enter your message..." />
     </div>
@@ -49,7 +49,7 @@ export const WithLabel: Story = {
 
 export const States: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-64">
+    <div className="flex w-64 flex-col gap-4">
       <Textarea placeholder="Normal textarea" />
       <Textarea placeholder="Disabled textarea" disabled />
       <Textarea
@@ -62,7 +62,7 @@ export const States: Story = {
 
 export const FormExample: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 w-96">
+    <div className="flex w-96 flex-col gap-4">
       <div className="flex flex-col gap-2">
         <Label htmlFor="feedback">Feedback</Label>
         <Textarea

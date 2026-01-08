@@ -80,7 +80,7 @@ export const Form: Story = {
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
-              <label htmlFor="name" className="text-sm font-medium">
+              <label htmlFor="name" className="font-medium text-sm">
                 Name
               </label>
               <input
@@ -90,7 +90,7 @@ export const Form: Story = {
               />
             </div>
             <div className="grid gap-2">
-              <label htmlFor="email" className="text-sm font-medium">
+              <label htmlFor="email" className="font-medium text-sm">
                 Email
               </label>
               <input
