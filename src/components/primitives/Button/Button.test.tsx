@@ -1,5 +1,5 @@
-import { describe, expect, it, vi } from 'bun:test';
 import { render } from '@testing-library/react';
+import { describe, expect, it, vi } from 'bun:test';
 import { Button } from './Button';
 
 describe('Button', () => {
@@ -88,5 +88,80 @@ describe('Button', () => {
     const ref = { current: null };
     render(<Button ref={ref}>Ref</Button>);
     expect(ref.current).toBeInstanceOf(HTMLButtonElement);
+  });
+
+  describe('asChild', () => {
+    it('renders as child element when asChild is true', () => {
+      const { container } = render(
+        <Button asChild>
+          <a href="/test">Link Button</a>
+        </Button>
+      );
+      const link = container.querySelector('a');
+      expect(link).toBeTruthy();
+      expect(link?.textContent).toBe('Link Button');
+    });
+
+    it('does not pass disabled prop when asChild is true', () => {
+      const { container } = render(
+        <Button asChild disabled>
+          <a href="/test">Link Button</a>
+        </Button>
+      );
+      const link = container.querySelector('a');
+      expect(link).toBeTruthy();
+      expect(link?.hasAttribute('disabled')).toBe(false);
+    });
+
+    it('uses aria-disabled when asChild is true and disabled', () => {
+      const { container } = render(
+        <Button asChild disabled>
+          <a href="/test">Link Button</a>
+        </Button>
+      );
+      const link = container.querySelector('a');
+      expect(link?.getAttribute('aria-disabled')).toBe('true');
+    });
+
+    it('applies disabled styles when asChild is true and disabled', () => {
+      const { container } = render(
+        <Button asChild disabled>
+          <a href="/test">Link Button</a>
+        </Button>
+      );
+      const link = container.querySelector('a');
+      expect(link?.className).toContain('pointer-events-none');
+      expect(link?.className).toContain('opacity-50');
+    });
+
+    it('uses aria-disabled when asChild is true and isLoading', () => {
+      const { container } = render(
+        <Button asChild isLoading>
+          <a href="/test">Link Button</a>
+        </Button>
+      );
+      const link = container.querySelector('a');
+      expect(link?.getAttribute('aria-disabled')).toBe('true');
+    });
+
+    it('does not use aria-disabled when asChild is true and not disabled', () => {
+      const { container } = render(
+        <Button asChild>
+          <a href="/test">Link Button</a>
+        </Button>
+      );
+      const link = container.querySelector('a');
+      expect(link?.hasAttribute('aria-disabled')).toBe(false);
+    });
+
+    it('still applies button variant classes when asChild is true', () => {
+      const { container } = render(
+        <Button asChild variant="primary">
+          <a href="/test">Link Button</a>
+        </Button>
+      );
+      const link = container.querySelector('a');
+      expect(link?.className).toContain('bg-primary');
+    });
   });
 });
