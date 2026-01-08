@@ -6,7 +6,7 @@ import { cursorPointer, disabledStyles, focusStyles, transitionAll } from '@/uti
 import type { ButtonProps } from './Button.types';
 
 export const buttonVariants = cva(
-  `inline-flex items-center justify-center gap-2 rounded-md font-medium no-underline ${transitionAll} ${focusStyles} ${disabledStyles} ${cursorPointer}`,
+  `inline-flex items-center justify-center gap-2 rounded-md font-medium no-underline hover:no-underline ${transitionAll} ${focusStyles} ${disabledStyles} ${cursorPointer}`,
   {
     variants: {
       variant: {
