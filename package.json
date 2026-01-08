@@ -22,10 +22,7 @@
     "@tanstack/react-table": "8.21.3",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "date-fns": "4.1.0",
     "lucide-react": "0.562.0",
-    "react-day-picker": "9.13.0",
-    "sonner": "2.0.7",
     "tailwind-merge": "3.4.0"
   },
   "description": "A modern, accessible React component library built with TypeScript, Tailwind CSS v4, and Radix UI. Features primitives, composites, and patterns with full theme support and Storybook documentation.",
@@ -144,5 +141,5 @@
   ],
   "type": "module",
   "types": "./dist/index.d.ts",
-  "version": "0.4.1"
+  "version": "0.4.2"
 }
