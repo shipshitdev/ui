@@ -1,4 +1,4 @@
-# Architecture - @agenticindiedev/ui
+# Architecture - @shipshitdev/ui
 
 **Purpose:** Document what IS implemented (not what WILL BE).
 **Last Updated:** 2025-12-23
@@ -7,7 +7,7 @@
 
 ## Overview
 
-@agenticindiedev/ui is a React component library providing reusable UI components for the agenticindiedev ecosystem. Components are designed to be:
+@shipshitdev/ui is a React component library providing reusable UI components for the shipshitdev ecosystem. Components are designed to be:
 
 - Framework-agnostic (works with Next.js, Vite, etc.)
 - Fully typed with TypeScript
@@ -143,8 +143,8 @@ dist/
 Consumers can import:
 
 ```typescript
-import { Button, Card } from '@agenticindiedev/ui';
-import '@agenticindiedev/ui/styles.css';
+import { Button, Card } from '@shipshitdev/ui';
+import '@shipshitdev/ui/styles.css';
 ```
 
 ---

@@ -1,4 +1,4 @@
-# Project Map - @agenticindiedev/ui
+# Project Map - @shipshitdev/ui
 
 **Purpose:** Quick reference for project structure and responsibilities.
 **Last Updated:** 2025-12-23

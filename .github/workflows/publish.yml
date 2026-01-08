@@ -92,11 +92,11 @@ jobs:
           VERSION=$(node -p "require('./package.json').version")
           echo "### 📦 Published to npm" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**@agenticindiedev/ui@${VERSION}**" >> $GITHUB_STEP_SUMMARY
+          echo "**@shipshitdev/ui@${VERSION}**" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Install with:" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
-          echo "npm install @agenticindiedev/ui" >> $GITHUB_STEP_SUMMARY
+          echo "npm install @shipshitdev/ui" >> $GITHUB_STEP_SUMMARY
           echo "# or" >> $GITHUB_STEP_SUMMARY
-          echo "bun add @agenticindiedev/ui" >> $GITHUB_STEP_SUMMARY
+          echo "bun add @shipshitdev/ui" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY

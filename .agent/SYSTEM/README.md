@@ -1,6 +1,6 @@
 # SYSTEM - Core Documentation
 
-This folder contains the core documentation for the @agenticindiedev/ui project.
+This folder contains the core documentation for the @shipshitdev/ui project.
 
 ## Contents
 

@@ -1,4 +1,4 @@
-# Project Summary - @agenticindiedev/ui
+# Project Summary - @shipshitdev/ui
 
 **Purpose:** Quick overview of current project state.
 **Last Updated:** 2025-12-23

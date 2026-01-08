@@ -1,4 +1,4 @@
-# Coding Rules - AgenticIndieDevUI
+# Coding Rules - Ship Shit Dev
 
 **Purpose:** Coding standards and patterns for this project.
 **Last Updated:** 2025-12-23

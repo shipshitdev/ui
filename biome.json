@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
   "assist": {
     "actions": {
       "source": {
@@ -8,51 +8,91 @@
     }
   },
   "files": {
-    "ignoreUnknown": false,
-    "includes": [
-      "**",
-      "!!**/node_modules",
-      "!!**/dist",
-      "!!**/storybook-static",
-      "!!**/coverage",
-      "!!**/*.config.js",
-      "!!**/*.config.mjs",
-      "!!**/*.config.ts",
-      "!!**/bun.lockb",
-      "!!**/*.tsbuildinfo",
-      "!!**/.storybook"
-    ]
+    "ignoreUnknown": true
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
+    "lineEnding": "lf",
     "lineWidth": 100
   },
   "javascript": {
     "formatter": {
+      "arrowParentheses": "always",
       "quoteStyle": "single",
       "semicolons": "always",
       "trailingCommas": "es5"
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
     }
   },
   "linter": {
     "enabled": true,
     "rules": {
+      "a11y": {
+        "noLabelWithoutControl": "warn",
+        "useButtonType": "warn",
+        "useKeyWithClickEvents": "warn"
+      },
       "complexity": {
-        "noForEach": "off"
+        "noForEach": "warn",
+        "noUselessFragments": "warn",
+        "useSimplifiedLogicExpression": "warn"
       },
       "correctness": {
-        "noUnusedVariables": "warn"
+        "noUnusedImports": "warn",
+        "noUnusedVariables": "warn",
+        "useExhaustiveDependencies": "warn"
+      },
+      "nursery": {
+        "useSortedClasses": "warn"
       },
       "recommended": true,
+      "security": {
+        "noDangerouslySetInnerHtml": "warn"
+      },
       "style": {
-        "noNonNullAssertion": "off"
+        "noNonNullAssertion": "off",
+        "useImportType": "warn",
+        "useNodejsImportProtocol": "warn"
       },
       "suspicious": {
-        "noArrayIndexKey": "off",
+        "noArrayIndexKey": "warn",
+        "noConsole": {
+          "level": "warn",
+          "options": {
+            "allow": ["log"]
+          }
+        },
         "noExplicitAny": "warn"
       }
     }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noConstructorReturn": "off"
+          },
+          "suspicious": {
+            "noExplicitAny": "off"
+          }
+        }
+      }
+    }
+  ],
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "useIgnoreFile": true
   }
 }
