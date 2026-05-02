@@ -27,11 +27,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24.x
-          registry-url: 'https://registry.npmjs.org'
-          # OIDC authentication is automatic when id-token: write permission is set
 
       - name: Install latest npm
         run: npm install -g npm@latest
+
+      - name: Configure npm for OIDC publishing
+        run: |
+          echo "//registry.npmjs.org/:_authToken=" > .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          echo "ignore-scripts=true" >> .npmrc
 
       - name: Download build artifacts
         uses: actions/github-script@v7
@@ -82,11 +86,8 @@ jobs:
           echo "Theme files:"
           ls -la dist/themes/
 
-      - name: Configure npm to ignore scripts
-        run: echo "ignore-scripts=true" >> .npmrc
-
       - name: Publish to NPM registry
-        run: npm publish --access public --provenance --ignore-scripts
+        run: npm publish --access public --provenance
 
       - name: Create Release Summary
         run: |
