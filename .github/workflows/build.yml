@@ -80,7 +80,7 @@ jobs:
         run: bun run typecheck
 
       - name: Run tests
-        run: bun test
+        run: bunx vitest run
 
       - name: Build library
         run: bun run build
