@@ -83,9 +83,10 @@ jobs:
           echo "✅ Build output verified"
 
       - name: Publish to NPM registry
-        run: npm publish --access public --provenance
-        env:
-          HUSKY: '0'
+        run: |
+          # Disable prepare script (husky not installed in CI)
+          npm pkg delete scripts.prepare
+          npm publish --access public --provenance
 
       - name: Create Release Summary
         run: |
