@@ -2,7 +2,6 @@
   "author": "shipshitdev",
   "dependencies": {
     "@radix-ui/react-accordion": "1.2.12",
-    "@radix-ui/react-alert-dialog": "1.1.15",
     "@radix-ui/react-avatar": "1.1.11",
     "@radix-ui/react-checkbox": "1.3.3",
     "@radix-ui/react-dialog": "1.1.15",
@@ -20,12 +19,15 @@
     "@radix-ui/react-toast": "1.2.15",
     "@radix-ui/react-tooltip": "1.2.8",
     "@tanstack/react-table": "8.21.3",
+    "@xyflow/react": "12.10.2",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "lucide-react": "0.562.0",
+    "cmdk": "1.1.1",
+    "lucide-react": "1.8.0",
+    "recharts": "3.8.1",
     "tailwind-merge": "3.4.0"
   },
-  "description": "A modern, accessible React component library built with TypeScript, Tailwind CSS v4, and Radix UI. Features primitives, composites, and patterns with full theme support and Storybook documentation.",
+  "description": "Shared Shipshit.dev React UI package built with TypeScript, Tailwind CSS v4, Radix UI, shadcn-style primitives, and Storybook documentation.",
   "devDependencies": {
     "@biomejs/biome": "2.3.11",
     "@happy-dom/global-registrator": "20.1.0",
@@ -46,7 +48,6 @@
     "@vitest/browser-playwright": "4.0.16",
     "@vitest/coverage-v8": "4.0.16",
     "ajv": "8.17.1",
-    "autoprefixer": "10.4.23",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "playwright": "1.57.0",
@@ -54,7 +55,7 @@
     "postcss-cli": "11.0.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "sass": "1.97.2",
+    "rollup-preserve-directives": "^1.1.3",
     "storybook": "10.1.11",
     "tailwindcss": "4.1.18",
     "typescript": "5.9.3",
@@ -65,16 +66,49 @@
   },
   "exports": {
     ".": {
-      "import": {
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "default": "./dist/index.cjs"
-      }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
+    "./common": {
+      "types": "./dist/common.d.ts",
+      "import": "./dist/common.js",
+      "require": "./dist/common.cjs"
+    },
+    "./boards": {
+      "types": "./dist/boards.d.ts",
+      "import": "./dist/boards.js",
+      "require": "./dist/boards.cjs"
+    },
+    "./charts": {
+      "types": "./dist/charts.d.ts",
+      "import": "./dist/charts.js",
+      "require": "./dist/charts.cjs"
+    },
+    "./design": {
+      "types": "./dist/design.d.ts",
+      "import": "./dist/design.js",
+      "require": "./dist/design.cjs"
+    },
+    "./flows": {
+      "types": "./dist/flows.d.ts",
+      "import": "./dist/flows.js",
+      "require": "./dist/flows.cjs"
+    },
+    "./primitives": {
+      "types": "./dist/primitives.d.ts",
+      "import": "./dist/primitives.js",
+      "require": "./dist/primitives.cjs"
+    },
+    "./workflows": {
+      "types": "./dist/workflows.d.ts",
+      "import": "./dist/workflows.js",
+      "require": "./dist/workflows.cjs"
+    },
+    "./flows.css": "./dist/flows.css",
     "./styles.css": "./dist/styles.css",
     "./tailwind.preset": "./dist/tailwind.preset.js",
-    "./themes/*": "./dist/themes/*.scss"
+    "./themes/*": "./dist/themes/*.css"
   },
   "files": [
     "dist"
@@ -88,7 +122,7 @@
   ],
   "license": "MIT",
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md,css,scss}": [
+    "*.{js,jsx,ts,tsx,json,md,css}": [
       "biome check --write --no-errors-on-unmatched"
     ]
   },
@@ -111,9 +145,10 @@
     "url": "https://github.com/shipshitdev/ui"
   },
   "scripts": {
-    "build": "bun run build:lib && bun run build:css && bun run build:themes && bun run build:preset",
+    "build": "bun run build:lib && bun run build:css && bun run build:flows-css && bun run build:themes && bun run build:preset",
     "build-storybook": "storybook build",
-    "build:css": "bunx postcss ./src/styles/globals.scss -o ./dist/styles.css --verbose",
+    "build:css": "bunx postcss ./src/styles/globals.css -o ./dist/styles.css --verbose",
+    "build:flows-css": "node scripts/build-flows-css.mjs",
     "build:lib": "./scripts/build-lib.sh",
     "build:preset": "node scripts/build-preset.mjs",
     "build:themes": "node scripts/build-themes.mjs",
@@ -126,6 +161,7 @@
     "format:fix": "biome format --write .",
     "lint:check": "biome lint .",
     "lint:fix": "biome lint --write .",
+    "deps:update": "bun update --latest",
     "pre:install": "bun update --latest --recursive && bun install",
     "prepare": "husky",
     "prepare:deploy": "bun run check:fix && bun run build",
@@ -136,10 +172,9 @@
     "typecheck": "tsc --noEmit"
   },
   "sideEffects": [
-    "**/*.css",
-    "**/*.scss"
+    "**/*.css"
   ],
   "type": "module",
   "types": "./dist/index.d.ts",
-  "version": "0.4.3"
+  "version": "0.6.2"
 }

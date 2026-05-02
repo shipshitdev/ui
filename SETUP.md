@@ -15,76 +15,15 @@ Complete setup guide for using `@shipshitdev/ui` in your project.
 bun add @shipshitdev/ui
 ```
 
-## Step 1: Configure Tailwind CSS
+## Step 1: Create Your CSS Entry
 
-### Option A: Using the Preset (Recommended)
+Tailwind CSS v4 is CSS-first. Use regular CSS imports and keep theme configuration in your CSS entry file.
 
-Add the preset to your `tailwind.config.ts`:
+**Create or update your `globals.css` (or `app.css`, `main.css`, etc.):**
 
-```ts
-import type { Config } from 'tailwindcss';
-
-export default {
-  presets: [require('@shipshitdev/ui/tailwind.preset')],
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    // Include the library in content paths
-    '@shipshitdev/ui/dist/**/*.{js,cjs}',
-  ],
-  // Your other Tailwind config...
-} satisfies Config;
-```
-
-### Option B: Manual Configuration
-
-If you prefer not to use the preset, you can manually configure Tailwind:
-
-```ts
-import type { Config } from 'tailwindcss';
-
-export default {
-  darkMode: 'class',
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    '@shipshitdev/ui/dist/**/*.{js,cjs}',
-  ],
-  theme: {
-    extend: {
-      colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        // ... (see tailwind.preset.ts for full config)
-      },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
-    },
-  },
-} satisfies Config;
-```
-
-## Step 2: Import Theme CSS
-
-Theme files are **composable** and contain only CSS variable definitions. You'll need to import Tailwind CSS separately and compose the theme with your own styles.
-
-### Tailwind CSS v4 (Recommended)
-
-For Tailwind CSS v4, use the `@use` directive in your SCSS file:
-
-**Create or update your `globals.scss` (or `app.scss`, `main.scss`, etc.):**
-
-```scss
-@use 'tailwindcss';
-@use '@shipshitdev/ui/themes/dark' as *;
+```css
+@import "tailwindcss";
+@import "@shipshitdev/ui/themes/dark";
 
 @theme {
   /* Map agentic UI CSS variables to Tailwind v4 theme variables */
@@ -122,45 +61,52 @@ For Tailwind CSS v4, use the `@use` directive in your SCSS file:
 
 Theme files include an `@source` directive so Tailwind scans the UI package and generates component utilities. If you skip the theme import or use a custom theme file, add this to your globals:
 
-```scss
+```css
 @source '../../node_modules/@shipshitdev/ui/dist/**/*.{js,cjs}';
 ```
 
-**Then import this SCSS file in your app entry point:**
+**Then import this CSS file in your app entry point:**
 
 ```tsx
 // In your main.tsx, App.tsx, or _app.tsx
-import './globals.scss';
+import './globals.css';
 ```
 
 ### Light Theme Alternative
 
 To use the light theme instead:
 
-```scss
-@use 'tailwindcss';
-@use '@shipshitdev/ui/themes/light' as *;
+```css
+@import "tailwindcss";
+@import "@shipshitdev/ui/themes/light";
 
 @theme {
   /* Same @theme mapping as above */
 }
 ```
 
-### Tailwind CSS v3 (Legacy)
+### Tailwind CSS v3 / Config Preset (Legacy)
 
-If you're using Tailwind CSS v3, you can still import themes directly:
+If you're still using a config-based setup, the legacy preset export is still available:
 
-```tsx
-// In your main.tsx, App.tsx, or _app.tsx
-import '@shipshitdev/ui/themes/dark';
+```ts
+import type { Config } from 'tailwindcss';
+
+export default {
+  presets: [require('@shipshitdev/ui/tailwind.preset')],
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@shipshitdev/ui/dist/**/*.{js,cjs}',
+  ],
+} satisfies Config;
 ```
 
 **Important:**
 
-- For Tailwind v4: Use `@use` pattern in your SCSS file (recommended)
-- For Tailwind v3: Import theme SCSS directly in your TSX/JSX file
+- For Tailwind v4: Use `@import` in your CSS file (recommended)
+- For Tailwind v3: Import theme CSS directly in your TSX/JSX file
 - Theme files are composable - you can add custom `@theme` blocks to override or extend variables
-- Only import **ONE** theme SCSS file
+- Only import **ONE** theme CSS file
 
 ## Step 3: Use Components
 
@@ -248,26 +194,11 @@ function App() {
 bun add @shipshitdev/ui
 ```
 
-2. Update `tailwind.config.ts`:
+2. Create `app/globals.css` (or update existing):
 
-```ts
-import type { Config } from 'tailwindcss';
-
-export default {
-  presets: [require('@shipshitdev/ui/tailwind.preset')],
-  content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@shipshitdev/ui/dist/**/*.{js,cjs}',
-  ],
-} satisfies Config;
-```
-
-3. Create `app/globals.scss` (or update existing):
-
-```scss
-@use 'tailwindcss';
-@use '@shipshitdev/ui/themes/dark' as *;
+```css
+@import "tailwindcss";
+@import "@shipshitdev/ui/themes/dark";
 
 @theme {
   --color-background: hsl(var(--background));
@@ -276,10 +207,10 @@ export default {
 }
 ```
 
-4. Import `globals.scss` in `app/layout.tsx`:
+3. Import `globals.css` in `app/layout.tsx`:
 
 ```tsx
-import './globals.scss';
+import './globals.css';
 ```
 
 ### Vite + React
@@ -290,26 +221,11 @@ import './globals.scss';
 bun add @shipshitdev/ui
 ```
 
-2. Update `tailwind.config.ts`:
+2. Create `src/globals.css`:
 
-```ts
-import type { Config } from 'tailwindcss';
-
-export default {
-  presets: [require('@shipshitdev/ui/tailwind.preset')],
-  content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@shipshitdev/ui/dist/**/*.{js,cjs}',
-  ],
-} satisfies Config;
-```
-
-3. Create `src/globals.scss`:
-
-```scss
-@use 'tailwindcss';
-@use '@shipshitdev/ui/themes/dark' as *;
+```css
+@import "tailwindcss";
+@import "@shipshitdev/ui/themes/dark";
 
 @theme {
   --color-background: hsl(var(--background));
@@ -318,10 +234,10 @@ export default {
 }
 ```
 
-4. Import `globals.scss` in `src/main.tsx`:
+3. Import `globals.css` in `src/main.tsx`:
 
 ```tsx
-import './globals.scss';
+import './globals.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -341,23 +257,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 bun add @shipshitdev/ui
 ```
 
-2. Update `tailwind.config.js`:
+2. Create `src/globals.css`:
 
-```js
-module.exports = {
-  presets: [require('@shipshitdev/ui/tailwind.preset')],
-  content: [
-    './src/**/*.{js,jsx,ts,tsx}',
-    './node_modules/@shipshitdev/ui/dist/**/*.{js,cjs}',
-  ],
-};
-```
-
-3. Create `src/globals.scss`:
-
-```scss
-@use 'tailwindcss';
-@use '@shipshitdev/ui/themes/dark' as *;
+```css
+@import "tailwindcss";
+@import "@shipshitdev/ui/themes/dark";
 
 @theme {
   --color-background: hsl(var(--background));
@@ -366,10 +270,10 @@ module.exports = {
 }
 ```
 
-4. Import `globals.scss` in `src/index.js`:
+3. Import `globals.css` in `src/index.js`:
 
 ```js
-import './globals.scss';
+import './globals.css';
 ```
 
 ## Customization
@@ -451,14 +355,14 @@ For one-off customizations, use the `className` prop:
 
 ### Method 3: Create Custom Theme File
 
-Create your own theme SCSS file with all your custom colors:
+Create your own theme CSS file with all your custom colors:
 
 **For Tailwind CSS v4:**
 
-```scss
-/* my-theme.scss */
-@use 'tailwindcss';
-@use '@shipshitdev/ui/themes/dark' as *;
+```css
+/* my-theme.css */
+@import "tailwindcss";
+@import "@shipshitdev/ui/themes/dark";
 
 :root {
   --primary: 142 76% 36%; /* Your brand color */
@@ -496,7 +400,7 @@ Create your own theme SCSS file with all your custom colors:
 Then import it instead of the default theme:
 
 ```tsx
-import './my-theme.scss';
+import './my-theme.css';
 ```
 
 **For Tailwind CSS v3:**
@@ -537,9 +441,9 @@ Then import it:
 import './my-theme.css';
 ```
 
-### Method 4: Tailwind Config Override
+### Method 4: Tailwind Config Override (Legacy)
 
-Extend colors in your `tailwind.config.ts`:
+For config-based Tailwind projects, extend colors in your `tailwind.config.ts`:
 
 ```ts
 import type { Config } from 'tailwindcss';
@@ -575,13 +479,13 @@ Customize dark mode by adding styles to the `.dark` class:
 
 ### Components don't have styles
 
-1. Make sure you've imported the theme SCSS file
-2. Verify Tailwind is processing the library's content paths
-3. Check that your build tool is processing SCSS files
+1. Make sure you've imported the theme CSS file
+2. Verify Tailwind is processing the UI package via the theme file's `@source` directive
+3. Check that your app imports its CSS entry file
 
 ### Theme not switching
 
-1. Ensure you're importing the correct theme SCSS file
+1. Ensure you're importing the correct theme CSS file
 2. Call `initTheme()` on app load
 3. Check that the `dark` class is being applied to the HTML element
 

@@ -1,3 +1,5 @@
+'use client';
+
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { cva } from 'class-variance-authority';
 import { Check } from 'lucide-react';

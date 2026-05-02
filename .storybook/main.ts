@@ -15,14 +15,6 @@ const config: StorybookConfig = {
   },
 
   async viteFinal(config) {
-    // Suppress Sass deprecation warning for @import 'tailwindcss' (PostCSS directive)
-    config.css = config.css || {};
-    config.css.preprocessorOptions = config.css.preprocessorOptions || {};
-    config.css.preprocessorOptions.scss = {
-      quietDeps: true,
-      silenceDeprecations: ['import'],
-    };
-
     // Increase chunk size warning limit for Storybook (large bundles are expected)
     config.build = config.build || {};
     config.build.chunkSizeWarningLimit = 1500;

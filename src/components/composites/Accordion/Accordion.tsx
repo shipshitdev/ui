@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/utils/cn';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { cva, type VariantProps } from 'class-variance-authority';

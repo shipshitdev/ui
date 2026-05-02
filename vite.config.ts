@@ -5,9 +5,21 @@ import { fileURLToPath } from 'node:url';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import preserveDirectives from 'rollup-preserve-directives';
 
 const dirname =
   typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+
+const libraryEntries = {
+  index: resolve(dirname, 'src/index.ts'),
+  common: resolve(dirname, 'src/common/index.ts'),
+  boards: resolve(dirname, 'src/boards/index.ts'),
+  charts: resolve(dirname, 'src/charts/index.ts'),
+  design: resolve(dirname, 'src/design/index.ts'),
+  flows: resolve(dirname, 'src/flows/index.ts'),
+  primitives: resolve(dirname, 'src/primitives/index.ts'),
+  workflows: resolve(dirname, 'src/workflows/index.ts'),
+};
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig(({ command, mode }) => {
@@ -19,6 +31,7 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [
       react(),
+      preserveDirectives(),
       // Only generate .d.ts files when building the library
       ...(isLibraryBuild
         ? [
@@ -29,31 +42,32 @@ export default defineConfig(({ command, mode }) => {
           ]
         : []),
     ],
-    css: {
-      preprocessorOptions: {
-        scss: {
-          // Suppress deprecation warnings for @import (used for PostCSS directives like @import 'tailwindcss')
-          quietDeps: true,
-          silenceDeprecations: ['import'],
-        },
-      },
-    },
     resolve: {
       alias: {
-        '@': resolve(__dirname, './src'),
+        '@': resolve(dirname, './src'),
       },
     },
     build: {
       lib: {
-        entry: resolve(__dirname, 'src/index.ts'),
+        entry: libraryEntries,
         name: 'ShipShitDevUI',
         formats: ['es', 'cjs'],
-        fileName: (format) => `index.${format === 'es' ? 'js' : 'cjs'}`,
+        fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'js' : 'cjs'}`,
       },
       rollupOptions: {
         external: (id) => {
           // Externalize React and React-DOM (peer dependencies)
           if (id === 'react' || id === 'react-dom' || id === 'react/jsx-runtime') {
+            return true;
+          }
+
+          // Keep heavy visualization runtimes as package dependencies instead of inlining them.
+          if (
+            id === '@xyflow/react' ||
+            id.startsWith('@xyflow/react/') ||
+            id === 'recharts' ||
+            id.startsWith('recharts/')
+          ) {
             return true;
           }
 
@@ -65,6 +79,8 @@ export default defineConfig(({ command, mode }) => {
             react: 'React',
             'react-dom': 'ReactDOM',
             'react/jsx-runtime': 'jsxRuntime',
+            '@xyflow/react': 'XYFlowReact',
+            recharts: 'Recharts',
           },
         },
       },
