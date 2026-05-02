@@ -84,6 +84,8 @@ jobs:
 
       - name: Publish to NPM registry
         run: npm publish --access public --provenance
+        env:
+          HUSKY: '0'
 
       - name: Create Release Summary
         run: |
