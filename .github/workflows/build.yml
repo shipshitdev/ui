@@ -91,7 +91,7 @@ jobs:
           if [ -f "dist/index.js" ] && [ -f "dist/index.cjs" ] && [ -f "dist/index.d.ts" ] && \
              [ -f "dist/styles.css" ] && \
              [ -f "dist/tailwind.preset.js" ] && \
-             [ -f "dist/themes/light.scss" ] && [ -f "dist/themes/dark.scss" ]; then
+             [ -f "dist/themes/light.css" ] && [ -f "dist/themes/dark.css" ]; then
             echo "✅ All build outputs exist"
             ls -la dist/
             echo ""
@@ -105,8 +105,8 @@ jobs:
             echo "  - dist/index.d.ts: $([ -f "dist/index.d.ts" ] && echo '✅' || echo '❌')"
             echo "  - dist/styles.css: $([ -f "dist/styles.css" ] && echo '✅' || echo '❌')"
             echo "  - dist/tailwind.preset.js: $([ -f "dist/tailwind.preset.js" ] && echo '✅' || echo '❌')"
-            echo "  - dist/themes/light.scss: $([ -f "dist/themes/light.scss" ] && echo '✅' || echo '❌')"
-            echo "  - dist/themes/dark.scss: $([ -f "dist/themes/dark.scss" ] && echo '✅' || echo '❌')"
+            echo "  - dist/themes/light.css: $([ -f "dist/themes/light.css" ] && echo '✅' || echo '❌')"
+            echo "  - dist/themes/dark.css: $([ -f "dist/themes/dark.css" ] && echo '✅' || echo '❌')"
             ls -la dist/ 2>/dev/null || echo "dist/ directory not found"
             exit 1
           fi
