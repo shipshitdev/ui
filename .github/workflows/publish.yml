@@ -31,11 +31,17 @@ jobs:
       - name: Install latest npm
         run: npm install -g npm@latest
 
-      - name: Configure npm for OIDC publishing
+      - name: Verify npm version supports OIDC
         run: |
-          echo "//registry.npmjs.org/:_authToken=" > .npmrc
-          echo "registry=https://registry.npmjs.org/" >> .npmrc
-          echo "ignore-scripts=true" >> .npmrc
+          NPM_VERSION=$(npm --version)
+          echo "npm version: $NPM_VERSION"
+          # Trusted publishing requires npm >= 11.5.1
+          MAJOR=$(echo "$NPM_VERSION" | cut -d. -f1)
+          if [ "$MAJOR" -lt 11 ]; then
+            echo "ERROR: npm >= 11.5.1 required for OIDC trusted publishing"
+            exit 1
+          fi
+          echo "✅ npm version OK"
 
       - name: Download build artifacts
         uses: actions/github-script@v7
@@ -71,20 +77,10 @@ jobs:
              [ ! -f "dist/tailwind.preset.js" ] || \
              [ ! -f "dist/themes/light.css" ] || [ ! -f "dist/themes/dark.css" ]; then
             echo "ERROR: dist directory is missing required files"
-            echo "Required files:"
-            echo "  - dist/index.js"
-            echo "  - dist/index.cjs"
-            echo "  - dist/index.d.ts"
-            echo "  - dist/styles.css"
-            echo "  - dist/tailwind.preset.js"
-            echo "  - dist/themes/light.css"
-            echo "  - dist/themes/dark.css"
             ls -la dist/ 2>/dev/null || echo "dist/ directory not found"
             exit 1
           fi
           echo "✅ Build output verified"
-          echo "Theme files:"
-          ls -la dist/themes/
 
       - name: Publish to NPM registry
         run: npm publish --access public --provenance
