@@ -13,7 +13,7 @@ const TabsList = React.forwardRef<
   return (
     <TabsPrimitive.List
       ref={ref}
-      className={cn('flex shrink-0 border-border border-b', className)}
+      className={cn('flex w-full shrink-0 border-border border-b', className)}
       {...props}
     />
   );
@@ -29,8 +29,8 @@ const TabsTrigger = React.forwardRef<
     <TabsPrimitive.Trigger
       ref={ref}
       className={cn(
-        'relative cursor-pointer px-3 py-2 font-medium text-[12px] text-muted transition-colors hover:text-secondary disabled:cursor-not-allowed disabled:opacity-50',
-        'data-[state=active]:text-primary',
+        'relative cursor-pointer px-3 py-2 font-medium text-[12px] text-muted-foreground transition-colors hover:text-secondary-foreground disabled:cursor-not-allowed disabled:opacity-50',
+        'data-[state=active]:text-foreground',
         'after:absolute after:inset-x-0 after:bottom-[-1px] after:h-[2px] after:bg-transparent',
         'data-[state=active]:after:bg-accent',
         'focus-visible:outline-none',

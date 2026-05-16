@@ -48,7 +48,7 @@ function Pagination({ page, totalPages, onPageChange, className }: PaginationPro
           <span
             // biome-ignore lint/suspicious/noArrayIndexKey: ellipsis can appear twice (leading/trailing) so position is the only unique key
             key={`ellipsis-${i}`}
-            className="flex h-6 w-6 items-center justify-center text-[11px] text-muted"
+            className="flex h-6 w-6 items-center justify-center text-[11px] text-muted-foreground"
           >
             …
           </span>

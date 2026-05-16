@@ -22,7 +22,7 @@ export const System: Story = {
       <div className="mx-auto flex max-w-5xl flex-col gap-6">
         <section className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="font-medium text-muted text-xs uppercase tracking-[0.18em]">
+            <p className="font-medium text-muted-foreground text-xs uppercase tracking-[0.18em]">
               @shipshitdev/ui
             </p>
             <h1 className="mt-2 font-semibold text-3xl tracking-[-0.04em]">
@@ -55,7 +55,7 @@ export const System: Story = {
                 <Badge variant="info">Info</Badge>
               </div>
               <div className="relative">
-                <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted" />
+                <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input className="pl-9" placeholder="Search projects, issues, workflows..." />
               </div>
             </CardContent>

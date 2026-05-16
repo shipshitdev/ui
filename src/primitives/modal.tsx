@@ -52,7 +52,7 @@ export function Modal({
           <DialogClose
             title="Close"
             aria-label="Close"
-            className="rounded-md p-1 text-muted transition-colors hover:bg-hover hover:text-primary"
+            className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-hover hover:text-primary"
           >
             <X size={16} />
           </DialogClose>

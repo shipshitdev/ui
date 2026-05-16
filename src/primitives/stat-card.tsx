@@ -38,7 +38,7 @@ export function StatCard({
           <div className="font-semibold text-3xl text-primary tracking-[-0.04em]">{value}</div>
           {icon ? <div className="text-secondary">{icon}</div> : null}
         </div>
-        <div className="mt-1 font-medium text-[11px] text-muted uppercase tracking-[0.18em]">
+        <div className="mt-1 font-medium text-[11px] text-muted-foreground uppercase tracking-[0.18em]">
           {label}
         </div>
         {subtitle ? (

@@ -91,7 +91,9 @@ export function KanbanColumn<TItem>({
             </Badge>
           </div>
           {column.description ? (
-            <p className="mt-1 text-muted text-xs leading-relaxed">{column.description}</p>
+            <p className="mt-1 text-muted-foreground text-xs leading-relaxed">
+              {column.description}
+            </p>
           ) : null}
         </div>
         {renderColumnActions?.(column)}
@@ -105,7 +107,7 @@ export function KanbanColumn<TItem>({
               return <div key={key}>{column.renderItem(item, context)}</div>;
             })
           : (column.renderEmpty?.() ?? (
-              <div className="rounded-md border border-border border-dashed p-4 text-center text-muted text-xs">
+              <div className="rounded-md border border-border border-dashed p-4 text-center text-muted-foreground text-xs">
                 {emptyLabel}
               </div>
             ))}
@@ -137,7 +139,9 @@ export function KanbanCard({ title, description, meta, className, onClick }: Kan
     >
       <div className="font-medium text-[13px] text-primary leading-snug">{title}</div>
       {description ? (
-        <div className="mt-1 line-clamp-2 text-muted text-xs leading-relaxed">{description}</div>
+        <div className="mt-1 line-clamp-2 text-muted-foreground text-xs leading-relaxed">
+          {description}
+        </div>
       ) : null}
       {meta ? <div className="mt-3 flex flex-wrap gap-1.5">{meta}</div> : null}
     </Comp>

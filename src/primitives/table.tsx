@@ -79,7 +79,7 @@ const TableHead = React.forwardRef<HTMLTableCellElement, React.ComponentPropsWit
       <th
         ref={ref}
         className={cn(
-          'h-9 px-2 text-left align-middle font-medium text-[11px] text-muted uppercase tracking-wide',
+          'h-9 px-2 text-left align-middle font-medium text-[11px] text-muted-foreground uppercase tracking-wide',
           className
         )}
         {...props}
@@ -104,7 +104,13 @@ const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
   React.ComponentPropsWithoutRef<'caption'>
 >(({ className, ...props }, ref) => {
-  return <caption ref={ref} className={cn('mt-4 text-[11px] text-muted', className)} {...props} />;
+  return (
+    <caption
+      ref={ref}
+      className={cn('mt-4 text-[11px] text-muted-foreground', className)}
+      {...props}
+    />
+  );
 });
 
 TableCaption.displayName = 'TableCaption';

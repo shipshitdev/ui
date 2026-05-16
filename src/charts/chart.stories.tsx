@@ -57,9 +57,13 @@ export const Default: Story = {
             dataKey="day"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: 'var(--text-muted)' }}
+            tick={{ fill: 'var(--text-muted-foreground)' }}
           />
-          <YAxis axisLine={false} tickLine={false} tick={{ fill: 'var(--text-muted)' }} />
+          <YAxis
+            axisLine={false}
+            tickLine={false}
+            tick={{ fill: 'var(--text-muted-foreground)' }}
+          />
           <Tooltip content={<ChartTooltipContent />} cursor={{ stroke: 'var(--border-strong)' }} />
           <Legend content={<ChartLegendContent />} />
           <Line

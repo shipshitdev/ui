@@ -100,7 +100,7 @@ export function FlowNodeShell({
             ) : null}
           </div>
           {description ? (
-            <p className="mt-1 text-muted text-xs leading-relaxed">{description}</p>
+            <p className="mt-1 text-muted-foreground text-xs leading-relaxed">{description}</p>
           ) : null}
         </div>
 

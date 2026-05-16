@@ -28,7 +28,7 @@ function CommandDialog({ children, ...props }: React.ComponentProps<typeof Dialo
     <Dialog {...props}>
       <DialogContent className="max-w-[640px] overflow-hidden p-0 shadow-lg">
         <DialogTitle className="sr-only">Command palette</DialogTitle>
-        <Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3">
+        <Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3">
           {children}
         </Command>
       </DialogContent>
@@ -44,7 +44,7 @@ const CommandInput = React.forwardRef<
       <CommandPrimitive.Input
         ref={ref}
         className={cn(
-          'flex h-11 w-full rounded-md bg-transparent py-3 text-primary text-sm outline-none placeholder:text-muted disabled:cursor-not-allowed disabled:opacity-50',
+          'flex h-11 w-full rounded-md bg-transparent py-3 text-primary text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50',
           className
         )}
         {...props}
@@ -71,7 +71,9 @@ const CommandList = React.forwardRef<
 CommandList.displayName = CommandPrimitive.List.displayName;
 
 function CommandEmpty(props: React.ComponentProps<typeof CommandPrimitive.Empty>) {
-  return <CommandPrimitive.Empty className="py-6 text-center text-muted text-sm" {...props} />;
+  return (
+    <CommandPrimitive.Empty className="py-6 text-center text-muted-foreground text-sm" {...props} />
+  );
 }
 const CommandGroup = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Group>,
@@ -81,7 +83,7 @@ const CommandGroup = React.forwardRef<
     <CommandPrimitive.Group
       ref={ref}
       className={cn(
-        'overflow-hidden p-1 text-primary [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted [&_[cmdk-group-heading]]:text-xs',
+        'overflow-hidden p-1 text-primary [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group-heading]]:text-xs',
         className
       )}
       {...props}
@@ -126,7 +128,10 @@ CommandSeparator.displayName = CommandPrimitive.Separator.displayName;
 
 function CommandShortcut({ className, ...props }: React.ComponentProps<'span'>) {
   return (
-    <span className={cn('ml-auto text-muted text-xs tracking-widest', className)} {...props} />
+    <span
+      className={cn('ml-auto text-muted-foreground text-xs tracking-widest', className)}
+      {...props}
+    />
   );
 }
 
