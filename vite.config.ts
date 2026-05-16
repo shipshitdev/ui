@@ -19,6 +19,7 @@ const libraryEntries = {
   flows: resolve(dirname, 'src/flows/index.ts'),
   primitives: resolve(dirname, 'src/primitives/index.ts'),
   workflows: resolve(dirname, 'src/workflows/index.ts'),
+  'prompt-bars': resolve(dirname, 'src/prompt-bars/index.ts'),
 };
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon

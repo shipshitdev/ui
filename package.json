@@ -105,6 +105,11 @@
       "import": "./dist/workflows.js",
       "require": "./dist/workflows.cjs"
     },
+    "./prompt-bars": {
+      "types": "./dist/prompt-bars.d.ts",
+      "import": "./dist/prompt-bars.js",
+      "require": "./dist/prompt-bars.cjs"
+    },
     "./flows.css": "./dist/flows.css",
     "./styles.css": "./dist/styles.css",
     "./tailwind.preset": "./dist/tailwind.preset.js",
